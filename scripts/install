@@ -23,6 +23,9 @@ is_public=$YNH_APP_ARG_IS_PUBLIC
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
 
+# Define variables
+$src_path=/var/www/$app
+
 # Save app settings
 ynh_app_setting_set "$app" is_public "$is_public"
 
