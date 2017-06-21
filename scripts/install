@@ -22,9 +22,8 @@ is_public=$YNH_APP_ARG_IS_PUBLIC
 
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
+source _common.sh
 
-# Define variables
-$src_path=/var/www/$app
 
 # Save app settings
 ynh_app_setting_set "$app" is_public "$is_public"
@@ -59,7 +58,7 @@ sudo apt-get install -yy loolwsd code-brand
 # Modify Nginx configuration file and copy it to Nginx conf directory
 nginx_conf=../conf/nginx.conf
 # sed -i "s@YNH_WWW_PATH@$path_url@g" $nginx_conf
-sed -i "s@YNH_WWW_ALIAS@$src_path/@g" $nginx_conf
+sed -i "s@YNH_WWW_ALIAS@$final_path/@g" $nginx_conf
 # If a dedicated php-fpm process is used:
 # Don't forget to modify ../conf/nginx.conf accordingly or your app will not work!
 # sed -i "s@YNH_WWW_APP@$app@g" $nginx_conf
