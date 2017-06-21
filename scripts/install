@@ -32,7 +32,7 @@ sudo yunohost app checkurl "${domain}" -a "$app" \
 
 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D
-sudo echo 'deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian8 ./' >> /etc/apt/sources.list
+sudo echo 'deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian8 ./' | sudo tee -a /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get -yy loolwsd code-brand
 
