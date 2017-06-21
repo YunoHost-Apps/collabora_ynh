@@ -1,0 +1,49 @@
+{
+    "name": "Collabora online package for YunoHost",
+    "id": "collabora",
+    "packaging_format": 1,
+    "description": {
+        "en": "Collabora online package for YunoHost.",
+        "fr": "Collabora online pour YunoHost."
+    },
+    "url": "https://",
+    "license": "free",
+    "maintainer": {
+        "name": "rafi59",
+        "email": "rafi59_dev@srvmaison.fr.nf",
+        "url": "http://example.com"
+    },
+    "requirements": {
+        "yunohost": ">> 2.4.0"
+    },
+    "multi_instance": true,
+    "services": [
+        "nginx",
+        "php5-fpm",
+        "mysql"
+    ],
+    "arguments": {
+        "install" : [
+            {
+                "name": "domain",
+                "type": "domain",
+                "ask": {
+                    "en": "Choose a domain name for collabora",
+                    "fr": "Choisissez un nom de domaine pour collabora"
+                },
+                "example": "example.com"
+            },
+           
+            {
+                "name": "is_public",
+                "type": "boolean",
+                "ask": {
+                    "en": "Is it a public application?",
+                    "fr": "Est-ce une application publique ?"
+                },
+                "default": true
+            }
+        
+        ]
+    }
+}
