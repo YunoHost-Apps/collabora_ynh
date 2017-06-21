@@ -27,8 +27,8 @@ source /usr/share/yunohost/helpers
 ynh_app_setting_set "$app" is_public "$is_public"
 
 # Check domain/path availability
-sudo yunohost app checkurl "${domain}${path_url}" -a "$app" \
-    || ynh_die "Path not available: ${domain}${path_url}"
+sudo yunohost app checkurl "${domain}" -a "$app" \
+    || ynh_die "Path not available: ${domain}"
 
 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D
