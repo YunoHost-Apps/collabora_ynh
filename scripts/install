@@ -72,13 +72,6 @@ ynh_nginx_config
 ynh_system_user_create $app
 
 #=================================================
-# PHP-FPM CONFIGURATION
-#=================================================
-
-# Create a dedicated php-fpm config
-ynh_fpm_config
-
-#=================================================
 # SPECIFIC SETUP
 #=================================================
 # ...
@@ -91,22 +84,6 @@ ynh_fpm_config
 # Create a dedicated systemd config
 ynh_systemd_config
 
-
-
-
-### PHP (can be removed if not used) ###
-# If a dedicated php-fpm process is used:
-# Don't forget to modify ../conf/php-fpm.conf accordingly or your app will not work!
-#
-# # Modify PHP-FPM pool configuration and copy it to the pool directory
-# sed -i "s@YNH_WWW_APP@$app@g" ../conf/php-fpm.conf
-# sed -i "s@YNH_WWW_ALIAS@$src_path/@g" ../conf/php-fpm.conf
-# finalphpconf=/etc/php5/fpm/pool.d/$app.conf
-# sudo cp ../conf/php-fpm.conf $finalphpconf
-# sudo chown root: $finalphpconf
-# sudo chmod 644 $finalphpconf
-# sudo service php5-fpm reload
-### PHP end ###
 
 # If app is public, add url to SSOWat conf as skipped_uris
 if [[ $is_public -eq 1 ]]; then
