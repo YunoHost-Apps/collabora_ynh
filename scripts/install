@@ -62,7 +62,7 @@ sudo apt-get install -yy loolwsd code-brand
 #=================================================
 
 # Create a dedicated nginx config
-ynh_nginx_config
+ynh_add_nginx_config
 
 #=================================================
 # CREATE DEDICATED USER
@@ -82,7 +82,7 @@ ynh_system_user_create $app
 #=================================================
 
 # Create a dedicated systemd config
-ynh_systemd_config
+ynh_add_systemd_config
 
 
 # If app is public, add url to SSOWat conf as skipped_uris
@@ -93,3 +93,4 @@ fi
 
 # Reload services
 sudo service nginx reload
+

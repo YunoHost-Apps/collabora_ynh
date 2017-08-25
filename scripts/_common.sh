@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =============================================================================
-#                     YUNOHOST 2.6 FORTHCOMING HELPERS
+#                     YUNOHOST 2.7 FORTHCOMING HELPERS
 # =============================================================================
 
 # Create a dedicated nginx config
@@ -9,7 +9,7 @@
 # usage: ynh_add_nginx_config
 ynh_add_nginx_config () {
 	finalnginxconf="/etc/nginx/conf.d/$domain.d/$app.conf"
-	ynh_backup_if_checksum_is_different "$finalnginxconf" 1
+	ynh_backup_if_checksum_is_different "$finalnginxconf"
 	sudo cp ../conf/nginx.conf "$finalnginxconf"
 
 	# To avoid a break by set -u, use a void substitution ${var:-}. If the variable is not set, it's simply set with an empty variable.
@@ -29,7 +29,7 @@ ynh_add_nginx_config () {
 	if test -n "${final_path:-}"; then
 		ynh_replace_string "__FINALPATH__" "$final_path" "$finalnginxconf"
 	fi
-	ynh_store_checksum_config "$finalnginxconf"
+	ynh_store_file_checksum "$finalnginxconf"
 
 	sudo systemctl reload nginx
 }
@@ -47,7 +47,7 @@ ynh_remove_nginx_config () {
 # usage: ynh_add_fpm_config
 ynh_add_fpm_config () {
 	finalphpconf="/etc/php5/fpm/pool.d/$app.conf"
-	ynh_backup_if_checksum_is_different "$finalphpconf" 1
+	ynh_backup_if_checksum_is_different "$finalphpconf"
 	sudo cp ../conf/php-fpm.conf "$finalphpconf"
 	ynh_replace_string "__NAMETOCHANGE__" "$app" "$finalphpconf"
 	ynh_replace_string "__FINALPATH__" "$final_path" "$finalphpconf"
@@ -58,10 +58,10 @@ ynh_add_fpm_config () {
 	if [ -e "../conf/php-fpm.ini" ]
 	then
 		finalphpini="/etc/php5/fpm/conf.d/20-$app.ini"
-		ynh_compare_checksum_config "$finalphpini" 1
+		ynh_backup_if_checksum_is_different "$finalphpini"
 		sudo cp ../conf/php-fpm.ini "$finalphpini"
 		sudo chown root: "$finalphpini"
-		ynh_store_checksum_config "$finalphpini"
+		ynh_store_file_checksum "$finalphpini"
 	fi
 
 	sudo systemctl reload php5-fpm
@@ -81,7 +81,7 @@ ynh_remove_fpm_config () {
 # usage: ynh_add_systemd_config
 ynh_add_systemd_config () {
 	finalsystemdconf="/etc/systemd/system/$app.service"
-	ynh_compare_checksum_config "$finalsystemdconf" 1
+	ynh_backup_if_checksum_is_different "$finalsystemdconf"
 	sudo cp ../conf/systemd.service "$finalsystemdconf"
 
 	# To avoid a break by set -u, use a void substitution ${var:-}. If the variable is not set, it's simply set with an empty variable.
@@ -92,7 +92,7 @@ ynh_add_systemd_config () {
 	if test -n "${app:-}"; then
 		ynh_replace_string "__APP__" "$app" "$finalsystemdconf"
 	fi
-	ynh_store_checksum_config "$finalsystemdconf"
+	ynh_store_file_checksum "$finalsystemdconf"
 
 	sudo chown root: "$finalsystemdconf"
 	sudo systemctl enable $app
