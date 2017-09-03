@@ -38,7 +38,7 @@
                 "name": "path",
                 "type": "path",
                 "ask": {
-                    "en": "Choose a path for Collabora",
+                    "en": "Choose a path for Collabora only / is accepted",
                     "fr": "Choisissez un chemin pour Collabora uniquement / est accepté"
                 },
                 "example": "/",
