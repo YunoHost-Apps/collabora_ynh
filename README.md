@@ -1,7 +1,10 @@
 # Collabora online app for YunoHost
 
+State=INPROGRESS
+
 - [Yunohost project](https://yunohost.org)
 - [Collabora online website](https://www.collaboraoffice.com)
+
 
 
 
