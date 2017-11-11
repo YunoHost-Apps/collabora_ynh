@@ -18,7 +18,7 @@ app=$YNH_APP_INSTANCE_NAME
 # Retrieve arguments
 domain=$YNH_APP_ARG_DOMAIN
 is_public=$YNH_APP_ARG_IS_PUBLIC
-
+password=$YNH_APP_ARG_PASSWORD
 
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
@@ -78,11 +78,19 @@ ynh_system_user_create $app
 #=================================================
 
 #=================================================
+# MODIFY A CONFIG FILE
+#=================================================
+cp -a ../conf/loolwsd.xml /etc/loolwsd
+ynh_replace_string "__DOMAIN__" "$domain" "/etc/loolwsd/loolwsd.xml"
+ynh_replace_string "__PASSWORD__" "$password" "/etc/loolwsd/loolwsd.xml"
+
+
+#=================================================
 # SETUP SYSTEMD
 #=================================================
 
 # Create a dedicated systemd config
-ynh_add_systemd_config
+#ynh_add_systemd_config
 
 
 # If app is public, add url to SSOWat conf as skipped_uris
