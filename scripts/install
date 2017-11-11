@@ -33,15 +33,6 @@ sudo yunohost app checkurl "${domain}" -a "$app" \
     || ynh_die "Path not available: ${domain}"
 
 
-# Check whether Nextcloud or Seafile is installed
-nextcloud_install=$(collaboraonline_app_check_installation "nextcloud")
-seafile_install=$(collaboraonline_app_check_installation "seafile")
-if [[ -n "$nextcloud_install" ]]
-then
-elif [[ -n "$seafile_install" ]]
-else
-    ynh_die "Nextcloud or Seafile is not installed"
-fi
 
 sudo apt-get -yy install apt-transport-https
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D
