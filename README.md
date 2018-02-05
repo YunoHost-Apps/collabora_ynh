@@ -6,7 +6,7 @@ State=INPROGRESS
 - [Yunohost project](https://yunohost.org)
 - [Collabora online website](https://www.collaboraoffice.com)
 
-
+Upgrade not ready yet
 
 
 **Upgrade this package:**  
