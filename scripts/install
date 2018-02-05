@@ -46,23 +46,6 @@ sudo echo 'deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian8 ./
 sudo apt-get update
 sudo apt-get install -yy loolwsd code-brand
 
-### MySQL (can be removed if not used) ###
-# If your app use a MySQL database you can use these lines to bootstrap
-# a database, an associated user and save the password in app settings.
-#
-# # Generate MySQL password and create database
-# dbuser=$app
-# dbname=$app
-# dbpass=$(ynh_string_random 12)
-# ynh_app_setting_set "$app" mysqlpwd "$dbpass"
-# ynh_mysql_create_db "$dbname" "$dbuser" "$dbpass"
-#
-# # Load initial SQL into the new database
-# ynh_mysql_connect_as "$dbuser" "$dbpass" "$dbname" \
-#     < "../sources/sql/mysql.init.sql"
-### MySQL end ###
-
-
 
 #=================================================
 # NGINX CONFIGURATION
@@ -90,6 +73,7 @@ ynh_system_user_create $app
 cp -a ../conf/loolwsd.xml /etc/loolwsd
 ynh_replace_string "__DOMAIN__" "$nextcloud_domain" "/etc/loolwsd/loolwsd.xml"
 ynh_replace_string "__PASSWORD__" "$password" "/etc/loolwsd/loolwsd.xml"
+systemctl start loolwsd
 
 #=================================================
 # SETUP SYSTEMD
@@ -107,5 +91,5 @@ fi
 
 # Reload services
 systemctl restart loolwsd
-sudo service nginx reload
+systemctl restart nginx
 
