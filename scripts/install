@@ -19,6 +19,7 @@ app=$YNH_APP_INSTANCE_NAME
 domain=$YNH_APP_ARG_DOMAIN
 is_public=$YNH_APP_ARG_IS_PUBLIC
 password=$YNH_APP_ARG_PASSWORD
+nextcloud_domain=$YNH_APP_ARG_NEXTCLOUDDOMAIN
 
 # Source YunoHost helpers
 source /usr/share/yunohost/helpers
@@ -32,6 +33,11 @@ ynh_app_setting_set "$app" is_public "$is_public"
 sudo yunohost app checkurl "${domain}" -a "$app" \
     || ynh_die "Path not available: ${domain}"
 
+# Find a free port
+port=$(ynh_find_port 9980)
+# Open this port
+yunohost firewall allow --no-upnp TCP $port 2>&1
+ynh_app_setting_set $app port $port
 
 
 sudo apt-get -yy install apt-transport-https
@@ -82,9 +88,8 @@ ynh_system_user_create $app
 # MODIFY A CONFIG FILE
 #=================================================
 cp -a ../conf/loolwsd.xml /etc/loolwsd
-ynh_replace_string "__DOMAIN__" "$domain" "/etc/loolwsd/loolwsd.xml"
+ynh_replace_string "__DOMAIN__" "$nextcloud_domain" "/etc/loolwsd/loolwsd.xml"
 ynh_replace_string "__PASSWORD__" "$password" "/etc/loolwsd/loolwsd.xml"
-
 
 #=================================================
 # SETUP SYSTEMD
@@ -101,5 +106,6 @@ if [[ $is_public -eq 1 ]]; then
 fi
 
 # Reload services
+systemctl restart loolwsd
 sudo service nginx reload
 

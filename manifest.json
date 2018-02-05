@@ -1,5 +1,5 @@
 {
-    "name": "Collabora online package for YunoHost",
+    "name": "Collabora Online",
     "id": "collabora",
     "packaging_format": 1,
     "description": {
@@ -11,7 +11,7 @@
     "maintainer": {
         "name": "rafi59",
         "email": "rafi59_dev@srvmaison.fr.nf",
-        "url": "http://example.com"
+        "url": "https://collaboraoffice.com"
     },
     "requirements": {
         "yunohost": ">= 2.7.2"
@@ -61,6 +61,17 @@
                     "fr": "Choisissez un mot de passe pour l'administration de Collabora"
                 },
                 "example": "password",
+                "default": ""
+         
+            },
+                                   {
+                "name": "nextclouddomain",
+                "type": "string",
+                "ask": {
+                    "en": "The domain of your Nextcloud instance",
+                    "fr": "Le domain de votre instance Nextcloud"
+                },
+                "example": "example.com",
                 "default": ""
          
                                    }
