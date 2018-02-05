@@ -1,4 +1,5 @@
 # Collabora online app for YunoHost
+[![Build Status](https://ci-apps-dev.yunohost.org/jenkins/job/collaboraonline_ynh%20(Rafi59)/7/badge/icon)](https://ci-apps-dev.yunohost.org/jenkins/job/collaboraonline_ynh%20(Rafi59)/7/)
 
 State=INPROGRESS
 
