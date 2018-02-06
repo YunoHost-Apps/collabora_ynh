@@ -8,7 +8,7 @@
     <lo_template_path desc="Path to a LibreOffice installation tree to be copied (linked) into the jails for child processes. Should be on the same file system as systemplate." type="path" relative="false" default="/opt/collaboraoffice5.3"></lo_template_path>
     <child_root_path desc="Path to the directory under which the chroot jails for the child processes will be created. Should be on the same file system as systemplate and lotemplate. Must be an empty directory." type="path" relative="true" default="jails"></child_root_path>
 
-    <server_name desc="Hostname:port of the server running loolwsd. If empty, it's derived from the request." type="string" default="__DOMAIN__"></server_name>
+    <server_name desc="Hostname:port of the server running loolwsd. If empty, it's derived from the request." type="string" default=""></server_name>
     <file_server_root_path desc="Path to the directory that should be considered root for the file server. This should be the directory containing loleaflet." type="path" relative="true" default="loleaflet/../"></file_server_root_path>
 
     <memproportion desc="The maximum percentage of system memory consumed by all of the LibreOffice Online, after which we start cleaning up idle documents" type="double" default="80.0"></memproportion>
@@ -78,7 +78,7 @@
     <storage desc="Backend storage">
         <filesystem allow="false" />
         <wopi desc="Allow/deny wopi storage. Mutually exclusive with webdav." allow="true">
-            <host desc="Regex pattern of hostname to allow or deny." allow="true">localhost</host>
+            <host desc="Regex pattern of hostname to allow or deny." allow="true">__NEXTCLOUDDOMAIN__</host>
             <host desc="Regex pattern of hostname to allow or deny." allow="true">10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</host>
             <host desc="Regex pattern of hostname to allow or deny." allow="true">172\.1[6789]\.[0-9]{1,3}\.[0-9]{1,3}</host>
             <host desc="Regex pattern of hostname to allow or deny." allow="true">172\.2[0-9]\.[0-9]{1,3}\.[0-9]{1,3}</host>
@@ -88,7 +88,7 @@
             <max_file_size desc="Maximum document size in bytes to load. 0 for unlimited." type="uint">0</max_file_size>
         </wopi>
         <webdav desc="Allow/deny webdav storage. Mutually exclusive with wopi." allow="false">
-            <host desc="Hostname to allow" allow="false">localhost</host>
+            <host desc="Hostname to allow" allow="false">__NEXTCLOUDDOMAIN__</host>
         </webdav>
     </storage>
 
