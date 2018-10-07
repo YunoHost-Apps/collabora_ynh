@@ -71,7 +71,7 @@ ynh_system_user_create $app
 # MODIFY A CONFIG FILE
 #=================================================
 cp -a ../conf/loolwsd.xml /etc/loolwsd
-ynh_replace_string "__DOMAIN__" "$nextcloud_domain" "/etc/loolwsd/loolwsd.xml"
+ynh_replace_string "__NEXTCLOUDDOMAIN__" "$nextcloud_domain" "/etc/loolwsd/loolwsd.xml"
 ynh_replace_string "__PASSWORD__" "$password" "/etc/loolwsd/loolwsd.xml"
 systemctl start loolwsd
 
