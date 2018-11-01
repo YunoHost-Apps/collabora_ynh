@@ -40,9 +40,15 @@ yunohost firewall allow --no-upnp TCP $port 2>&1
 ynh_app_setting_set $app port $port
 
 
-sudo apt-get -yy install apt-transport-https
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D
-sudo echo 'deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian8 ./' | sudo tee -a /etc/apt/sources.list
+apt-get -yy install apt-transport-https
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D
+if [ "$(lsb_release --codename --short)" != "jessie" ]; then
+echo 'deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian8 ./' | sudo tee -a /etc/apt/sources.list.d/collabora.list
+else
+
+echo 'deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian9 ./' | sudo tee -a /etc/apt/sources.list.d/collabora.list
+fi
+
 sudo apt-get update
 sudo apt-get install -yy loolwsd code-brand
 
