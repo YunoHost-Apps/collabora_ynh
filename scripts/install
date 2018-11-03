@@ -50,10 +50,13 @@ app=$YNH_APP_INSTANCE_NAME
 final_path=/opt/yunohost/$app
 test ! -e "$final_path" || ynh_die "This path already contains a folder"
 
+# Normalize the url path syntax
+path_url=$(ynh_normalize_url_path /)
+
 # Check web path availability
-ynh_webpath_available $domain
+ynh_webpath_available $domain /
 # Register (book) web path
-ynh_webpath_register $app $domain
+ynh_webpath_register $app $domain /
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST
