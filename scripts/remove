@@ -1,34 +1,78 @@
 #!/bin/bash
 
-# See comments in install script
-app=$YNH_APP_INSTANCE_NAME
+#=================================================
+# GENERIC START
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
 
-# Source YunoHost helpers
+source _common.sh
 source /usr/share/yunohost/helpers
 
-# Retrieve app settings
-domain=$(ynh_app_setting_get "$app" domain)
+#=================================================
+# LOAD SETTINGS
+#=================================================
 
-# Remove sources
-sudo rm -rf /var/www/$app
+app=$YNH_APP_INSTANCE_NAME
 
-# Remove nginx configuration file
-sudo rm -f /etc/nginx/conf.d/$domain.d/$app.conf
+domain=$(ynh_app_setting_get $app domain)
+port=$(ynh_app_setting_get $app port)
+final_path=$(ynh_app_setting_get $app final_path)
 
-### PHP (remove if not used) ###
-# If a dedicated php-fpm process is used:
-# sudo rm -f /etc/php5/fpm/pool.d/$app.conf
-# sudo service php5-fpm reload
-### PHP end ###
+#=================================================
+# STANDARD REMOVE
+#=================================================
+#=================================================
+# REMOVE DEPENDENCIES
+#=================================================
 
-### MySQL (remove if not used) ###
-# If a MySQL database is used:
-# # Drop MySQL database and user
-# dbname=$app
-# dbuser=$app
-# ynh_mysql_drop_db "$dbname" || true
-# ynh_mysql_drop_user "$dbuser" || true
-### MySQL end ###
+# Remove metapackage and its dependencies
+ynh_remove_app_dependencies
 
-# Reload nginx service
-sudo service nginx reload
+#=================================================
+# REMOVE APP MAIN DIR
+#=================================================
+
+# Remove the app directory securely
+ynh_secure_remove "$final_path"
+
+#=================================================
+# REMOVE NGINX CONFIGURATION
+#=================================================
+
+# Remove the dedicated nginx config
+ynh_remove_nginx_config
+
+#=================================================
+# CLOSE A PORT
+#=================================================
+
+if yunohost firewall list | grep -q "\- $port$"
+then
+	echo "Close port $port" >&2
+	yunohost firewall disallow TCP $port 2>&1
+fi
+
+#=================================================
+# SPECIFIC REMOVE
+#=================================================
+# REMOVE THE CRON FILE
+#=================================================
+
+# Remove a cron file
+ynh_secure_remove "/etc/cron.d/$app"
+
+# Remove a directory securely
+ynh_secure_remove "/etc/$app/"
+
+# Remove the log files
+ynh_secure_remove "/var/log/$app/"
+
+#=================================================
+# GENERIC FINALIZATION
+#=================================================
+# REMOVE DEDICATED USER
+#=================================================
+
+# Delete a system user
+ynh_system_user_delete $app
