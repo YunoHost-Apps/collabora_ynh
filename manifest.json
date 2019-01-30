@@ -6,8 +6,8 @@
         "en": "Collabora online package for YunoHost.",
         "fr": "Collabora online pour YunoHost."
     },
-    "url": "https://",
-    "license": "free",
+    "url": "https://www.libreoffice.org/download/libreoffice-online/",
+    "license": "MPL-2.0",
     "maintainer": {
         "name": "rafi59",
         "email": "rafi59_dev@srvmaison.fr.nf",
