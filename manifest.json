@@ -37,13 +37,12 @@
 
                                    {
                 "name": "password",
-                "type": "string",
+                "type": "password",
                 "ask": {
                     "en": "Choose a password for Collabora admin",
                     "fr": "Choisissez un mot de passe pour l'administration de Collabora"
                 },
-                "example": "password",
-                "default": ""
+                "example": "password"
          
             },
                                    {
