@@ -158,6 +158,5 @@ chown -R root: /etc/loolwsd
 ynh_app_setting_set $app unprotected_uris "/"
 
 # Reload services
-systemctl restart loolwsd
-systemctl reload nginx
+ynh_systemd_action -n loolwsd -a restart || true
 
