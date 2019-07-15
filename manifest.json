@@ -6,8 +6,8 @@
         "en": "Collabora online package for YunoHost.",
         "fr": "Collabora online pour YunoHost."
     },
-    "url": "https://",
-    "license": "free",
+    "url": "https://www.libreoffice.org/download/libreoffice-online/",
+    "license": "MPL-2.0",
     "maintainer": {
         "name": "rafi59",
         "email": "rafi59_dev@srvmaison.fr.nf",
@@ -34,26 +34,15 @@
                 "example": "example.com"
             },
            
-                       {
-                "name": "path",
-                "type": "path",
-                "ask": {
-                    "en": "Choose a path for Collabora only / is accepted",
-                    "fr": "Choisissez un chemin pour Collabora uniquement / est accepté"
-                },
-                "example": "/",
-                "default": "/"
-},
 
                                    {
                 "name": "password",
-                "type": "string",
+                "type": "password",
                 "ask": {
                     "en": "Choose a password for Collabora admin",
                     "fr": "Choisissez un mot de passe pour l'administration de Collabora"
                 },
-                "example": "password",
-                "default": ""
+                "example": "password"
          
             },
                                    {

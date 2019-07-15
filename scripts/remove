@@ -26,6 +26,9 @@ final_path=$(ynh_app_setting_get $app final_path)
 # REMOVE DEPENDENCIES
 #=================================================
 
+# Fix "rm: cannot remove '/etc/apt/apt.conf.d/25loolwsd': No such file or directory"
+# on apt remove
+touch /etc/apt/apt.conf.d/25loolwsd
 # Remove metapackage and its dependencies
 ynh_remove_app_dependencies
 
