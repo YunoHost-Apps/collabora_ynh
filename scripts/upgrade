@@ -90,9 +90,9 @@ config="/etc/loolwsd/loolwsd.xml"
 
 ynh_backup_if_checksum_is_different --file="$config"
 
-cp -a ../conf/loolwsd.xml $config
+cp -f ../conf/loolwsd.xml $config
 
-ynh_replace_string "__NEXTCLOUDDOMAIN__" "$nextcloud_domain" "$config"
+ynh_replace_string "__NEXTCLOUD_DOMAIN__" "$nextcloud_domain" "$config"
 ynh_replace_string "__PASSWORD__" "$password" "$config"
 
 # Recalculate and store the checksum of the file for the next upgrade.

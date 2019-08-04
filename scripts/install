@@ -100,7 +100,7 @@ config="/etc/loolwsd/loolwsd.xml"
 
 cp -f ../conf/loolwsd.xml $config
 
-ynh_replace_string --match_string="__NEXTCLOUDDOMAIN__" --replace_string="$nextcloud_domain" --target_file="$config"
+ynh_replace_string --match_string="__NEXTCLOUD_DOMAIN__" --replace_string="$nextcloud_domain" --target_file="$config"
 ynh_replace_string --match_string="__PASSWORD__" --replace_string="$password" --target_file="$config"
 
 #=================================================
