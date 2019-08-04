@@ -20,7 +20,7 @@ domain=$(ynh_app_setting_get --app="$app" --key=domain)
 path_url=$(ynh_app_setting_get --app=$app --key=path)
 port=$(ynh_app_setting_get --app=$app --key=port)
 password=$(ynh_app_setting_get --app="$app" --key=password)
-nextclouddomain=$(ynh_app_setting_get --app="$app" --key=nextclouddomain)
+nextcloud_domain=$(ynh_app_setting_get --app="$app" --key=nextcloud_domain)
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
