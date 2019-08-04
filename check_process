@@ -7,7 +7,7 @@
 	; Manifest
 		domain="domain.tld"	(DOMAIN)
 		password="pass"
-		nextclouddomain="nextcloud.tld"
+		nextcloud_domain="nextcloud.tld"
 	; Checks
 		pkg_linter=1
 		setup_sub_dir=0
