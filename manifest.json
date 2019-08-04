@@ -14,13 +14,11 @@
         "url": "https://collaboraoffice.com"
     },
     "requirements": {
-        "yunohost": ">= 2.7.2"
+        "yunohost": ">= 3.5"
     },
     "multi_instance": false,
     "services": [
-        "nginx",
-        "php5-fpm",
-        "mysql"
+        "nginx"
     ],
     "arguments": {
         "install" : [
@@ -46,7 +44,7 @@
          
             },
                                    {
-                "name": "nextclouddomain",
+                "name": "nextcloud_domain",
                 "type": "string",
                 "ask": {
                     "en": "The domain of your Nextcloud instance",

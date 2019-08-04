@@ -12,36 +12,31 @@ source /usr/share/yunohost/helpers
 #=================================================
 # LOAD SETTINGS
 #=================================================
+ynh_print_info --message="Loading installation settings..."
 
 app=$YNH_APP_INSTANCE_NAME
 
-domain=$(ynh_app_setting_get $app domain)
-port=$(ynh_app_setting_get $app port)
-final_path=$(ynh_app_setting_get $app final_path)
+domain=$(ynh_app_setting_get --app=$app --key=domain)
+port=$(ynh_app_setting_get --app=$app --key=port)
 
 #=================================================
 # STANDARD REMOVE
 #=================================================
-#=================================================
 # REMOVE DEPENDENCIES
 #=================================================
+ynh_print_info --message="Removing dependencies..."
 
 # Fix "rm: cannot remove '/etc/apt/apt.conf.d/25loolwsd': No such file or directory"
 # on apt remove
 touch /etc/apt/apt.conf.d/25loolwsd
+
 # Remove metapackage and its dependencies
 ynh_remove_app_dependencies
 
 #=================================================
-# REMOVE APP MAIN DIR
-#=================================================
-
-# Remove the app directory securely
-ynh_secure_remove "$final_path"
-
-#=================================================
 # REMOVE NGINX CONFIGURATION
 #=================================================
+ynh_print_info --message="Removing nginx web server configuration..."
 
 # Remove the dedicated nginx config
 ynh_remove_nginx_config
@@ -63,19 +58,21 @@ fi
 #=================================================
 
 # Remove a cron file
-ynh_secure_remove "/etc/cron.d/$app"
+ynh_secure_remove --file="/etc/cron.d/$app"
 
 # Remove a directory securely
-ynh_secure_remove "/etc/apt/sources.list.d/collabora.list"
+ynh_secure_remove --file="/etc/apt/sources.list.d/collabora.list"
+
+# Remove a directory securely
+ynh_secure_remove --file="/etc/loolwsd/"
 
 # Remove the log files
-ynh_secure_remove "/var/log/$app/"
+ynh_secure_remove --file="/var/log/$app/"
 
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
-# REMOVE DEDICATED USER
+# END OF SCRIPT
 #=================================================
 
-# Delete a system user
-ynh_system_user_delete $app
+ynh_print_info --message="Removal of $app completed"

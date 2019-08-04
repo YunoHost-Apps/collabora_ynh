@@ -3,7 +3,7 @@
 [![Integration level](https://dash.yunohost.org/integration/collabora.svg)](https://dash.yunohost.org/appci/app/collabora)  
 [![Install Collabora with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=collabora)
 
-> *This package allow you to install Collabora Online quickly and simply on a YunoHost server.  
+> *This package allow you to install Collabora quickly and simply on a YunoHost server.  
 If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to know how to install and enjoy it.*
 
 ## Overview
@@ -28,8 +28,9 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 
 #### Supported architectures
 
-* x86-64b - [![Build Status](https://ci-apps.yunohost.org/ci/logs/collabora%20%28Official%29.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/)
-* Jessie x86-64b - [![Build Status](https://ci-stretch.nohost.me/ci/logs/collabora%20%28Official%29.svg)](https://ci-stretch.nohost.me/ci/apps/collabora/)
+* x86-64b - [![Build Status](https://ci-apps.yunohost.org/ci/logs/collabora%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/)
+* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/collabora%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/collabora/)
+* Jessie x86-64b - [![Build Status](https://ci-stretch.nohost.me/ci/logs/collabora%20%28Apps%29.svg)](https://ci-stretch.nohost.me/ci/apps/collabora/)
 
 ## Limitations
 
