@@ -34,6 +34,7 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 
 ## Limitations
 
+ARM platform not supported.
 CODE has a warning limitation
 
 ![](https://www.libreoffice.org/assets/Uploads/LibreOffice-Online-limit.png)
