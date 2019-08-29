@@ -3,7 +3,7 @@
     "id": "collabora",
     "packaging_format": 1,
     "description": {
-        "en": "Collabora online.",
+        "en": "A LibreOffice-based online office suite with collaborative editing",
         "fr": "Collabora online."
     },
     "version": "4.0.0~ynh1",
