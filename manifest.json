@@ -4,7 +4,7 @@
     "packaging_format": 1,
     "description": {
         "en": "A LibreOffice-based online office suite with collaborative editing",
-        "fr": "Collabora online."
+        "fr": "Une suite office en ligne et collaborative, basée sur LibreOffice"
     },
     "version": "4.0.0~ynh1",
     "url": "https://www.libreoffice.org/download/libreoffice-online/",
