@@ -14,8 +14,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 
 ynh_clean_setup () {
-	### Remove this function if there's nothing to clean before calling the remove script.
-	true
+	ynh_clean_check_starting
 }
 # Exit if an error occurs during the execution of the script
 ynh_abort_if_errors
@@ -24,62 +23,42 @@ ynh_abort_if_errors
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 
-# Retrieve arguments
 domain=$YNH_APP_ARG_DOMAIN
+path_url="/"
 password=$YNH_APP_ARG_PASSWORD
-nextcloud_domain=$YNH_APP_ARG_NEXTCLOUDDOMAIN
+nextcloud_domain=$YNH_APP_ARG_NEXTCLOUD_DOMAIN
 
-### If it's a multi-instance app, meaning it can be installed several times independently
-### The id of the app as stated in the manifest is available as $YNH_APP_ID
-### The instance number is available as $YNH_APP_INSTANCE_NUMBER (equals "1", "2", ...)
-### The app instance name is available as $YNH_APP_INSTANCE_NAME
-###    - the first time the app is installed, YNH_APP_INSTANCE_NAME = ynhexample
-###    - the second time the app is installed, YNH_APP_INSTANCE_NAME = ynhexample__2
-###    - ynhexample__{N} for the subsequent installations, with N=3,4, ...
-### The app instance name is probably what interests you most, since this is
-### guaranteed to be unique. This is a good unique identifier to define installation path,
-### db names, ...
 app=$YNH_APP_INSTANCE_NAME
 
 #=================================================
 # CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
 #=================================================
+ynh_print_info --message="Validating installation parameters..."
 
-### If the app uses nginx as web server (written in HTML/PHP in most cases), the final path should be "/var/www/$app".
-### If the app provides an internal web server (or uses another application server such as uwsgi), the final path should be "/opt/yunohost/$app"
-final_path=/opt/yunohost/$app
-test ! -e "$final_path" || ynh_die "This path already contains a folder"
-
-# Normalize the url path syntax
-path_url=$(ynh_normalize_url_path /)
-
-# Check web path availability
-ynh_webpath_available $domain /
 # Register (book) web path
-ynh_webpath_register $app $domain /
+ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
+ynh_print_info --message="Storing installation settings..."
 
-ynh_app_setting_set $app domain $domain
-ynh_app_setting_set $app password $password
-ynh_app_setting_set $app nextcloud_domain $nextcloud_domain
+ynh_app_setting_set --app=$app --key=domain --value=$domain
+ynh_app_setting_set --app=$app --key=path --value=$path_url
+ynh_app_setting_set --app=$app --key=password --value=$password
+ynh_app_setting_set --app=$app --key=nextcloud_domain --value=$nextcloud_domain
 
+#=================================================
+# STANDARD MODIFICATIONS
 #=================================================
 # FIND AND OPEN A PORT
 #=================================================
-
-### Use these lines if you have to open a port for the application
-### `ynh_find_port` will find the first available port starting from the given port.
-### If you're not using these lines:
-###		- Remove the section "CLOSE A PORT" in the remove script
+ynh_print_info --message="Configuring firewall..."
 
 # Find a free port
-port=$(ynh_find_port 9980)
-# Open this port
-yunohost firewall allow --no-upnp TCP $port 2>&1
-ynh_app_setting_set $app port $port
+port=$(ynh_find_port --port=9980)
+
+ynh_app_setting_set --app=$app --key=port --value=$port
 
 #===============================================
 # ADD COLLABORA REPOSITORY
@@ -89,74 +68,76 @@ ynh_install_app_dependencies apt-transport-https
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D
 
 if [ "$(lsb_release --codename --short)" = "jessie" ]; then
-echo 'deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian8 ./' | sudo tee -a /etc/apt/sources.list.d/collabora.list
+echo 'deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian8 ./' | tee -a /etc/apt/sources.list.d/collabora.list
 else
 
-echo 'deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian9 ./' | sudo tee -a /etc/apt/sources.list.d/collabora.list
+echo 'deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian9 ./' | tee -a /etc/apt/sources.list.d/collabora.list
 fi
 
-#==============================================
-# INSTALL COLLABORA
-#==============================================
+#=================================================
+# INSTALL DEPENDENCIES
+#=================================================
+ynh_print_info --message="Installing dependencies..."
+
 ynh_package_update
-ynh_install_app_dependencies loolwsd code-brand
+ynh_install_app_dependencies $pkg_dependencies
 
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
+ynh_print_info --message="Configuring nginx web server..."
 
 # Create a dedicated nginx config
 ynh_add_nginx_config
 
 #=================================================
-# CREATE DEDICATED USER
-#=================================================
-
-# Create a system user
-ynh_system_user_create $app
-
+# SPECIFIC SETUP
 #=================================================
 # MODIFY A CONFIG FILE
 #=================================================
-cp -a ../conf/loolwsd.xml /etc/loolwsd
-ynh_replace_string "__NEXTCLOUDDOMAIN__" "$nextcloud_domain" "/etc/loolwsd/loolwsd.xml"
-ynh_replace_string "__PASSWORD__" "$password" "/etc/loolwsd/loolwsd.xml"
-systemctl start loolwsd
 
+config="/etc/loolwsd/loolwsd.xml"
+
+cp -f ../conf/loolwsd.xml $config
+
+ynh_replace_string --match_string="__NEXTCLOUD_DOMAIN__" --replace_string="$nextcloud_domain" --target_file="$config"
+ynh_replace_string --match_string="__PASSWORD__" --replace_string="$password" --target_file="$config"
 
 #=================================================
 # STORE THE CONFIG FILE CHECKSUM
 #=================================================
 
-### `ynh_store_file_checksum` is used to store the checksum of a file.
-### That way, during the upgrade script, by using `ynh_backup_if_checksum_is_different`,
-### you can make a backup of this file before modifying it again if the admin had modified it.
-
 # Calculate and store the config file checksum into the app settings
 ynh_store_file_checksum "/etc/loolwsd/loolwsd.xml"
-
 
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
-# SECURE FILES AND DIRECTORIES
+# START SYSTEMD SERVICE
 #=================================================
+ynh_print_info --message="Starting a systemd service..."
 
-### For security reason, any app should set the permissions to root: before anything else.
-### Then, if write authorization is needed, any access should be given only to directories
-### that really need such authorization.
-
-# Set permissions to app files
-chown -R root: /etc/loolwsd
-
+# Start a systemd service
+ynh_systemd_action --service_name="loolwsd" --action="start" --log_path="systemd" --line_match="Started LibreOffice Online WebSocket Daemon"
 
 #=================================================
 # SETUP SSOWAT
 #=================================================
+ynh_print_info --message="Configuring SSOwat..."
 
+# Make app public
 # unprotected_uris allows SSO credentials to be passed anyway.
 ynh_app_setting_set $app unprotected_uris "/"
 
-# Reload services
-ynh_systemd_action -n loolwsd -a restart || true
+#=================================================
+# RELOAD NGINX
+#=================================================
+ynh_print_info --message="Reloading nginx web server..."
 
+ynh_systemd_action --service_name=nginx --action=reload
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+
+ynh_print_info --message="Installation of $app completed"

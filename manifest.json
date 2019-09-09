@@ -3,9 +3,10 @@
     "id": "collabora",
     "packaging_format": 1,
     "description": {
-        "en": "Collabora online package for YunoHost.",
-        "fr": "Collabora online pour YunoHost."
+        "en": "A LibreOffice-based online office suite with collaborative editing",
+        "fr": "Une suite office en ligne et collaborative, basée sur LibreOffice"
     },
+    "version": "4.0.0~ynh1",
     "url": "https://www.libreoffice.org/download/libreoffice-online/",
     "license": "MPL-2.0",
     "maintainer": {
@@ -14,13 +15,11 @@
         "url": "https://collaboraoffice.com"
     },
     "requirements": {
-        "yunohost": ">= 2.7.2"
+        "yunohost": ">= 3.5"
     },
     "multi_instance": false,
     "services": [
-        "nginx",
-        "php5-fpm",
-        "mysql"
+        "nginx"
     ],
     "arguments": {
         "install" : [
@@ -46,7 +45,7 @@
          
             },
                                    {
-                "name": "nextclouddomain",
+                "name": "nextcloud_domain",
                 "type": "string",
                 "ask": {
                     "en": "The domain of your Nextcloud instance",

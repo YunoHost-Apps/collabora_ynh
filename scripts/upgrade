@@ -1,57 +1,131 @@
 #!/bin/bash
 
-# Exit on command errors and treat unset variables as an error
-set -eu
+#=================================================
+# GENERIC START
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
 
-# See comments in install script
+source _common.sh
+source /usr/share/yunohost/helpers
+
+#=================================================
+# LOAD SETTINGS
+#=================================================
+ynh_print_info --message="Loading installation settings..."
+
 app=$YNH_APP_INSTANCE_NAME
 
-# Source YunoHost helpers
-source /usr/share/yunohost/helpers
-source _common.sh
-
-# Retrieve app settings
-domain=$(ynh_app_setting_get "$app" domain)
-password=$(ynh_app_setting_get "$app" password)
-is_public=$(ynh_app_setting_get "$app" is_public)
-nextclouddomain=$(ynh_app_setting_get "$app" nextclouddomain)
-
-
-# Set permissions to app files
-# you may need to make some file and/or directory writeable by www-data (nginx user)
-sudo chown -R root: $src_path
+domain=$(ynh_app_setting_get --app="$app" --key=domain)
+path_url=$(ynh_app_setting_get --app=$app --key=path)
+port=$(ynh_app_setting_get --app=$app --key=port)
+password=$(ynh_app_setting_get --app="$app" --key=password)
+nextcloud_domain=$(ynh_app_setting_get --app="$app" --key=nextcloud_domain)
 
 #=================================================
-# UPGRADE COLLABORA
+# ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-ynh_package_update
-ynh_install_app_dependencies loolwsd code-brand
+ynh_print_info --message="Ensuring downward compatibility..."
+
+# Fix is_public as a boolean value
+if [ "$is_public" = "Yes" ]; then
+	ynh_app_setting_set --app=$app --key=is_public --value=1
+	is_public=1
+elif [ "$is_public" = "No" ]; then
+	ynh_app_setting_set --app=$app --key=is_public --value=0
+	is_public=0
+fi
+
+# If db_name doesn't exist, create it
+if [ -z "$path_url" ]; then
+	path_url="/"
+	ynh_app_setting_set --app=$app --key=path_url --value=$path_url
+fi
+
+#=================================================
+# BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
+#=================================================
+ynh_print_info --message="Backing up the app before upgrading (may take a while)..."
+
+# Backup the current version of the app
+ynh_backup_before_upgrade
+ynh_clean_setup () {
+	# restore it if the upgrade fails
+	ynh_clean_check_starting
+	ynh_restore_upgradebackup
+}
+# Exit if an error occurs during the execution of the script
+ynh_abort_if_errors
+
+#=================================================
+# STANDARD UPGRADE STEPS
+#=================================================
+# STOP SYSTEMD SERVICE
+#=================================================
+ynh_print_info --message="Stopping a systemd service..."
+
+ynh_systemd_action --service_name="loolwsd" --action="stop" --log_path="systemd" --line_match="Stopped LibreOffice Online WebSocket Daemon."
 
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
+ynh_print_info --message="Upgrading nginx web server configuration..."
 
 # Create a dedicated nginx config
 ynh_add_nginx_config
 
+#=================================================
+# UPGRADE DEPENDENCIES
+#=================================================
+ynh_print_info --message="Upgrading dependencies..."
 
+ynh_package_update
+ynh_install_app_dependencies loolwsd code-brand
+#=================================================
+# SPECIFIC UPGRADE
 #=================================================
 # UPGRADE CONFIG
 #=================================================
-cp -a ../conf/loolwsd.xml /etc/loolwsd
-ynh_replace_string "__NEXTCLOUDDOMAIN__" "$nextcloud_domain" "/etc/loolwsd/loolwsd.xml"
-ynh_replace_string "__PASSWORD__" "$password" "/etc/loolwsd/loolwsd.xml"
-systemctl restart loolwsd
 
+config="/etc/loolwsd/loolwsd.xml"
 
+ynh_backup_if_checksum_is_different --file="$config"
 
-# If app is public, add url to SSOWat conf as skipped_uris
-if [[ $is_public -eq 1 ]]; then
-  # See install script
-  ynh_app_setting_set "$app" unprotected_uris "/"
-fi
+cp -f ../conf/loolwsd.xml $config
 
-# Reload nginx service
-systemctl restart nginx
-systemctl restart loolwsd
+ynh_replace_string "__NEXTCLOUD_DOMAIN__" "$nextcloud_domain" "$config"
+ynh_replace_string "__PASSWORD__" "$password" "$config"
 
+# Recalculate and store the checksum of the file for the next upgrade.
+ynh_store_file_checksum --file="$config"
+
+#=================================================
+# GENERIC FINALIZATION
+#=================================================
+# SETUP SSOWAT
+#=================================================
+ynh_print_info --message="Upgrading SSOwat configuration..."
+
+# Make app public
+# unprotected_uris allows SSO credentials to be passed anyway
+ynh_app_setting_set --app=$app --key=unprotected_uris --value="/"
+
+#=================================================
+# START SYSTEMD SERVICE
+#=================================================
+ynh_print_info --message="Starting a systemd service..."
+
+ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="systemd" --line_match="Started LibreOffice Online WebSocket Daemon"
+
+#=================================================
+# RELOAD NGINX
+#=================================================
+ynh_print_info --message="Reloading nginx web server..."
+
+ynh_systemd_action --service_name=nginx --action=reload
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+
+ynh_print_info --message="Upgrade of $app completed"
