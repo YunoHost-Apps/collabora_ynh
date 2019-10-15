@@ -22,7 +22,7 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 ## Documentation
 
  * Official documentation: https://www.collaboraoffice.com/code/
- * YunoHost documentation: https://github.com/YunoHost/doc/blob/master/collabora.md
+ * YunoHost documentation: https://github.com/YunoHost/doc/blob/master/collabora_en.md
 
 #### Multi-users support
 
