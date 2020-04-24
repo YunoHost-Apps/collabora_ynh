@@ -74,13 +74,22 @@ ynh_print_info --message="Upgrading nginx web server configuration..."
 # Create a dedicated nginx config
 ynh_add_nginx_config
 
+#===============================================
+# ADD COLLABORA REPOSITORY
+#===============================================
+ynh_print_info --message="Add Collabora repository..."
+
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D
+DEBIAN_VERSION_NUMBER=$(cat /etc/debian_version | head -n 1 | cut -f1 -d .)
+echo "deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian${DEBIAN_VERSION_NUMBER} ./" | tee -a /etc/apt/sources.list.d/collabora.list
+
 #=================================================
 # UPGRADE DEPENDENCIES
 #=================================================
 ynh_print_info --message="Upgrading dependencies..."
 
-ynh_package_update
-ynh_install_app_dependencies loolwsd code-brand
+ynh_install_app_dependencies $pkg_dependencies
+
 #=================================================
 # SPECIFIC UPGRADE
 #=================================================
