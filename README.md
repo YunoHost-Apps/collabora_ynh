@@ -22,7 +22,7 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 ## Documentation
 
  * Official documentation: https://www.collaboraoffice.com/code/
- * YunoHost documentation: https://github.com/YunoHost/doc/blob/master/collabora_en.md
+ * YunoHost documentation: https://yunohost.org/#/app_collabora
 
 #### Multi-users support
 
@@ -41,7 +41,7 @@ CODE has a warning limitation
 ## Additionnal informations
 
 **Upgrade this package:** 
-You can use your Yunohost admin interface, or the command line: `sudo yunohost app upgrade --debug collabora -u https://github.com/YunoHost-Apps/collabora_ynh`
+You can use your YunoHost admin interface, or the command line: `sudo yunohost app upgrade --debug collabora -u https://github.com/YunoHost-Apps/collabora_ynh`
 
 
 ## Links
