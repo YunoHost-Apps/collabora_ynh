@@ -36,9 +36,9 @@ ynh_remove_app_dependencies
 #=================================================
 # REMOVE NGINX CONFIGURATION
 #=================================================
-ynh_print_info --message="Removing nginx web server configuration..."
+ynh_print_info --message="Removing NGINX web server configuration..."
 
-# Remove the dedicated nginx config
+# Remove the dedicated NGINX config
 ynh_remove_nginx_config
 
 #=================================================

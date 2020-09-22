@@ -1,6 +1,6 @@
 # Collabora for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/collabora.svg)](https://dash.yunohost.org/appci/app/collabora)  
+[![Integration level](https://dash.yunohost.org/integration/collabora.svg)](https://dash.yunohost.org/appci/app/collabora) ![](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)  
 [![Install Collabora with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=collabora)
 
 > *This package allow you to install Collabora quickly and simply on a YunoHost server.  
@@ -8,7 +8,7 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 
 ## Overview
 
-[Collabora](https://www.collaboraoffice.com/code/) is an online office suite usable with Nextcloud or Owncloud
+[Collabora](https://www.collaboraoffice.com/code/) is an online office suite usable with Nextcloud or ownCloud
 
 **Shipped version:** 4.0.0 RC2
 
@@ -22,13 +22,13 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 ## Documentation
 
  * Official documentation: https://www.collaboraoffice.com/code/
- * YunoHost documentation: https://github.com/YunoHost/doc/blob/master/collabora_en.md
+ * YunoHost documentation: https://yunohost.org/#/app_collabora
 
 #### Multi-users support
 
 #### Supported architectures
 
-* x86-64b - [![Build Status](https://ci-apps.yunohost.org/ci/logs/collabora%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/)
+* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/collabora%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/)
 * ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/collabora%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/collabora/)
 
 ## Limitations
@@ -41,7 +41,7 @@ CODE has a warning limitation
 ## Additionnal informations
 
 **Upgrade this package:** 
-You can use your Yunohost admin interface, or the command line: `sudo yunohost app upgrade --debug collabora -u https://github.com/YunoHost-Apps/collabora_ynh`
+You can use your YunoHost admin interface, or the command line: `sudo yunohost app upgrade --debug collabora -u https://github.com/YunoHost-Apps/collabora_ynh`
 
 
 ## Links
@@ -52,8 +52,7 @@ You can use your Yunohost admin interface, or the command line: `sudo yunohost a
 
 ---
 
-Developers infos
-----------------
+## Developers infos
 
 Please do your pull request to the [testing branch](https://github.com/YunoHost-Apps/collabora_ynh/tree/testing).
 
