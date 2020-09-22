@@ -8,14 +8,13 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 
 ## Overview
 
-[Collabora](https://www.collaboraoffice.com/code/) is an online office suite usable with Nextcloud or ownCloud
+[Collabora](https://www.collaboraoffice.com/code/) is an online office suite usable with Nextcloud.
 
 **Shipped version:** 4.0.0 RC2
 
 ## Screenshots
 
-![](https://www.collaboraoffice.com/wp-content/uploads/2017/05/collabora_online_2.1_writer.png)
-
+![](https://www.collaboraoffice.com/wp-content/uploads/2019/07/Collabora_Online_-_versions_integration.png)
 
 ## Configuration
 
