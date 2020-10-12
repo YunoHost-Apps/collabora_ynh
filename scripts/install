@@ -79,9 +79,9 @@ ynh_install_app_dependencies $pkg_dependencies
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_print_info --message="Configuring nginx web server..."
+ynh_print_info --message="Configuring NGINX web server..."
 
-# Create a dedicated nginx config
+# Create a dedicated NGINX config
 ynh_add_nginx_config
 
 #=================================================
@@ -126,7 +126,7 @@ ynh_app_setting_set $app unprotected_uris "/"
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_print_info --message="Reloading nginx web server..."
+ynh_print_info --message="Reloading NGINX web server..."
 
 ynh_systemd_action --service_name=nginx --action=reload
 
