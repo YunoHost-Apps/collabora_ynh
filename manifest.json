@@ -11,7 +11,7 @@
     "license": "MPL-2.0",
     "maintainer": {
         "name": "rafi59",
-        "email": "rafi59_dev@srvmaison.fr.nf",
+        "email": "rafi59_dev@srvmaison.fr.nf"
     },
     "requirements": {
         "yunohost": ">= 3.5"
