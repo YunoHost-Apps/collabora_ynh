@@ -12,7 +12,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 # LOAD SETTINGS
 #=================================================
-ynh_print_info --message="Loading installation settings..."
+ynh_script_progression --message="Loading installation settings..."
 
 app=$YNH_APP_INSTANCE_NAME
 
@@ -25,7 +25,7 @@ nextcloud_domain=$(ynh_app_setting_get --app="$app" --key=nextcloud_domain)
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-ynh_print_info --message="Ensuring downward compatibility..."
+ynh_script_progression --message="Ensuring downward compatibility..."
 
 # Fix is_public as a boolean value
 if [ "$is_public" = "Yes" ]; then
@@ -45,7 +45,7 @@ fi
 #=================================================
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
 #=================================================
-ynh_print_info --message="Backing up the app before upgrading (may take a while)..."
+ynh_script_progression --message="Backing up the app before upgrading (may take a while)..."
 
 # Backup the current version of the app
 ynh_backup_before_upgrade
@@ -62,14 +62,14 @@ ynh_abort_if_errors
 #=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
-ynh_print_info --message="Stopping a systemd service..."
+ynh_script_progression --message="Stopping a systemd service..."
 
 ynh_systemd_action --service_name="loolwsd" --action="stop" --log_path="systemd" --line_match="Stopped LibreOffice Online WebSocket Daemon."
 
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_print_info --message="Upgrading nginx web server configuration..."
+ynh_script_progression --message="Upgrading nginx web server configuration..."
 
 # Create a dedicated nginx config
 ynh_add_nginx_config
@@ -77,7 +77,7 @@ ynh_add_nginx_config
 #===============================================
 # ADD COLLABORA REPOSITORY
 #===============================================
-ynh_print_info --message="Add Collabora repository..."
+ynh_script_progression --message="Add Collabora repository..."
 
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D
 DEBIAN_VERSION_NUMBER=$(cat /etc/debian_version | head -n 1 | cut -f1 -d .)
@@ -86,7 +86,7 @@ echo "deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian${DEBIAN_
 #=================================================
 # UPGRADE DEPENDENCIES
 #=================================================
-ynh_print_info --message="Upgrading dependencies..."
+ynh_script_progression --message="Upgrading dependencies..."
 
 ynh_install_app_dependencies $pkg_dependencies
 
@@ -113,7 +113,7 @@ ynh_store_file_checksum --file="$config"
 #=================================================
 # SETUP SSOWAT
 #=================================================
-ynh_print_info --message="Upgrading SSOwat configuration..."
+ynh_script_progression --message="Upgrading SSOwat configuration..."
 
 # Make app public
 # unprotected_uris allows SSO credentials to be passed anyway
@@ -122,14 +122,14 @@ ynh_app_setting_set --app=$app --key=unprotected_uris --value="/"
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_print_info --message="Starting a systemd service..."
+ynh_script_progression --message="Starting a systemd service..."
 
 ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="systemd" --line_match="Started LibreOffice Online WebSocket Daemon"
 
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_print_info --message="Reloading NGINX web server..."
+ynh_script_progression --message="Reloading NGINX web server..."
 
 ynh_systemd_action --service_name=nginx --action=reload
 
@@ -137,4 +137,4 @@ ynh_systemd_action --service_name=nginx --action=reload
 # END OF SCRIPT
 #=================================================
 
-ynh_print_info --message="Upgrade of $app completed"
+ynh_script_progression --message="Upgrade of $app completed"
