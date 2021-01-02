@@ -33,7 +33,7 @@ app=$YNH_APP_INSTANCE_NAME
 #=================================================
 # CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
 #=================================================
-ynh_print_info --message="Validating installation parameters..."
+ynh_script_progression --message="Validating installation parameters..."
 
 # Register (book) web path
 ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
@@ -41,7 +41,7 @@ ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
-ynh_print_info --message="Storing installation settings..."
+ynh_script_progression --message="Storing installation settings..."
 
 ynh_app_setting_set --app=$app --key=domain --value=$domain
 ynh_app_setting_set --app=$app --key=path --value=$path_url
@@ -53,7 +53,7 @@ ynh_app_setting_set --app=$app --key=nextcloud_domain --value=$nextcloud_domain
 #=================================================
 # FIND AND OPEN A PORT
 #=================================================
-ynh_print_info --message="Configuring firewall..."
+ynh_script_progression --message="Configuring firewall..."
 
 # Find a free port
 port=$(ynh_find_port --port=9980)
@@ -63,7 +63,7 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 #===============================================
 # ADD COLLABORA REPOSITORY
 #===============================================
-ynh_print_info --message="Add Collabora repository..."
+ynh_script_progression --message="Add Collabora repository..."
 
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0C54D189F4BA284D
 DEBIAN_VERSION_NUMBER=$(cat /etc/debian_version | head -n 1 | cut -f1 -d .)
@@ -72,14 +72,14 @@ echo "deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian${DEBIAN_
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_print_info --message="Installing dependencies..."
+ynh_script_progression --message="Installing dependencies..."
 
 ynh_install_app_dependencies $pkg_dependencies
 
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_print_info --message="Configuring NGINX web server..."
+ynh_script_progression --message="Configuring NGINX web server..."
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
@@ -109,7 +109,7 @@ ynh_store_file_checksum "/etc/loolwsd/loolwsd.xml"
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_print_info --message="Starting a systemd service..."
+ynh_script_progression --message="Starting a systemd service..."
 
 # Start a systemd service
 ynh_systemd_action --service_name="loolwsd" --action="start" --log_path="systemd" --line_match="Started LibreOffice Online WebSocket Daemon"
@@ -117,7 +117,7 @@ ynh_systemd_action --service_name="loolwsd" --action="start" --log_path="systemd
 #=================================================
 # SETUP SSOWAT
 #=================================================
-ynh_print_info --message="Configuring SSOwat..."
+ynh_script_progression --message="Configuring SSOwat..."
 
 # Make app public
 # unprotected_uris allows SSO credentials to be passed anyway.
@@ -126,7 +126,7 @@ ynh_app_setting_set $app unprotected_uris "/"
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_print_info --message="Reloading NGINX web server..."
+ynh_script_progression --message="Reloading NGINX web server..."
 
 ynh_systemd_action --service_name=nginx --action=reload
 
@@ -134,4 +134,4 @@ ynh_systemd_action --service_name=nginx --action=reload
 # END OF SCRIPT
 #=================================================
 
-ynh_print_info --message="Installation of $app completed"
+ynh_script_progression --message="Installation of $app completed"
