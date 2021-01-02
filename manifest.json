@@ -3,16 +3,15 @@
     "id": "collabora",
     "packaging_format": 1,
     "description": {
-        "en": "A LibreOffice-based online office suite with collaborative editing",
-        "fr": "Une suite office en ligne et collaborative, basée sur LibreOffice"
+        "en": "LibreOffice-based online office suite with collaborative editing",
+        "fr": "Suite office en ligne et collaborative, basée sur LibreOffice"
     },
     "version": "4.0.0~ynh2",
-    "url": "https://www.libreoffice.org/download/libreoffice-online/",
+    "url": "https://collaboraoffice.com",
     "license": "MPL-2.0",
     "maintainer": {
         "name": "rafi59",
-        "email": "rafi59_dev@srvmaison.fr.nf",
-        "url": "https://collaboraoffice.com"
+        "email": "rafi59_dev@srvmaison.fr.nf"
     },
     "requirements": {
         "yunohost": ">= 3.8.1"
@@ -40,7 +39,6 @@
                     "fr": "Choisissez un mot de passe pour l'administration de Collabora"
                 },
                 "example": "password"
-
             },
             {
                 "name": "nextcloud_domain",
@@ -49,12 +47,9 @@
                     "en": "The domain of your Nextcloud instance",
                     "fr": "Le domain de votre instance Nextcloud"
                 },
-                "example": "example.com",
+                "example": "example.com/nextcloud",
                 "default": ""
-
-            }
-
-
+            }       
         ]
     }
 }

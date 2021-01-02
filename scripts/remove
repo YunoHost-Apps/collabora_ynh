@@ -12,7 +12,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 # LOAD SETTINGS
 #=================================================
-ynh_print_info --message="Loading installation settings..."
+ynh_script_progression --message="Loading installation settings..."
 
 app=$YNH_APP_INSTANCE_NAME
 
@@ -24,7 +24,7 @@ port=$(ynh_app_setting_get --app=$app --key=port)
 #=================================================
 # REMOVE DEPENDENCIES
 #=================================================
-ynh_print_info --message="Removing dependencies..."
+ynh_script_progression --message="Removing dependencies..."
 
 # Fix "rm: cannot remove '/etc/apt/apt.conf.d/25loolwsd': No such file or directory"
 # on apt remove
@@ -36,9 +36,9 @@ ynh_remove_app_dependencies
 #=================================================
 # REMOVE NGINX CONFIGURATION
 #=================================================
-ynh_print_info --message="Removing nginx web server configuration..."
+ynh_script_progression --message="Removing NGINX web server configuration..."
 
-# Remove the dedicated nginx config
+# Remove the dedicated NGINX config
 ynh_remove_nginx_config
 
 #=================================================
@@ -75,4 +75,4 @@ ynh_secure_remove --file="/var/log/$app"
 # END OF SCRIPT
 #=================================================
 
-ynh_print_info --message="Removal of $app completed"
+ynh_script_progression --message="Removal of $app completed"
