@@ -53,6 +53,7 @@ ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 #=================================================
 ynh_script_progression --message="Reinstalling dependencies..."
 
+DEBIAN_VERSION_NUMBER=$(cat /etc/debian_version | head -n 1 | cut -f1 -d .)
 ynh_install_extra_app_dependencies --repo="deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian${DEBIAN_VERSION_NUMBER} ./ " --package="$pkg_dependencies" --key="https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D"
 
 #=================================================
