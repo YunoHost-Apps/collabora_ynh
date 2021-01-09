@@ -89,17 +89,7 @@ ynh_install_extra_app_dependencies --repo="deb https://collaboraoffice.com/repos
 # UPGRADE CONFIG
 #=================================================
 
-config="/etc/loolwsd/loolwsd.xml"
-
-ynh_backup_if_checksum_is_different --file="$config"
-
-cp -f ../conf/loolwsd.xml $config
-
-ynh_replace_string "__NEXTCLOUD_DOMAIN__" "$nextcloud_domain" "$config"
-ynh_replace_string "__PASSWORD__" "$password" "$config"
-
-# Recalculate and store the checksum of the file for the next upgrade.
-ynh_store_file_checksum --file="$config"
+ynh_add_config "../conf/loolwsd.xml" "/etc/loolwsd/loolwsd.xml"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -117,7 +107,7 @@ ynh_app_setting_set --app=$app --key=unprotected_uris --value="/"
 #=================================================
 ynh_script_progression --message="Starting a systemd service..."
 
-ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="systemd" --line_match="Started LibreOffice Online WebSocket Daemon"
+ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="systemd" --line_match="Ready to accept connections"
 
 #=================================================
 # RELOAD NGINX

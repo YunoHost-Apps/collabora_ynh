@@ -61,6 +61,17 @@ port=$(ynh_find_port --port=9980)
 ynh_app_setting_set --app=$app --key=port --value=$port
 
 #=================================================
+# CONFIGURE ONLYOFFICE
+#=================================================
+
+# Turns out we need to create/copy this file BEFORE the actual .deb install,
+# otherwise stupid collabora will expect to find a certificate file in its own
+# config directory which of course doesn't exists and we want to disable SSL
+# because we're in a reverse proxy context...
+mkdir -p /etc/loolwsd
+ynh_add_config ../conf/loolwsd.xml /etc/loolwsd/loolwsd.xml
+
+#=================================================
 # INSTALL DEPENDENCIES
 #=================================================
 ynh_script_progression --message="Installing dependencies..."
@@ -79,23 +90,6 @@ ynh_add_nginx_config
 #=================================================
 # SPECIFIC SETUP
 #=================================================
-# MODIFY A CONFIG FILE
-#=================================================
-
-config="/etc/loolwsd/loolwsd.xml"
-
-cp -f ../conf/loolwsd.xml $config
-
-ynh_replace_string --match_string="__NEXTCLOUD_DOMAIN__" --replace_string="$nextcloud_domain" --target_file="$config"
-ynh_replace_string --match_string="__PASSWORD__" --replace_string="$password" --target_file="$config"
-
-#=================================================
-# STORE THE CONFIG FILE CHECKSUM
-#=================================================
-
-# Calculate and store the config file checksum into the app settings
-ynh_store_file_checksum "/etc/loolwsd/loolwsd.xml"
-
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
@@ -104,7 +98,8 @@ ynh_store_file_checksum "/etc/loolwsd/loolwsd.xml"
 ynh_script_progression --message="Starting a systemd service..."
 
 # Start a systemd service
-ynh_systemd_action --service_name="loolwsd" --action="start" --log_path="systemd" --line_match="Started LibreOffice Online WebSocket Daemon"
+# NB. : we need a stupid *re*start because the service is in fact already started during the damn package install ... so it won't find a recent "Ready to accept connection" match ...
+ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="systemd" --line_match="Ready to accept connections"
 
 #=================================================
 # SETUP SSOWAT
