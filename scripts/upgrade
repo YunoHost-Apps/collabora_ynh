@@ -42,6 +42,12 @@ if [ -z "$path_url" ]; then
 	ynh_app_setting_set --app=$app --key=path_url --value=$path_url
 fi
 
+if ynh_legacy_permissions_exists; then
+	ynh_legacy_permissions_delete_all
+
+	ynh_app_setting_delete --app=$app --key=is_public
+fi
+
 #=================================================
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
 #=================================================
@@ -94,13 +100,11 @@ ynh_add_config "../conf/loolwsd.xml" "/etc/loolwsd/loolwsd.xml"
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
-# SETUP SSOWAT
+# INTEGRATE SERVICE IN YUNOHOST
 #=================================================
-ynh_script_progression --message="Upgrading SSOwat configuration..."
+ynh_script_progression --message="Integrating service in YunoHost..."
 
-# Make app public
-# unprotected_uris allows SSO credentials to be passed anyway
-ynh_app_setting_set --app=$app --key=unprotected_uris --value="/"
+yunohost service add $app --description="LibreOffice-based online office suite" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE

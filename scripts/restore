@@ -64,6 +64,13 @@ ynh_script_progression --message="Restoring the configuration..."
 ynh_restore_file --origin_path="/etc/loolwsd/loolwsd.xml"
 
 #=================================================
+# INTEGRATE SERVICE IN YUNOHOST
+#=================================================
+ynh_script_progression --message="Integrating service in YunoHost..."
+
+yunohost service add $app --description="LibreOffice-based online office suite" --log="/var/log/$app/$app.log"
+
+#=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..."
