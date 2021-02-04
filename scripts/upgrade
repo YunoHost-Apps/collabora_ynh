@@ -100,13 +100,6 @@ ynh_add_config "../conf/loolwsd.xml" "/etc/loolwsd/loolwsd.xml"
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..."
-
-yunohost service add $app --description="LibreOffice-based online office suite" --log="/var/log/$app/$app.log"
-
-#=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..."

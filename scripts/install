@@ -88,13 +88,6 @@ ynh_script_progression --message="Configuring NGINX web server..."
 ynh_add_nginx_config
 
 #=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..."
-
-yunohost service add $app --description="LibreOffice-based online office suite" --log="/var/log/$app/$app.log"
-
-#=================================================
 # GENERIC FINALIZATION
 #=================================================
 # START SYSTEMD SERVICE
