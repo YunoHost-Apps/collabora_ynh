@@ -88,9 +88,6 @@ ynh_script_progression --message="Configuring NGINX web server..."
 ynh_add_nginx_config
 
 #=================================================
-# SPECIFIC SETUP
-#=================================================
-#=================================================
 # GENERIC FINALIZATION
 #=================================================
 # START SYSTEMD SERVICE
@@ -104,11 +101,11 @@ ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="syste
 #=================================================
 # SETUP SSOWAT
 #=================================================
-ynh_script_progression --message="Configuring SSOwat..."
+ynh_script_progression --message="Configuring permissions..."
 
 # Make app public
 # unprotected_uris allows SSO credentials to be passed anyway.
-ynh_app_setting_set $app unprotected_uris "/"
+ynh_permission_update --permission="main" --add="visitors" --show_tile="false"
 
 #=================================================
 # RELOAD NGINX

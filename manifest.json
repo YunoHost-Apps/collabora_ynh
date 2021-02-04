@@ -6,7 +6,7 @@
         "en": "LibreOffice-based online office suite with collaborative editing",
         "fr": "Suite office en ligne et collaborative, basée sur LibreOffice"
     },
-    "version": "4.0.0~ynh2",
+    "version": "6.4.4~ynh1",
     "url": "https://collaboraoffice.com",
     "license": "MPL-2.0",
     "maintainer": {
