@@ -43,7 +43,7 @@ CODE has a warning limitation
 You can use your YunoHost admin interface, or the command line: `sudo yunohost app upgrade collabora -u https://github.com/YunoHost-Apps/collabora_ynh --debug`
 
 **Settings:**
-The settings of Collabora are at https://office.domain.tld/loleaflet/dist/admin/admin.html.
+The settings of Collabora are at `https://office.domain.tld/loleaflet/dist/admin/admin.html`.
 
 - User: admin
 - Password: The password set during the installation. (If you forgot it, you can find it again in `/etc/loolwsd/loolwsd.xml`).
