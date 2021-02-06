@@ -10,7 +10,7 @@ If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to
 
 [Collabora](https://www.collaboraoffice.com/code/) is an online office suite usable with Nextcloud.
 
-**Shipped version:** 4.0.0 RC2
+**Shipped version:** 6.4.4
 
 ## Screenshots
 
