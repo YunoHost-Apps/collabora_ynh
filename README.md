@@ -40,13 +40,13 @@ CODE has a warning limitation
 ## Additionnal informations
 
 **Upgrade this package:** 
-You can use your YunoHost admin interface, or the command line: `sudo yunohost app upgrade --debug collabora -u https://github.com/YunoHost-Apps/collabora_ynh`
+You can use your YunoHost admin interface, or the command line: `sudo yunohost app upgrade collabora -u https://github.com/YunoHost-Apps/collabora_ynh --debug`
 
 **Settings:**
 The settings of Collabora are at https://office.domain.tld/loleaflet/dist/admin/admin.html.
 
 - User: admin
-- Password: The password set during the installation. (If you forgot it, you can find it again in /etc/loolwsd/loolwsd.xml).
+- Password: The password set during the installation. (If you forgot it, you can find it again in `/etc/loolwsd/loolwsd.xml`).
 
 ## Links
 
