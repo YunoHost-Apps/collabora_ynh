@@ -74,7 +74,7 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 # config directory which of course doesn't exists and we want to disable SSL
 # because we're in a reverse proxy context...
 mkdir -p /etc/loolwsd
-ynh_add_config ../conf/loolwsd.xml /etc/loolwsd/loolwsd.xml
+ynh_add_config --template="../conf/loolwsd.xml" --destination="/etc/loolwsd/loolwsd.xml"
 
 #=================================================
 # INSTALL DEPENDENCIES
