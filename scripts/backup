@@ -41,6 +41,12 @@ ynh_print_info --message="Declaring files to be backed up..."
 ynh_backup --src_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
 #=================================================
+# BACKUP SYSTEMD
+#=================================================
+
+ynh_backup --src_path="/usr/lib/systemd/system/loolwsd.service"
+
+#=================================================
 # SPECIFIC BACKUP
 #=================================================
 # BACKUP CONFIGURATION

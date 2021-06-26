@@ -88,7 +88,12 @@ ynh_install_extra_app_dependencies --repo="deb https://collaboraoffice.com/repos
 ynh_add_config --template="../conf/loolwsd.xml" --destination="/etc/loolwsd/loolwsd.xml"
 
 #=================================================
-# GENERIC FINALIZATION
+# INTEGRATE SERVICE IN YUNOHOST
+#=================================================
+ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
+
+yunohost service add $app --description="Collabora online office suite" --log="/var/log/$app/$app.log"
+
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
