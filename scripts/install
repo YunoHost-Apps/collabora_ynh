@@ -107,7 +107,7 @@ ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="syste
 #=================================================
 ynh_script_progression --message="Configuring permissions..." --weight=1
 
-ynh_permission_update --show_tile="false"
+ynh_permission_update --permission="main" --add="visitors" --show_tile="false"
 
 #=================================================
 # RELOAD NGINX
