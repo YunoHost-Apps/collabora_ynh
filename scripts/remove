@@ -44,11 +44,6 @@ ynh_remove_nginx_config
 #=================================================
 # SPECIFIC REMOVE
 #=================================================
-# REMOVE THE CRON FILE
-#=================================================
-
-# Remove a cron file
-ynh_secure_remove --file="/etc/cron.d/$app"
 
 # Remove a directory securely
 ynh_secure_remove --file="/etc/apt/sources.list.d/collabora.list"
@@ -56,11 +51,6 @@ ynh_secure_remove --file="/etc/apt/sources.list.d/collabora.list"
 # Remove a directory securely
 ynh_secure_remove --file="/etc/loolwsd"
 
-# Remove the log files
-ynh_secure_remove --file="/var/log/$app"
-
-#=================================================
-# GENERIC FINALIZATION
 #=================================================
 # END OF SCRIPT
 #=================================================
