@@ -33,7 +33,7 @@ app=$YNH_APP_INSTANCE_NAME
 #=================================================
 # CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
 #=================================================
-ynh_script_progression --message="Validating installation parameters..."
+ynh_script_progression --message="Validating installation parameters..." --weight=1
 
 if dpkg-architecture --is armhf
 then
@@ -46,7 +46,7 @@ ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
-ynh_script_progression --message="Storing installation settings..."
+ynh_script_progression --message="Storing installation settings..." --weight=1
 
 ynh_app_setting_set --app=$app --key=domain --value=$domain
 ynh_app_setting_set --app=$app --key=path --value=$path_url
@@ -58,7 +58,7 @@ ynh_app_setting_set --app=$app --key=nextcloud_domain --value=$nextcloud_domain
 #=================================================
 # FIND AND OPEN A PORT
 #=================================================
-ynh_script_progression --message="Finding an available port..."
+ynh_script_progression --message="Finding an available port..." --weight=1
 
 # Find a free port
 port=$(ynh_find_port --port=9980)
@@ -79,7 +79,7 @@ ynh_add_config --template="../conf/loolwsd.xml" --destination="/etc/loolwsd/lool
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..."
+ynh_script_progression --message="Installing dependencies..." --weight=10
 
 DEBIAN_VERSION_NUMBER=$(cat /etc/debian_version | head -n 1 | cut -f1 -d .)
 ynh_install_extra_app_dependencies --repo="deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian${DEBIAN_VERSION_NUMBER} ./ " --package="$pkg_dependencies" --key="https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D"
@@ -87,7 +87,7 @@ ynh_install_extra_app_dependencies --repo="deb https://collaboraoffice.com/repos
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring NGINX web server..."
+ynh_script_progression --message="Configuring NGINX web server..." --weight=3
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
@@ -97,7 +97,7 @@ ynh_add_nginx_config
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..."
+ynh_script_progression --message="Starting a systemd service..." --weight=5
 
 # Start a systemd service
 # NB. : we need a stupid *re*start because the service is in fact already started during the damn package install ... so it won't find a recent "Ready to accept connection" match ...
@@ -106,16 +106,14 @@ ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="syste
 #=================================================
 # SETUP SSOWAT
 #=================================================
-ynh_script_progression --message="Configuring permissions..."
+ynh_script_progression --message="Configuring permissions..." --weight=1
 
-# Make app public
-# unprotected_uris allows SSO credentials to be passed anyway.
-ynh_permission_update --permission="main" --add="visitors" --show_tile="false"
+ynh_permission_update --show_tile="false"
 
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading NGINX web server..."
+ynh_script_progression --message="Reloading NGINX web server..." --weight=1
 
 ynh_systemd_action --service_name=nginx --action=reload
 
@@ -123,4 +121,4 @@ ynh_systemd_action --service_name=nginx --action=reload
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed"
+ynh_script_progression --message="Installation of $app completed" --last
