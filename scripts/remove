@@ -46,9 +46,6 @@ ynh_remove_nginx_config
 #=================================================
 
 # Remove a directory securely
-ynh_secure_remove --file="/etc/apt/sources.list.d/collabora.list"
-
-# Remove a directory securely
 ynh_secure_remove --file="/etc/loolwsd"
 
 #=================================================
