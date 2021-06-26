@@ -62,7 +62,6 @@ ynh_script_progression --message="Finding an available port..." --weight=1
 
 # Find a free port
 port=$(ynh_find_port --port=9980)
-
 ynh_app_setting_set --app=$app --key=port --value=$port
 
 #=================================================

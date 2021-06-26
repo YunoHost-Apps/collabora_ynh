@@ -19,8 +19,3 @@ If you want to connect with Nextcloud, you have to install the [Collabora Online
 **CODE has a warning limitation**
 
 ![](https://www.libreoffice.org/assets/Uploads/LibreOffice-Online-limit.png)
-
-## Additionnal informations
-
-**Upgrade this package:** 
-You can use your YunoHost admin interface, or the command line: `sudo yunohost app upgrade collabora -u https://github.com/YunoHost-Apps/collabora_ynh --debug`
