@@ -96,7 +96,7 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add "loolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
+#yunohost service add "loolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -114,7 +114,7 @@ ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="syste
 #=================================================
 ynh_script_progression --message="Configuring permissions..." --weight=1
 
-ynh_permission_update --permission="main" --show_tile="false"
+ynh_permission_update --permission="main" --add="visitors" --show_tile="false"
 
 #=================================================
 # RELOAD NGINX
