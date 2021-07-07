@@ -17,7 +17,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 LibreOffice-based online office suite with collaborative editing
 
-**Shipped version:** 6.4.4~ynh1
+**Shipped version:** 6.4.10~ynh1
 
 
 

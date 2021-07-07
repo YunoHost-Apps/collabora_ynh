@@ -13,7 +13,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 Suite office en ligne et collaborative, basée sur LibreOffice
 
-**Version incluse :** 6.4.4~ynh1
+**Version incluse :** 6.4.10~ynh1
 
 
 
