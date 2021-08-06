@@ -75,7 +75,6 @@ ynh_script_progression --message="Installing config file..." --weight=2
 # because we're in a reverse proxy context...
 mkdir -p /etc/loolwsd
 ynh_add_config --template="../conf/loolwsd.xml" --destination="/etc/loolwsd/loolwsd.xml"
-chown lool: "/etc/loolwsd/loolwsd.xml"
 chmod 640 "/etc/loolwsd/loolwsd.xml"
 
 #=================================================
