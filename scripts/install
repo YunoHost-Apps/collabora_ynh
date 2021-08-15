@@ -67,6 +67,7 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 #=================================================
 # CONFIGURE ONLYOFFICE
 #=================================================
+ynh_script_progression --message="Installing config file..." --weight=2
 
 # Turns out we need to create/copy this file BEFORE the actual .deb install,
 # otherwise stupid collabora will expect to find a certificate file in its own
@@ -74,6 +75,7 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 # because we're in a reverse proxy context...
 mkdir -p /etc/loolwsd
 ynh_add_config --template="../conf/loolwsd.xml" --destination="/etc/loolwsd/loolwsd.xml"
+chmod 640 "/etc/loolwsd/loolwsd.xml"
 
 #=================================================
 # INSTALL DEPENDENCIES
