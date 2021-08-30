@@ -23,9 +23,9 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 - Collaborative editing features
 - Works in any modern browser – no plugin needed
 - Preservation of layout and formatting of documents
-- text documents (odt, docx, doc,…)
-- spreadsheets (ods, xlsx, xls, …)
-- presentations (odp, pptx, ppt,…)
+- text documents (odt, docx, doc…)
+- spreadsheets (ods, xlsx, xls…)
+- presentations (odp, pptx, ppt…)
 
 
 **Shipped version:** 6.4.10~ynh2
