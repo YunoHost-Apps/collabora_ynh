@@ -13,7 +13,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 Collabora Online is a powerful LibreOffice-based online office that supports all major document, spreadsheet and presentation file formats, which you can integrate into your own infrastructure.
 
-### features
+### Features
 
 - View and edit text documents, spreadsheets, presentations & more
 - Collaborative editing features
