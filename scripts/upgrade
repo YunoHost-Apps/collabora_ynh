@@ -97,7 +97,7 @@ ynh_script_progression --message="Upgrading config file..." --weight=2
 
 ynh_add_config --template="../conf/coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 
-chown lool: "/etc/coolwsd/coolwsd.xml"
+chown cool: "/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
 
 #=================================================
