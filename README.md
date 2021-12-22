@@ -41,7 +41,7 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 ## Configuration
 
 **Settings:**
-The settings of Collabora are at `https://office.domain.tld/loleaflet/dist/admin/admin.html`.
+The settings of Collabora are at `https://office.domain.tld/browser/dist/admin/admin.html`.
 
 - User: admin
 - Password: The password set during the installation. (If you forgot it, you can find it again in `/etc/coolwsd/coolwsd.xml`).
