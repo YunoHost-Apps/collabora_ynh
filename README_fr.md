@@ -39,7 +39,7 @@ Collabora Online est une suite bureautique en ligne open source basé sur LibreO
 Les paramètres de Collabora sont à `https://office.domain.tld/loleaflet/dist/admin/admin.html`.
 
 - Utilisateur : administrateur
-- Mot de passe : Le mot de passe défini lors de l'installation. (Si vous l'avez oublié, vous pouvez le retrouver dans `/etc/loolwsd/loolwsd.xml`).
+- Mot de passe : Le mot de passe défini lors de l'installation. (Si vous l'avez oublié, vous pouvez le retrouver dans `/etc/coolwsd/coolwsd.xml`).
 
 ## Connexion à Nextcloud
 
