@@ -28,7 +28,7 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 - presentations (odp, pptx, ppt…)
 
 
-**Shipped version:** 6.4.10~ynh2
+**Shipped version:** 21.11~ynh1
 
 
 
@@ -41,10 +41,10 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 ## Configuration
 
 **Settings:**
-The settings of Collabora are at `https://office.domain.tld/loleaflet/dist/admin/admin.html`.
+The settings of Collabora are at `https://office.domain.tld/browser/dist/admin/admin.html`.
 
 - User: admin
-- Password: The password set during the installation. (If you forgot it, you can find it again in `/etc/loolwsd/loolwsd.xml`).
+- Password: The password set during the installation. (If you forgot it, you can find it again in `/etc/coolwsd/coolwsd.xml`).
 
 ## Connexion to Nextcloud
 

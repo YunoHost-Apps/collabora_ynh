@@ -55,13 +55,32 @@ ynh_clean_setup () {
 ynh_abort_if_errors
 
 #=================================================
+# REMOVE OLD SERVICE INTEGRATION IN YUNOHOST
+#=================================================
+
+# Remove the old service from the list of services known by YunoHost (added from `yunohost service add`)
+if ynh_exec_warn_less yunohost service status "loolwsd" >/dev/null
+then
+	ynh_script_progression --message="Removing loolwsd service integration..." --weight=1
+	yunohost service remove "loolwsd"
+fi
+
+#=================================================
+# STOP AND REMOVE SERVICE
+#=================================================
+ynh_script_progression --message="Stopping and removing the old systemd service..." --weight=1
+
+# Remove the dedicated systemd config
+ynh_remove_systemd_config --service="loolwsd"
+
+#=================================================
 # STANDARD UPGRADE STEPS
 #=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Stopping a systemd service..." --weight=5
 
-ynh_systemd_action --service_name="loolwsd" --action="stop" --log_path="systemd" --line_match="Stopped Collabora Online WebSocket Daemon"
+ynh_systemd_action --service_name="coolwsd" --action="stop" --log_path="systemd" --line_match="Stopped Collabora Online WebSocket Daemon"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -76,10 +95,10 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Upgrading config file..." --weight=2
 
-ynh_add_config --template="../conf/loolwsd.xml" --destination="/etc/loolwsd/loolwsd.xml"
+ynh_add_config --template="../conf/coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 
-chown lool: "/etc/loolwsd/loolwsd.xml"
-chmod 640 "/etc/loolwsd/loolwsd.xml"
+chown cool: "/etc/coolwsd/coolwsd.xml"
+chmod 640 "/etc/coolwsd/coolwsd.xml"
 
 #=================================================
 # UPGRADE DEPENDENCIES
@@ -94,14 +113,14 @@ ynh_install_extra_app_dependencies --repo="deb https://collaboraoffice.com/repos
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add "loolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
+yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=3
 
-ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="systemd" --line_match="Ready to accept connections"
+ynh_systemd_action --service_name="coolwsd" --action="restart" --log_path="systemd" --line_match="Ready to accept connections"
 
 #=================================================
 # RELOAD NGINX

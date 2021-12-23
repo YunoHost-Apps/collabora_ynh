@@ -51,8 +51,8 @@ ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 #=================================================
 ynh_script_progression --message="Restoring the configuration..." --weight=3
 
-ynh_restore_file --origin_path="/etc/loolwsd/loolwsd.xml"
-chmod 640 "/etc/loolwsd/loolwsd.xml"
+ynh_restore_file --origin_path="/etc/coolwsd/coolwsd.xml"
+chmod 640 "/etc/coolwsd/coolwsd.xml"
 
 #=================================================
 # SPECIFIC RESTORATION
@@ -69,14 +69,14 @@ ynh_install_extra_app_dependencies --repo="deb https://collaboraoffice.com/repos
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add "loolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
+yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
-ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="systemd" --line_match="Ready to accept connections"
+ynh_systemd_action --service_name="coolwsd" --action="restart" --log_path="systemd" --line_match="Ready to accept connections"
 
 #=================================================
 # RELOAD NGINX
