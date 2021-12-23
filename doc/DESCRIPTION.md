@@ -1,4 +1,4 @@
-Collabora Online is a powerful LibreOffice-based online office that supports all major document, spreadsheet and presentation file formats, which you can integrate into your own infrastructure.
+Collabora Online is a powerful LibreOffice-based online office that supports all major document, spreadsheet and presentation file formats, which you can integrate into Nextcloud.
 
 ### Features
 
