@@ -4,7 +4,7 @@
 The settings of Collabora are at `https://office.domain.tld/loleaflet/dist/admin/admin.html`.
 
 - User: admin
-- Password: The password set during the installation. (If you forgot it, you can find it again in `/etc/loolwsd/loolwsd.xml`).
+- Password: The password set during the installation. (If you forgot it, you can find it again in `/etc/coolwsd/coolwsd.xml`).
 
 ## Connexion to Nextcloud
 
