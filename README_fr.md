@@ -11,20 +11,19 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Vue d'ensemble
 
-Collabora Online is a powerful LibreOffice-based online office that supports all major document, spreadsheet and presentation file formats, which you can integrate into your own infrastructure.
+Collabora Online est une suite bureautique en ligne open source basé sur LibreOffice qui prend en charge tous les principaux formats de documents, feuilles de calcul et fichiers de présentation, que vous pouvez intégrer à Nextcloud.
 
-### Features
+### Caractéristiques
 
-- View and edit text documents, spreadsheets, presentations & more
-- Collaborative editing features
-- Works in any modern browser – no plugin needed
-- Preservation of layout and formatting of documents
-- text documents (odt, docx, doc…)
-- spreadsheets (ods, xlsx, xls…)
-- presentations (odp, pptx, ppt…)
+- Affichez et modifiez des documents texte, des feuilles de calcul, des présentations, etc.
+- Fonctionnalités d'édition collaborative
+- Fonctionne dans n'importe quel navigateur moderne - aucun plugin nécessaire
+- Conservation de la mise en page et de la mise en forme des documents
+- documents texte (odt, docx, doc…)
+- des tableurs (ods, xlsx, xls…)
+- présentations (odp, pptx, ppt…)
 
-
-**Version incluse :** 21.11~ynh1
+**Version incluse :** 21.11.0.6~ynh1
 
 
 
@@ -37,16 +36,16 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 ## Configuration
 
 **Paramètres :**
-Les paramètres de Collabora sont à `https://office.domain.tld/browser/dist/admin/admin.html`.
+Les paramètres de Collabora sont à `https://office.domain.tld/loleaflet/dist/admin/admin.html`.
 
 - Utilisateur : administrateur
-- Mot de passe : Le mot de passe défini lors de l'installation. (Si vous l'avez oublié, vous pouvez le retrouver dans `/etc/coolwsd/coolwsd.xml`).
+- Mot de passe : Le mot de passe défini lors de l'installation. (Si vous l'avez oublié, vous pouvez le retrouver dans `/etc/loolwsd/loolwsd.xml`).
 
 ## Connexion à Nextcloud
 
 Si vous souhaitez vous connecter à Nextcloud, vous devez installer l'application [Collabora Online](https://apps.nextcloud.com/apps/richdocuments) dans Nextcloud, et la configurer avec le domaine de votre installation Collabora.
 
-*:warning: Il existe plusieurs applications Collabora Online. Assurez-vous **de ne pas** installer les applications `Collabora Online - Built-in CODE server`, qui sont une version allégée de ce package Collabora. :warning:*
+* : avertissement : il existe plusieurs applications Collabora Online. Assurez-vous **de ne pas** installer les applications `Collabora Online - Built-in CODE server`, qui sont une version allégée de ce package Collabora. :Attention:*
 
 ## Limites
 
@@ -59,7 +58,6 @@ Si vous souhaitez vous connecter à Nextcloud, vous devez installer l'applicatio
 ## Documentations et ressources
 
 * Site officiel de l'app : https://collaboraoffice.com
-* Documentation officielle utilisateur : https://yunohost.org/#/app_collabora
 * Documentation officielle de l'admin : https://www.collaboraoffice.com/code/
 * Documentation YunoHost pour cette app : https://yunohost.org/app_collabora
 * Signaler un bug : https://github.com/YunoHost-Apps/collabora_ynh/issues
