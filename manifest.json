@@ -11,8 +11,7 @@
     "upstream": {
         "license": "MPL-2.0",
         "website": "https://collaboraoffice.com",
-        "admindoc": "https://www.collaboraoffice.com/code/",
-        "userdoc": "https://yunohost.org/#/app_collabora"
+        "admindoc": "https://www.collaboraoffice.com/code/"
     },
     "license": "MPL-2.0",
     "maintainer": {
@@ -30,13 +29,11 @@
         "install" : [
             {
                 "name": "domain",
-                "type": "domain",
-                "example": "example.com"
+                "type": "domain"
             },
             {
                 "name": "password",
-                "type": "password",
-                "example": "password"
+                "type": "password"
             },
             {
                 "name": "nextcloud_domain",
