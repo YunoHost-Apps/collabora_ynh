@@ -6,13 +6,12 @@
         "en": "LibreOffice-based online office suite with collaborative editing",
         "fr": "Suite office en ligne et collaborative, basée sur LibreOffice"
     },
-    "version": "6.4.10~ynh2",
+    "version": "21.11.0.6~ynh1",
     "url": "https://collaboraoffice.com",
     "upstream": {
         "license": "MPL-2.0",
         "website": "https://collaboraoffice.com",
-        "admindoc": "https://www.collaboraoffice.com/code/",
-        "userdoc": "https://yunohost.org/#/app_collabora"
+        "admindoc": "https://www.collaboraoffice.com/code/"
     },
     "license": "MPL-2.0",
     "maintainer": {
@@ -30,13 +29,11 @@
         "install" : [
             {
                 "name": "domain",
-                "type": "domain",
-                "example": "example.com"
+                "type": "domain"
             },
             {
                 "name": "password",
-                "type": "password",
-                "example": "password"
+                "type": "password"
             },
             {
                 "name": "nextcloud_domain",

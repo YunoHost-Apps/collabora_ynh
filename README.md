@@ -15,9 +15,20 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-LibreOffice-based online office suite with collaborative editing
+Collabora Online is a powerful LibreOffice-based online office that supports all major document, spreadsheet and presentation file formats, which you can integrate into Nextcloud.
 
-**Shipped version:** 6.4.10~ynh2
+### Features
+
+- View and edit text documents, spreadsheets, presentations & more
+- Collaborative editing features
+- Works in any modern browser – no plugin needed
+- Preservation of layout and formatting of documents
+- text documents (odt, docx, doc…)
+- spreadsheets (ods, xlsx, xls…)
+- presentations (odp, pptx, ppt…)
+
+
+**Shipped version:** 21.11.0.6~ynh1
 
 
 
@@ -30,10 +41,10 @@ LibreOffice-based online office suite with collaborative editing
 ## Configuration
 
 **Settings:**
-The settings of Collabora are at `https://office.domain.tld/loleaflet/dist/admin/admin.html`.
+The settings of Collabora are at `https://office.domain.tld/browser/dist/admin/admin.html`.
 
 - User: admin
-- Password: The password set during the installation. (If you forgot it, you can find it again in `/etc/loolwsd/loolwsd.xml`).
+- Password: The password set during the installation. (If you forgot it, you can find it again in `/etc/coolwsd/coolwsd.xml`).
 
 ## Connexion to Nextcloud
 
@@ -52,7 +63,6 @@ If you want to connect with Nextcloud, you have to install the [Collabora Online
 ## Documentation and resources
 
 * Official app website: https://collaboraoffice.com
-* Official user documentation: https://yunohost.org/#/app_collabora
 * Official admin documentation: https://www.collaboraoffice.com/code/
 * YunoHost documentation for this app: https://yunohost.org/app_collabora
 * Report a bug: https://github.com/YunoHost-Apps/collabora_ynh/issues

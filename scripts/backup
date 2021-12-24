@@ -46,7 +46,7 @@ ynh_backup --src_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 # BACKUP CONFIGURATION
 #=================================================
 
-ynh_backup --src_path="/etc/loolwsd/loolwsd.xml"
+ynh_backup --src_path="/etc/coolwsd/coolwsd.xml"
 
 #=================================================
 # END OF SCRIPT

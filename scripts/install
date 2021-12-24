@@ -73,9 +73,9 @@ ynh_script_progression --message="Installing config file..." --weight=2
 # otherwise stupid collabora will expect to find a certificate file in its own
 # config directory which of course doesn't exists and we want to disable SSL
 # because we're in a reverse proxy context...
-mkdir -p /etc/loolwsd
-ynh_add_config --template="../conf/loolwsd.xml" --destination="/etc/loolwsd/loolwsd.xml"
-chmod 640 "/etc/loolwsd/loolwsd.xml"
+mkdir -p /etc/coolwsd
+ynh_add_config --template="../conf/coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
+chmod 640 "/etc/coolwsd/coolwsd.xml"
 
 #=================================================
 # INSTALL DEPENDENCIES
@@ -98,7 +98,7 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add "loolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
+yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -109,7 +109,7 @@ ynh_script_progression --message="Starting a systemd service..." --weight=5
 
 # Start a systemd service
 # NB. : we need a stupid *re*start because the service is in fact already started during the damn package install ... so it won't find a recent "Ready to accept connection" match ...
-ynh_systemd_action --service_name="loolwsd" --action="restart" --log_path="systemd" --line_match="Ready to accept connections"
+ynh_systemd_action --service_name="coolwsd" --action="restart" --log_path="systemd" --line_match="Ready to accept connections"
 
 #=================================================
 # SETUP SSOWAT
