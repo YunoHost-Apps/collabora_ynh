@@ -27,6 +27,11 @@ nextcloud_domain=$(ynh_app_setting_get --app="$app" --key=nextcloud_domain)
 #=================================================
 ynh_script_progression --message="Ensuring downward compatibility..." --weight=2
 
+if ynh_compare_current_package_version --comparison le --version 6.4.10~ynh2
+then
+	ynh_die --message="Upgrade from version 6.4.10 is not possible. You must uninstall and reinstall Collabora package manually"
+fi
+
 # If db_name doesn't exist, create it
 if [ -z "$path_url" ]; then
 	path_url="/"
