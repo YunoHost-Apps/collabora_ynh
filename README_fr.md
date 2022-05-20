@@ -23,7 +23,7 @@ Collabora Online est une suite bureautique en ligne open source basé sur LibreO
 - des tableurs (ods, xlsx, xls…)
 - présentations (odp, pptx, ppt…)
 
-**Version incluse :** 21.11.4.1~ynh1
+**Version incluse :** 21.11.4.3~ynh1
 
 
 
