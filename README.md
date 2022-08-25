@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # Collabora Online for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/collabora.svg)](https://dash.yunohost.org/appci/app/collabora) ![](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/collabora.svg)](https://dash.yunohost.org/appci/app/collabora) ![Working status](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)  
 [![Install Collabora Online with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=collabora)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -31,10 +31,9 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 **Shipped version:** 21.11.4.1~ynh1
 
 
-
 ## Screenshots
 
-![](./doc/screenshots/Collabora_Online_-_versions_integration.png)
+![Screenshot of Collabora Online](./doc/screenshots/Collabora_Online_-_versions_integration.png)
 
 ## Disclaimers / important information
 
@@ -62,20 +61,21 @@ If you want to connect with Nextcloud, you have to install the [Collabora Online
 
 ## Documentation and resources
 
-* Official app website: https://collaboraoffice.com
-* Official admin documentation: https://www.collaboraoffice.com/code/
-* YunoHost documentation for this app: https://yunohost.org/app_collabora
-* Report a bug: https://github.com/YunoHost-Apps/collabora_ynh/issues
+* Official app website: <https://collaboraoffice.com>
+* Official admin documentation: <https://www.collaboraoffice.com/code/>
+* YunoHost documentation for this app: <https://yunohost.org/app_collabora>
+* Report a bug: <https://github.com/YunoHost-Apps/collabora_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/collabora_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/collabora_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade collabora -u https://github.com/YunoHost-Apps/collabora_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
