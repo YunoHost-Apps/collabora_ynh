@@ -30,7 +30,6 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 
 **Shipped version:** 21.11.4.1~ynh1
 
-
 ## Screenshots
 
 ![Screenshot of Collabora Online](./doc/screenshots/Collabora_Online_-_versions_integration.png)
