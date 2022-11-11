@@ -28,7 +28,7 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 - presentations (odp, pptx, ppt…)
 
 
-**Shipped version:** 22.05.6.3~ynh1
+**Shipped version:** 22.05.8.2~ynh1
 
 ## Screenshots
 
