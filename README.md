@@ -32,7 +32,7 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 
 ## Screenshots
 
-![Screenshot of Collabora Online](./doc/screenshots/Collabora_Online_-_versions_integration.png)
+![Screenshot of Collabora Online](./doc/screenshots/Nextcloud-writer.png)
 
 ## Disclaimers / important information
 

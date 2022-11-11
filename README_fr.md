@@ -31,7 +31,7 @@ Collabora Online est une suite bureautique en ligne open source basé sur LibreO
 
 ## Captures d'écran
 
-![Capture d'écran de Collabora Online](./doc/screenshots/Collabora_Online_-_versions_integration.png)
+![Capture d'écran de Collabora Online](./doc/screenshots/Nextcloud-writer.png)
 
 ## Avertissements / informations importantes
 
