@@ -5,7 +5,7 @@
 #=================================================
 
 # dependencies used by the app
-pkg_dependencies="coolwsd code-brand"
+pkg_dependencies="coolwsd code-brand hunspell-fr hunspell"
 
 #=================================================
 # PERSONAL HELPERS
