@@ -13,27 +13,27 @@ source /usr/share/yunohost/helpers
 # MANAGE SCRIPT FAILURE
 #=================================================
 
-ynh_clean_setup () {
+#REMOVEME? ynh_clean_setup () {
 	ynh_clean_check_starting
 }
 # Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
+#REMOVEME? ynh_abort_if_errors
 
 #=================================================
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 
-domain=$YNH_APP_ARG_DOMAIN
-path_url="/"
-password=$YNH_APP_ARG_PASSWORD
-nextcloud_domain=$YNH_APP_ARG_NEXTCLOUD_DOMAIN
+#REMOVEME? domain=$YNH_APP_ARG_DOMAIN
+path="/"
+#REMOVEME? password=$YNH_APP_ARG_PASSWORD
+#REMOVEME? nextcloud_domain=$YNH_APP_ARG_NEXTCLOUD_DOMAIN
 
-app=$YNH_APP_INSTANCE_NAME
+#REMOVEME? app=$YNH_APP_INSTANCE_NAME
 
 #=================================================
 # CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
 #=================================================
-ynh_script_progression --message="Validating installation parameters..." --weight=1
+#REMOVEME? ynh_script_progression --message="Validating installation parameters..." --weight=1
 
 if dpkg-architecture --is armhf
 then
@@ -41,28 +41,28 @@ then
 fi
 
 # Register (book) web path
-ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
+#REMOVEME? ynh_webpath_register --app=$app --domain=$domain --path=$path
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
-ynh_script_progression --message="Storing installation settings..." --weight=1
+#REMOVEME? ynh_script_progression --message="Storing installation settings..." --weight=1
 
-ynh_app_setting_set --app=$app --key=domain --value=$domain
-ynh_app_setting_set --app=$app --key=path --value=$path_url
-ynh_app_setting_set --app=$app --key=password --value=$password
-ynh_app_setting_set --app=$app --key=nextcloud_domain --value=$nextcloud_domain
+#REMOVEME? ynh_app_setting_set --app=$app --key=domain --value=$domain
+#REMOVEME? ynh_app_setting_set --app=$app --key=path --value=$path
+#REMOVEME? ynh_app_setting_set --app=$app --key=password --value=$password
+#REMOVEME? ynh_app_setting_set --app=$app --key=nextcloud_domain --value=$nextcloud_domain
 
 #=================================================
 # STANDARD MODIFICATIONS
 #=================================================
 # FIND AND OPEN A PORT
 #=================================================
-ynh_script_progression --message="Finding an available port..." --weight=1
+#REMOVEME? ynh_script_progression --message="Finding an available port..." --weight=1
 
 # Find a free port
-port=$(ynh_find_port --port=9980)
-ynh_app_setting_set --app=$app --key=port --value=$port
+#REMOVEME? port=$(ynh_find_port --port=9980)
+#REMOVEME? ynh_app_setting_set --app=$app --key=port --value=$port
 
 #=================================================
 # CONFIGURE ONLYOFFICE
@@ -80,10 +80,10 @@ chmod 640 "/etc/coolwsd/coolwsd.xml"
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Installing dependencies..." --weight=10
+#REMOVEME? ynh_script_progression --message="Installing dependencies..." --weight=10
 
 DEBIAN_VERSION_NUMBER=$(cat /etc/debian_version | head -n 1 | cut -f1 -d .)
-ynh_install_extra_app_dependencies --repo="deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian${DEBIAN_VERSION_NUMBER} ./ " --package="$pkg_dependencies" --key="https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D" 2>/dev/null
+#REMOVEME? ynh_install_extra_app_dependencies --repo="deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian${DEBIAN_VERSION_NUMBER} ./ " --package="$pkg_dependencies" --key="https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D" 2>/dev/null
 
 #=================================================
 # NGINX CONFIGURATION
@@ -114,16 +114,16 @@ ynh_systemd_action --service_name="coolwsd" --action="restart" --log_path="syste
 #=================================================
 # SETUP SSOWAT
 #=================================================
-ynh_script_progression --message="Configuring permissions..." --weight=1
+#REMOVEME? ynh_script_progression --message="Configuring permissions..." --weight=1
 
-ynh_permission_update --permission="main" --add="visitors" --show_tile="false"
+#REMOVEME? ynh_permission_update --permission="main" --add="visitors" --show_tile="false"
 
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --weight=1
+#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..." --weight=1
 
-ynh_systemd_action --service_name=nginx --action=reload
+#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT
