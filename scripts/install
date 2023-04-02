@@ -10,61 +10,6 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# MANAGE SCRIPT FAILURE
-#=================================================
-
-#REMOVEME? ynh_clean_setup () {
-	ynh_clean_check_starting
-}
-# Exit if an error occurs during the execution of the script
-#REMOVEME? ynh_abort_if_errors
-
-#=================================================
-# RETRIEVE ARGUMENTS FROM THE MANIFEST
-#=================================================
-
-#REMOVEME? domain=$YNH_APP_ARG_DOMAIN
-path="/"
-#REMOVEME? password=$YNH_APP_ARG_PASSWORD
-#REMOVEME? nextcloud_domain=$YNH_APP_ARG_NEXTCLOUD_DOMAIN
-
-#REMOVEME? app=$YNH_APP_INSTANCE_NAME
-
-#=================================================
-# CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
-#=================================================
-#REMOVEME? ynh_script_progression --message="Validating installation parameters..." --weight=1
-
-if dpkg-architecture --is armhf
-then
-    ynh_die --message="Sorry, this app can not be installed on an ARM architecture"
-fi
-
-# Register (book) web path
-#REMOVEME? ynh_webpath_register --app=$app --domain=$domain --path=$path
-
-#=================================================
-# STORE SETTINGS FROM MANIFEST
-#=================================================
-#REMOVEME? ynh_script_progression --message="Storing installation settings..." --weight=1
-
-#REMOVEME? ynh_app_setting_set --app=$app --key=domain --value=$domain
-#REMOVEME? ynh_app_setting_set --app=$app --key=path --value=$path
-#REMOVEME? ynh_app_setting_set --app=$app --key=password --value=$password
-#REMOVEME? ynh_app_setting_set --app=$app --key=nextcloud_domain --value=$nextcloud_domain
-
-#=================================================
-# STANDARD MODIFICATIONS
-#=================================================
-# FIND AND OPEN A PORT
-#=================================================
-#REMOVEME? ynh_script_progression --message="Finding an available port..." --weight=1
-
-# Find a free port
-#REMOVEME? port=$(ynh_find_port --port=9980)
-#REMOVEME? ynh_app_setting_set --app=$app --key=port --value=$port
-
-#=================================================
 # CONFIGURE ONLYOFFICE
 #=================================================
 ynh_script_progression --message="Installing config file..." --weight=2
@@ -76,14 +21,6 @@ ynh_script_progression --message="Installing config file..." --weight=2
 mkdir -p /etc/coolwsd
 ynh_add_config --template="../conf/coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
-
-#=================================================
-# INSTALL DEPENDENCIES
-#=================================================
-#REMOVEME? ynh_script_progression --message="Installing dependencies..." --weight=10
-
-DEBIAN_VERSION_NUMBER=$(cat /etc/debian_version | head -n 1 | cut -f1 -d .)
-#REMOVEME? ynh_install_extra_app_dependencies --repo="deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian${DEBIAN_VERSION_NUMBER} ./ " --package="$pkg_dependencies" --key="https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D" 2>/dev/null
 
 #=================================================
 # NGINX CONFIGURATION
@@ -110,20 +47,6 @@ ynh_script_progression --message="Starting a systemd service..." --weight=5
 # Start a systemd service
 # NB. : we need a stupid *re*start because the service is in fact already started during the damn package install ... so it won't find a recent "Ready to accept connection" match ...
 ynh_systemd_action --service_name="coolwsd" --action="restart" --log_path="systemd" --line_match="Ready to accept connections"
-
-#=================================================
-# SETUP SSOWAT
-#=================================================
-#REMOVEME? ynh_script_progression --message="Configuring permissions..." --weight=1
-
-#REMOVEME? ynh_permission_update --permission="main" --add="visitors" --show_tile="false"
-
-#=================================================
-# RELOAD NGINX
-#=================================================
-#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..." --weight=1
-
-#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT

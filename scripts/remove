@@ -10,16 +10,6 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# LOAD SETTINGS
-#=================================================
-#REMOVEME? ynh_script_progression --message="Loading installation settings..." --weight=1
-
-#REMOVEME? app=$YNH_APP_INSTANCE_NAME
-
-#REMOVEME? domain=$(ynh_app_setting_get --app=$app --key=domain)
-#REMOVEME? port=$(ynh_app_setting_get --app=$app --key=port)
-
-#=================================================
 # REMOVE SERVICE INTEGRATION IN YUNOHOST
 #=================================================
 
@@ -43,14 +33,11 @@ ynh_remove_systemd_config --service="coolwsd"
 #=================================================
 # REMOVE DEPENDENCIES
 #=================================================
-#REMOVEME? ynh_script_progression --message="Removing dependencies..." --weight=1
+ynh_script_progression --message="Removing dependencies..." --weight=1
 
 # Fix "rm: cannot remove '/etc/apt/apt.conf.d/25loolwsd': No such file or directory"
 # on apt remove
 touch /etc/apt/apt.conf.d/25loolwsd
-
-# Remove metapackage and its dependencies
-#REMOVEME? ynh_remove_app_dependencies
 
 #=================================================
 # REMOVE NGINX CONFIGURATION
