@@ -15,8 +15,8 @@ website = "https://collaboraoffice.com"
 admindoc = "https://www.collaboraoffice.com/code/"
 
 [integration]
-yunohost = ">= 11.1.15"
-architectures = ["amd64", "arm64"]
+yunohost = ">= 11.1.16"
+architectures = ["amd64"]
 multi_instance = false
 ldap = "not_relevant"
 sso = "not_relevant"
