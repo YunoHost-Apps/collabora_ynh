@@ -50,7 +50,11 @@ ram.runtime = "50M"
     [resources.permissions]
     main.url = "/"
 
+    [resources.apt]
+    packages = "hunspell, hunspell-de-de, hunspell-en-gb, hunspell-fr"
+    
     [resources.apt.extras.collabora]
-    packages = "coolwsd, code-brand, hunspell-de-de, hunspell-en-gb, hunspell-fr, hunspell"
     repo = "deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian11 ./ "
-    key = "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D"
+    key = "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D 2>/dev/null"
+    packages = "coolwsd, code-brand"
+    
