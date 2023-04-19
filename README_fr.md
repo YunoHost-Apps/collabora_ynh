@@ -5,15 +5,16 @@ It shall NOT be edited by hand.
 
 # Collabora Online pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/collabora.svg)](https://dash.yunohost.org/appci/app/collabora) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/collabora.svg)](https://dash.yunohost.org/appci/app/collabora) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)
+
 [![Installer Collabora Online avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=collabora)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer Collabora Online rapidement et simplement sur un serveur YunoHost.
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
+> *Ce package vous permet d’installer Collabora Online rapidement et simplement sur un serveur YunoHost.
+Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Collabora Online est une suite bureautique en ligne open source basé sur LibreOffice qui prend en charge tous les principaux formats de documents, feuilles de calcul et fichiers de présentation, que vous pouvez intégrer à Nextcloud.
 
@@ -27,11 +28,11 @@ Collabora Online est une suite bureautique en ligne open source basé sur LibreO
 - des tableurs (ods, xlsx, xls…)
 - présentations (odp, pptx, ppt…)
 
-**Version incluse :** 22.05.8.2~ynh2
+**Version incluse :** 22.05.12.2~ynh1
 
-## Captures d'écran
+## Captures d’écran
 
-![Capture d'écran de Collabora Online](./doc/screenshots/Collabora_Online_-_versions_integration.png)
+![Capture d’écran de Collabora Online](./doc/screenshots/Nextcloud-writer.png)
 
 ## Avertissements / informations importantes
 
@@ -59,8 +60,8 @@ Si vous souhaitez vous connecter à Nextcloud, vous devez installer l'applicatio
 
 ## Documentations et ressources
 
-* Site officiel de l'app : <https://collaboraoffice.com>
-* Documentation officielle de l'admin : <https://www.collaboraoffice.com/code/>
+* Site officiel de l’app : <https://collaboraoffice.com>
+* Documentation officielle de l’admin : <https://www.collaboraoffice.com/code/>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_collabora>
 * Signaler un bug : <https://github.com/YunoHost-Apps/collabora_ynh/issues>
 
@@ -76,4 +77,4 @@ ou
 sudo yunohost app upgrade collabora -u https://github.com/YunoHost-Apps/collabora_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications :** <https://yunohost.org/packaging_apps>
+**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>

@@ -6,7 +6,7 @@
         "en": "LibreOffice-based online office suite with collaborative editing",
         "fr": "Suite office en ligne et collaborative, basée sur LibreOffice"
     },
-    "version": "22.05.8.2~ynh2",
+    "version": "22.05.12.2~ynh1",
     "url": "https://collaboraoffice.com",
     "upstream": {
         "license": "MPL-2.0",
@@ -19,7 +19,7 @@
         "email": "rafi59_dev@srvmaison.fr.nf"
     },
     "requirements": {
-        "yunohost": ">= 11.0.9"
+        "yunohost": ">= 11.1.15"
     },
     "multi_instance": false,
     "services": [

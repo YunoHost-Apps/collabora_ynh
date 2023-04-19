@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # Collabora Online for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/collabora.svg)](https://dash.yunohost.org/appci/app/collabora) ![Working status](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/collabora.svg)](https://dash.yunohost.org/appci/app/collabora) ![Working status](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)
+
 [![Install Collabora Online with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=collabora)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -28,11 +29,11 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 - presentations (odp, pptx, ppt…)
 
 
-**Shipped version:** 22.05.8.2~ynh2
+**Shipped version:** 22.05.12.2~ynh1
 
 ## Screenshots
 
-![Screenshot of Collabora Online](./doc/screenshots/Collabora_Online_-_versions_integration.png)
+![Screenshot of Collabora Online](./doc/screenshots/Nextcloud-writer.png)
 
 ## Disclaimers / important information
 
