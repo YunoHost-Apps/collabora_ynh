@@ -62,7 +62,7 @@ Si vous souhaitez vous connecter à Nextcloud, vous devez installer l'applicatio
 
 * Site officiel de l’app : <https://collaboraoffice.com>
 * Documentation officielle de l’admin : <https://www.collaboraoffice.com/code/>
-* Documentation YunoHost pour cette app : <https://yunohost.org/app_collabora>
+* YunoHost Store: <https://apps.yunohost.org/app/collabora>
 * Signaler un bug : <https://github.com/YunoHost-Apps/collabora_ynh/issues>
 
 ## Informations pour les développeurs
