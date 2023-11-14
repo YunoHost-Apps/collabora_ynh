@@ -19,7 +19,7 @@ source /usr/share/yunohost/helpers
 ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_restore_file --origin_path="/etc/coolwsd/coolwsd.xml"
-chmod 640 "/etc/coolwsd/coolwsd.xml"
+chmod 644 "/etc/coolwsd/coolwsd.xml"
 
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
 
