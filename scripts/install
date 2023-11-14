@@ -22,6 +22,7 @@ mkdir -p /etc/coolwsd
 
 ynh_add_config --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
+chown $app:$app "/etc/coolwsd/coolwsd.xml"
 
 #=================================================
 # NGINX CONFIGURATION
