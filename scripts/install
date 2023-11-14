@@ -19,7 +19,8 @@ ynh_script_progression --message="Installing config file..." --weight=2
 # config directory which of course doesn't exists and we want to disable SSL
 # because we're in a reverse proxy context...
 mkdir -p /etc/coolwsd
-ynh_add_config --template="../conf/coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
+
+ynh_add_config --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
 
 #=================================================

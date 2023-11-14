@@ -15,11 +15,14 @@ website = "https://collaboraoffice.com"
 admindoc = "https://www.collaboraoffice.com/code/"
 
 [integration]
-yunohost = ">= 11.1.16"
+yunohost = ">= 11.2"
 architectures = ["amd64"]
 multi_instance = false
+
 ldap = "not_relevant"
+
 sso = "not_relevant"
+
 disk = "50M"
 ram.build = "50M"
 ram.runtime = "50M"
@@ -27,7 +30,12 @@ ram.runtime = "50M"
 [install]
     [install.domain]
     type = "domain"
-    full_domain = true
+
+    [install.init_main_permission]
+    help.en = "You will only be able to connect Collabora to Nextcloud if both apps are public!"
+    help.fr = "Nextcloud et Collabora doivent être des applications publiques si vous voulez les connecter !"
+    type = "group"
+    default = "visitors"
 
     [install.password]
     type = "password"
@@ -53,8 +61,7 @@ ram.runtime = "50M"
     [resources.apt]
     packages = "hunspell, hunspell-de-de, hunspell-en-gb, hunspell-fr"
     
-    [resources.apt.extras.collabora]
-    repo = "deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian11 ./ "
-    key = "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D 2>/dev/null"
-    packages = "coolwsd, code-brand"
+    extras.collabora.repo = "deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian11 ./ "
+    extras.collabora.key = "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D 2>/dev/null"
+    extras.collabora.packages = "coolwsd, code-brand"
     
