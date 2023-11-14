@@ -39,7 +39,7 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 
 * Official app website: <https://collaboraoffice.com>
 * Official admin documentation: <https://www.collaboraoffice.com/code/>
-* YunoHost documentation for this app: <https://yunohost.org/app_collabora>
+* YunoHost Store: <https://apps.yunohost.org/app/collabora>
 * Report a bug: <https://github.com/YunoHost-Apps/collabora_ynh/issues>
 
 ## Developer info
