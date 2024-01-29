@@ -1,7 +1,7 @@
 ## Configuration
 
 **Paramètres :**
-Les paramètres de Collabora sont à `https://office.domain.tld/browser/dist/admin/admin.html`.
+Les paramètres de Collabora sont à `https://__DOMAIN__/browser/dist/admin/admin.html`.
 
 - Utilisateur : admin
 - Mot de passe : Le mot de passe défini lors de l'installation. (Si vous l'avez oublié, vous pouvez le retrouver dans `/etc/coolwsd/coolwsd.xml`).
