@@ -38,6 +38,8 @@ ynh_add_nginx_config
 
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
 
+ynh_exec_warn systemctl cat coolwsd
+
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
