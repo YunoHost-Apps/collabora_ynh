@@ -16,6 +16,15 @@ source /usr/share/yunohost/helpers
 ynh_app_setting_set --app="$app" --key=password --value="$password"
 
 #=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+ynh_script_progression --message="Setting up source files..." --weight=1
+
+ynh_add_config --template="root_index.html" --destination="$install_dir/index.html"
+
+chown -R "$app:www-data" "$install_dir"
+
+#=================================================
 # CONFIGURE ONLYOFFICE
 #=================================================
 ynh_script_progression --message="Installing config file..." --weight=2
