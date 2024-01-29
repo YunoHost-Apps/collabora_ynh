@@ -28,12 +28,7 @@ if ynh_exec_warn_less yunohost service status "loolwsd" >/dev/null; then
     yunohost service remove "loolwsd"
 fi
 
-#=================================================
-# STOP AND REMOVE SERVICE
-#=================================================
-ynh_script_progression --message="Stopping and removing the old systemd service..." --weight=1
-
-# Remove the dedicated systemd config
+# Remove the legacy systemd config
 ynh_remove_systemd_config --service="loolwsd"
 
 #=================================================
@@ -44,6 +39,15 @@ ynh_remove_systemd_config --service="loolwsd"
 ynh_script_progression --message="Stopping a systemd service..." --weight=5
 
 ynh_systemd_action --service_name="coolwsd" --action="stop" --log_path="systemd" --line_match="Stopped Collabora Online WebSocket Daemon"
+
+#=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+ynh_script_progression --message="Setting up source files..." --weight=1
+
+ynh_add_config --template="root_index.html" --destination="$install_dir/index.html"
+
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # UPGRADE CONFIG
