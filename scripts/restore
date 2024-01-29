@@ -11,32 +11,16 @@ source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# MANAGE SCRIPT FAILURE
+# RESTORE THE APP MAIN DIR
 #=================================================
+ynh_script_progression --message="Restoring the app main directory..." --weight=1
 
-ynh_clean_setup () {
-	ynh_clean_check_starting
-}
-# Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
+ynh_restore_file --origin_path="$install_dir"
 
-#=================================================
-# LOAD SETTINGS
-#=================================================
-ynh_script_progression --message="Loading settings..." --weight=1
-
-app=$YNH_APP_INSTANCE_NAME
-
-domain=$(ynh_app_setting_get --app=$app --key=domain)
-path_url=$(ynh_app_setting_get --app=$app --key=path)
-
-#=================================================
-# STANDARD RESTORATION STEPS
-#=================================================
-# RESTORE THE NGINX CONFIGURATION
-#=================================================
-
-ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
+### $install_dir will automatically be initialized with some decent
+### permissions by default ... however, you may need to recursively reapply
+### ownership to all files such as after the ynh_setup_source step
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # RESTORE CONFIGURATION
@@ -44,36 +28,33 @@ ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 ynh_script_progression --message="Restoring the configuration..." --weight=3
 
 ynh_restore_file --origin_path="/etc/coolwsd/coolwsd.xml"
+
 chmod 640 "/etc/coolwsd/coolwsd.xml"
+chown cool:root -R /etc/coolwsd
 
 #=================================================
-# SPECIFIC RESTORATION
+# RESTORE SYSTEM CONFIGURATIONS
 #=================================================
-# REINSTALL DEPENDENCIES
-#=================================================
-ynh_script_progression --message="Reinstalling dependencies..." --weight=10
+ynh_script_progression --message="Restoring system configurations related to $app..." --weight=1
 
-DEBIAN_VERSION_NUMBER=$(cat /etc/debian_version | head -n 1 | cut -f1 -d .)
-ynh_install_extra_app_dependencies --repo="deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian${DEBIAN_VERSION_NUMBER} ./ " --package="$pkg_dependencies" --key="https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D" 2>/dev/null
-
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
+ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
 
 #=================================================
+# GENERIC FINALIZATION
+#=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression --message="Starting a systemd service..." --weight=5
 
-ynh_systemd_action --service_name="coolwsd" --action="restart" --log_path="systemd" --line_match="Ready to accept connections"
+# NB. : we need a stupid *re*start because the service is in fact already started during the damn package install ... so it won't find a recent "Ready to accept connection" match ...
+ynh_systemd_action --service_name="coolwsd" --action="stop" --log_path="systemd"
+# The service installed by the deb package failed in loop, thus the reset-failed.
+systemctl reset-failed coolwsd
 
-#=================================================
-# RELOAD NGINX
-#=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --weight=2
+# Start a systemd service
+ynh_systemd_action --service_name="coolwsd" --action="start" --log_path="systemd" --line_match="Ready to accept connections"
 
 ynh_systemd_action --service_name=nginx --action=reload
 
