@@ -67,7 +67,7 @@ ram.runtime = "50M" # FIXME: replace with an **estimate** minimum ram requiremen
     ]
 
     [resources.apt.extras.collabora]
-    repo = "deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian${DEBIAN_VERSION_NUMBER} ./ "
+    repo = "deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian11 ./ "
     key = "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D"
     packages = [
         "coolwsd",
