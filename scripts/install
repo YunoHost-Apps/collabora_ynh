@@ -51,7 +51,9 @@ ynh_script_progression --message="Starting a systemd service..." --weight=5
 
 # Start a systemd service
 # NB. : we need a stupid *re*start because the service is in fact already started during the damn package install ... so it won't find a recent "Ready to accept connection" match ...
-ynh_systemd_action --service_name="coolwsd" --action="restart" --log_path="systemd" --line_match="Ready to accept connections"
+ynh_systemd_action --service_name="coolwsd" --action="stop" --log_path="systemd"
+ynh_systemd_action --service-name="coolwsd" --action="reset-failed"
+ynh_systemd_action --service_name="coolwsd" --action="start" --log_path="systemd" --line_match="Ready to accept connections"
 
 #=================================================
 # END OF SCRIPT
