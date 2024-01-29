@@ -26,7 +26,9 @@ ynh_script_progression --message="Installing config file..." --weight=2
 # because we're in a reverse proxy context...
 mkdir -p /etc/coolwsd
 ynh_add_config --template="../conf/coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
+
 chmod 640 "/etc/coolwsd/coolwsd.xml"
+chown cool:root -R /etc/coolwsd
 
 #=================================================
 # SYSTEM CONFIGURATION
