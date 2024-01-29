@@ -4,4 +4,6 @@ test_format = 1.0
 
 [default]
 
+    args.nextcloud_domain = "nextcloud.tld"
+
     # test_upgrade_from.5725c85c09f1d3b76d12a4dc4d367ec911cd0019.name = "Last packaging v1 version"
