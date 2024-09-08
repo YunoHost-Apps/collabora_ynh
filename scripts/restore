@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#Keep this path for calling _common.sh inside the execution's context of backup and restore scripts
 source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
@@ -14,7 +13,7 @@ ynh_restore "$install_dir"
 ### $install_dir will automatically be initialized with some decent
 ### permissions by default ... however, you may need to recursively reapply
 ### ownership to all files such as after the ynh_setup_source step
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "$app:www-data" "$install_dir"
+chown -R "$app:www-data" "$install_dir"
 #=================================================
 # RESTORE CONFIGURATION
 #=================================================
@@ -44,7 +43,6 @@ ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd"
 # The service installed by the deb package failed in loop, thus the reset-failed.
 systemctl reset-failed coolwsd
 
-# Start a systemd service
 ynh_systemctl --service="coolwsd" --action="start" --log_path="systemd" --wait_until="Ready to accept connections"
 
 ynh_systemctl --service=nginx --action=reload

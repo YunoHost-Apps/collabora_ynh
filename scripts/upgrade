@@ -16,7 +16,6 @@ fi
 # REMOVE OLD SERVICE INTEGRATION IN YUNOHOST
 #=================================================
 
-# Remove the old service from the list of services known by YunoHost (added from `yunohost service add`)
 if ynh_hide_warnings yunohost service status "loolwsd" >/dev/null; then
     ynh_script_progression "Removing loolwsd service integration..."
     yunohost service remove "loolwsd"
@@ -39,7 +38,8 @@ ynh_script_progression "Setting up source files..."
 
 ynh_config_add --template="root_index.html" --destination="$install_dir/index.html"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "$app:www-data" "$install_dir"
+chown -R "$app:www-data" "$install_dir"
+
 #=================================================
 # UPGRADE CONFIG
 #=================================================
@@ -55,7 +55,6 @@ chmod 640 "/etc/coolwsd/coolwsd.xml"
 #=================================================
 ynh_script_progression "Upgrading system configurations related to $app..."
 
-# Create a dedicated NGINX config
 ynh_config_add_nginx
 
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"

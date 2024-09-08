@@ -16,7 +16,8 @@ ynh_script_progression "Setting up source files..."
 
 ynh_config_add --template="root_index.html" --destination="$install_dir/index.html"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "$app:www-data" "$install_dir"
+chown -R "$app:www-data" "$install_dir"
+
 #=================================================
 # CONFIGURE ONLYOFFICE
 #=================================================
@@ -37,7 +38,6 @@ chown cool:root -R /etc/coolwsd
 #=================================================
 ynh_script_progression "Adding system configurations related to $app..."
 
-# Create a dedicated NGINX config
 ynh_config_add_nginx
 
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
@@ -52,7 +52,6 @@ ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd"
 # The service installed by the deb package failed in loop, thus the reset-failed.
 systemctl reset-failed coolwsd
 
-# Start a systemd service
 ynh_systemctl --service="coolwsd" --action="start" --log_path="systemd" --wait_until="Ready to accept connections"
 
 #=================================================
