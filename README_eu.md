@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # Collabora Online YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/collabora.svg)](https://dash.yunohost.org/appci/app/collabora) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/collabora.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)
 
 [![Instalatu Collabora Online YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=collabora)
 
@@ -29,7 +29,7 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 - presentations (odp, pptx, ppt…)
 
 
-**Paketatutako bertsioa:** 22.05.14.3~ynh2
+**Paketatutako bertsioa:** 24.04.7.2~ynh1
 
 ## Pantaila-argazkiak
 

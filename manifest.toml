@@ -7,9 +7,9 @@ name = "Collabora Online"
 description.en = "LibreOffice-based online office suite with collaborative editing"
 description.fr = "Suite office en ligne et collaborative, basée sur LibreOffice"
 
-version = "22.05.14.3~ynh2"
+version = "24.04.7.2~ynh1"
 
-maintainers = ["rafi59"]
+maintainers = [ ]
 
 [upstream]
 license = "MPL-2.0"
