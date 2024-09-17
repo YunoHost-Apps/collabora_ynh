@@ -9,7 +9,7 @@ description.fr = "Suite office en ligne et collaborative, basée sur LibreOffice
 
 version = "24.04.7.2~ynh1"
 
-maintainers = ["rafi59"]
+maintainers = [ ]
 
 [upstream]
 license = "MPL-2.0"
