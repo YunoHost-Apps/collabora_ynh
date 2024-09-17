@@ -8,7 +8,6 @@ Les paramètres de Collabora sont à `https://__DOMAIN__/browser/dist/admin/admi
 
 ## Connexion à Nextcloud
 
-Si vous souhaitez vous connecter à Nextcloud, vous devez installer l'application [Collabora Online](https://apps.nextcloud.com/apps/richdocuments) dans Nextcloud, et la configurer avec le domaine de votre installation Collabora.
+Si vous souhaitez vous connecter à Nextcloud, vous devez installer l'application [Nextcloud Office](https://apps.nextcloud.com/apps/richdocuments) dans Nextcloud, et la configurer avec le domaine de votre installation Collabora.
 
 *:warning: Il existe plusieurs applications Collabora Online. Assurez-vous **de ne pas** installer les applications `Collabora Online - Built-in CODE server`, qui sont une version allégée de ce package Collabora. :warning:*
-ice-Online-limit.png)

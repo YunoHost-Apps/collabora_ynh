@@ -1,8 +1,6 @@
 #!/bin/bash
 
 #=================================================
-# GENERIC START
-#=================================================
 # IMPORT GENERIC HELPERS
 #=================================================
 
@@ -32,8 +30,6 @@ fi
 ynh_remove_systemd_config --service="loolwsd"
 
 #=================================================
-# STANDARD UPGRADE STEPS
-#=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Stopping a systemd service..." --weight=5
@@ -54,7 +50,7 @@ chown -R "$app:www-data" "$install_dir"
 #=================================================
 ynh_script_progression --message="Upgrading config file..." --weight=2
 
-ynh_add_config --template="../conf/coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
+ynh_add_config --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 
 chown cool: "/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
@@ -64,7 +60,6 @@ chmod 640 "/etc/coolwsd/coolwsd.xml"
 #=================================================
 ynh_script_progression --message="Upgrading system configurations related to $app..." --weight=1
 
-# Create a dedicated NGINX config
 ynh_add_nginx_config
 
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
