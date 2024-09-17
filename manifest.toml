@@ -4,8 +4,8 @@ packaging_format = 2
 
 id = "collabora"
 name = "Collabora Online"
-description.en = "LibreOffice-based online office suite with collaborative editing"
-description.fr = "Suite office en ligne et collaborative, basée sur LibreOffice"
+description.en = "Online office suite with collaborative editing"
+description.fr = "Suite office en ligne et collaborative"
 
 version = "24.04.7.2~ynh1"
 
