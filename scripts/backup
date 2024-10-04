@@ -1,15 +1,8 @@
 #!/bin/bash
 
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
-#=================================================
-# DECLARE DATA AND CONF FILES TO BACKUP
-#=================================================
 ynh_print_info --message="Declaring files to be backed up..."
 
 #=================================================
@@ -25,6 +18,8 @@ ynh_backup --src_path="$install_dir"
 ynh_backup --src_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_backup --src_path="/etc/coolwsd/coolwsd.xml"
+
+ynh_backup "/etc/logrotate.d/$app"
 
 #=================================================
 # END OF SCRIPT

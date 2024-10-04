@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
@@ -48,8 +42,8 @@ ynh_add_nginx_config
 
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
 
-#=================================================
-# GENERIC FINALIZATION
+ynh_config_add_logrotate
+
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
