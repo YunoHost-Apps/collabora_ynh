@@ -19,6 +19,8 @@ ynh_backup --src_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_backup --src_path="/etc/coolwsd/coolwsd.xml"
 
+ynh_backup "/etc/logrotate.d/$app"
+
 #=================================================
 # END OF SCRIPT
 #=================================================

@@ -8,6 +8,8 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression --message="Removing system configurations related to $app..." --weight=1
 
+ynh_config_remove_logrotate
+
 if ynh_exec_warn_less yunohost service status "coolwsd" >/dev/null; then
     yunohost service remove "coolwsd"
 fi
