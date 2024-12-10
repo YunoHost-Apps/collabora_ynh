@@ -5,7 +5,9 @@
 
 # YunoHost 上的 Collabora Online
 
-[![集成程度](https://dash.yunohost.org/integration/collabora.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)
+[![集成程度](https://apps.yunohost.org/badge/integration/collabora)](https://ci-apps.yunohost.org/ci/apps/collabora/)
+![工作状态](https://apps.yunohost.org/badge/state/collabora)
+![维护状态](https://apps.yunohost.org/badge/maintained/collabora)
 
 [![使用 YunoHost 安装 Collabora Online](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=collabora)
 

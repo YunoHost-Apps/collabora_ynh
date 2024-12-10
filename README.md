@@ -5,7 +5,9 @@ It shall NOT be edited by hand.
 
 # Collabora Online for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/collabora.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/) ![Working status](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)
+[![Integration level](https://apps.yunohost.org/badge/integration/collabora)](https://ci-apps.yunohost.org/ci/apps/collabora/)
+![Working status](https://apps.yunohost.org/badge/state/collabora)
+![Maintenance status](https://apps.yunohost.org/badge/maintained/collabora)
 
 [![Install Collabora Online with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=collabora)
 

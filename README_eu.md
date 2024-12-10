@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # Collabora Online YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/collabora.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/collabora)](https://ci-apps.yunohost.org/ci/apps/collabora/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/collabora)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/collabora)
 
 [![Instalatu Collabora Online YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=collabora)
 
