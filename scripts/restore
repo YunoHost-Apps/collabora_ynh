@@ -11,6 +11,8 @@ ynh_script_progression "Restoring the app main directory..."
 ynh_restore "$install_dir"
 
 chown -R "$app:www-data" "$install_dir"
+chmod 640 "$install_dir/index.html"
+
 #=================================================
 # RESTORE CONFIGURATION
 #=================================================
@@ -20,6 +22,8 @@ ynh_restore "/etc/coolwsd/coolwsd.xml"
 
 chmod 640 "/etc/coolwsd/coolwsd.xml"
 chown cool:root -R /etc/coolwsd
+
+#ynh_restore "/opt/cool"
 
 #=================================================
 # RESTORE SYSTEM CONFIGURATIONS

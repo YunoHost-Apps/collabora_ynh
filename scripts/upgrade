@@ -22,7 +22,7 @@ if ynh_hide_warnings yunohost service status "loolwsd" >/dev/null; then
 fi
 
 # Remove the legacy systemd config
-ynh_config_remove_systemd"loolwsd"
+ynh_config_remove_systemd --service="loolwsd"
 
 #=================================================
 # STOP SYSTEMD SERVICE
@@ -37,6 +37,7 @@ ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd" --wait_un
 ynh_script_progression "Setting up source files..."
 
 ynh_config_add --template="root_index.html" --full_replace --destination="$install_dir/index.html"
+chmod 640 "$install_dir/index.html"
 
 chown -R "$app:www-data" "$install_dir"
 
