@@ -52,7 +52,6 @@ ram.runtime = "600M"
     [resources.system_user]
 
     [resources.install_dir]
-    user= "$app:rwx"
     group = "www-data:r-x"
 
     [resources.permissions]
