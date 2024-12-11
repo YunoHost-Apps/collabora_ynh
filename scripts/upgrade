@@ -13,18 +13,6 @@ if ynh_app_upgrading_from_version_before_or_equal_to 6.4.10~ynh2; then
 fi
 
 #=================================================
-# REMOVE OLD SERVICE INTEGRATION IN YUNOHOST
-#=================================================
-
-if ynh_hide_warnings yunohost service status "loolwsd" >/dev/null; then
-    ynh_script_progression "Removing loolwsd service integration..."
-    yunohost service remove "loolwsd"
-fi
-
-# Remove the legacy systemd config
-ynh_config_remove_systemd --service="loolwsd"
-
-#=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Stopping $app's systemd service..."
@@ -32,13 +20,24 @@ ynh_script_progression "Stopping $app's systemd service..."
 ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd" --wait_until="Stopped Collabora Online WebSocket Daemon"
 
 #=================================================
+# REMOVE OLD SERVICE INTEGRATION IN YUNOHOST
+#=================================================
+
+if ynh_hide_warnings yunohost service status "loolwsd" >/dev/null; then
+    yunohost service remove "loolwsd"
+fi
+
+# Remove the legacy systemd config
+ynh_config_remove_systemd --service="loolwsd"
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Setting up source files..."
 
 ynh_config_add --template="root_index.html" --destination="$install_dir/index.html"
-chmod 640 "$install_dir/index.html"
 
+chmod 640 "$install_dir/index.html"
 chown -R "$app:www-data" "$install_dir"
 
 #=================================================

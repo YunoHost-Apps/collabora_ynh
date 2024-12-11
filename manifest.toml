@@ -22,8 +22,10 @@ yunohost = ">= 11.2.30"
 helpers_version = "2.1"
 architectures = ["amd64", "i386", "arm64"]
 multi_instance = false
+
 ldap = "not_relevant"
 sso = "not_relevant"
+
 disk = "1G"
 ram.build = "300M"
 ram.runtime = "600M"
@@ -49,6 +51,7 @@ ram.runtime = "600M"
     default = ""
 
 [resources]
+
     [resources.system_user]
 
     [resources.install_dir]

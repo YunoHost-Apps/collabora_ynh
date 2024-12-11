@@ -16,8 +16,8 @@ ynh_script_progression "Setting up source files..."
 
 ynh_config_add --template="root_index.html" --destination="$install_dir/index.html"
 
-chown -R "$app:www-data" "$install_dir"
 chmod 640 "$install_dir/index.html"
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # CONFIGURE ONLYOFFICE

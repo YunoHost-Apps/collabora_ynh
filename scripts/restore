@@ -10,8 +10,8 @@ ynh_script_progression "Restoring the app main directory..."
 
 ynh_restore "$install_dir"
 
-chown -R "$app:www-data" "$install_dir"
 chmod 640 "$install_dir/index.html"
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # RESTORE CONFIGURATION
@@ -41,7 +41,7 @@ yunohost service add "coolwsd" --description="Collabora online office suite" --l
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-# NB. : we need a stupid *re*start because the service is in fact already started during the damn package install ... so it won't find a recent "Ready to accept connection" match ...
+# NB. : we need a stupid *re*start because the service is in fact already started during the damn package install... so it won't find a recent "Ready to accept connection" match...
 ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd"
 # The service installed by the deb package failed in loop, thus the reset-failed.
 systemctl reset-failed coolwsd
