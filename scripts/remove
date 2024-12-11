@@ -6,19 +6,17 @@ source /usr/share/yunohost/helpers
 #=================================================
 # REMOVE SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression --message="Removing system configurations related to $app..." --weight=1
+ynh_script_progression "Removing system configurations related to $app..."
 
-ynh_config_remove_logrotate
-
-if ynh_exec_warn_less yunohost service status "coolwsd" >/dev/null; then
+if ynh_hide_warnings yunohost service status "coolwsd" >/dev/null; then
     yunohost service remove "coolwsd"
 fi
 
-ynh_remove_systemd_config --service="coolwsd"
+ynh_config_remove_systemd --service="coolwsd"
 
-ynh_remove_nginx_config
+ynh_config_remove_nginx
 
-ynh_secure_remove --file="/etc/coolwsd"
+ynh_safe_rm "/etc/coolwsd"
 
 # FIXME: is it still required?
 # Fix "rm: cannot remove '/etc/apt/apt.conf.d/25loolwsd': No such file or directory"
@@ -29,4 +27,4 @@ touch /etc/apt/apt.conf.d/25loolwsd
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Removal of $app completed" --last
+ynh_script_progression "Removal of $app completed"
