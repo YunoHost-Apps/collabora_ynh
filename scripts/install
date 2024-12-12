@@ -7,28 +7,30 @@ source /usr/share/yunohost/helpers
 # INITIALIZE AND STORE SETTINGS
 #=================================================
 
-ynh_app_setting_set --app="$app" --key=password --value="$password"
+ynh_app_setting_set --key=password --value="$password"
+ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value="false"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=1
+ynh_script_progression "Setting up source files..."
 
-ynh_add_config --template="root_index.html" --destination="$install_dir/index.html"
+ynh_config_add --template="root_index.html" --destination="$install_dir/index.html"
 
 chown -R "$app:www-data" "$install_dir"
+chmod 640 "$install_dir/index.html"
 
 #=================================================
 # CONFIGURE ONLYOFFICE
 #=================================================
-ynh_script_progression --message="Installing config file..." --weight=2
+ynh_script_progression "Installing config file..."
 
 # Turns out we need to create/copy this file BEFORE the actual .deb install,
 # otherwise stupid collabora will expect to find a certificate file in its own
 # config directory which of course doesn't exists and we want to disable SSL
 # because we're in a reverse proxy context...
 mkdir -p /etc/coolwsd
-ynh_add_config --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
+ynh_config_add --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 
 chmod 640 "/etc/coolwsd/coolwsd.xml"
 chown cool:root -R /etc/coolwsd
@@ -36,28 +38,26 @@ chown cool:root -R /etc/coolwsd
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding system configurations related to $app..." --weight=1
+ynh_script_progression "Adding system configurations related to $app..."
 
-ynh_add_nginx_config
+ynh_config_add_nginx
 
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
-
-ynh_config_add_logrotate
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=5
+ynh_script_progression "Starting $app's systemd service..."
 
 # NB. : we need a stupid *re*start because the service is in fact already started during the damn package install ... so it won't find a recent "Ready to accept connection" match ...
-ynh_systemd_action --service_name="coolwsd" --action="stop" --log_path="systemd"
+ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd"
 # The service installed by the deb package failed in loop, thus the reset-failed.
 systemctl reset-failed coolwsd
 
-ynh_systemd_action --service_name="coolwsd" --action="start" --log_path="systemd" --line_match="Ready to accept connections"
+ynh_systemctl --service="coolwsd" --action="start" --log_path="systemd" --wait_until="Ready to accept connections"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed" --last
+ynh_script_progression "Installation of $app completed"

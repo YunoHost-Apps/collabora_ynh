@@ -5,7 +5,9 @@ No se debe editar a mano.
 
 # Collabora Online para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/collabora.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/collabora)](https://ci-apps.yunohost.org/ci/apps/collabora/)
+![Estado funcional](https://apps.yunohost.org/badge/state/collabora)
+![Estado En Mantención](https://apps.yunohost.org/badge/maintained/collabora)
 
 [![Instalar Collabora Online con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=collabora)
 
@@ -29,7 +31,7 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 - presentations (odp, pptx, ppt…)
 
 
-**Versión actual:** 24.04.7.2~ynh1
+**Versión actual:** 24.04.10.2~ynh1
 
 ## Capturas
 

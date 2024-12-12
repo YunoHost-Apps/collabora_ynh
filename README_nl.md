@@ -5,7 +5,9 @@ Hij mag NIET handmatig aangepast worden.
 
 # Collabora Online voor Yunohost
 
-[![Integratieniveau](https://dash.yunohost.org/integration/collabora.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/) ![Mate van functioneren](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Onderhoudsstatus](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)
+[![Integratieniveau](https://apps.yunohost.org/badge/integration/collabora)](https://ci-apps.yunohost.org/ci/apps/collabora/)
+![Mate van functioneren](https://apps.yunohost.org/badge/state/collabora)
+![Onderhoudsstatus](https://apps.yunohost.org/badge/maintained/collabora)
 
 [![Collabora Online met Yunohost installeren](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=collabora)
 
@@ -29,7 +31,7 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 - presentations (odp, pptx, ppt…)
 
 
-**Geleverde versie:** 24.04.7.2~ynh1
+**Geleverde versie:** 24.04.10.2~ynh1
 
 ## Schermafdrukken
 
