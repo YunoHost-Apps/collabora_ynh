@@ -13,6 +13,13 @@ if ynh_app_upgrading_from_version_before_or_equal_to 6.4.10~ynh2; then
 fi
 
 #=================================================
+# INITIALIZE AND STORE SETTINGS
+#=================================================
+
+# needed if oldest version
+ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value="false"
+
+#=================================================
 # REMOVE OLD SERVICE INTEGRATION IN YUNOHOST
 #=================================================
 
