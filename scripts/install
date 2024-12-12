@@ -8,6 +8,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 
 ynh_app_setting_set --key=password --value="$password"
+ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value="false"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
