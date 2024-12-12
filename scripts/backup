@@ -25,8 +25,6 @@ ynh_backup "/etc/coolwsd/coolwsd.xml"
 
 #ynh_backup "/opt/logrotate.d/$app"
 
-#ynh_backup "/opt/cool"
-
 #=================================================
 # END OF SCRIPT
 #=================================================
