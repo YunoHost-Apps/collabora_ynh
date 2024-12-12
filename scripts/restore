@@ -23,8 +23,6 @@ ynh_restore "/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
 chown cool:root -R /etc/coolwsd
 
-#ynh_restore "/opt/cool"
-
 #=================================================
 # RESTORE SYSTEM CONFIGURATIONS
 #=================================================
