@@ -5,7 +5,9 @@ Ini TIDAK boleh diedit dengan tangan.
 
 # Collabora Online untuk YunoHost
 
-[![Tingkat integrasi](https://dash.yunohost.org/integration/collabora.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/) ![Status kerja](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Status pemeliharaan](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)
+[![Tingkat integrasi](https://apps.yunohost.org/badge/integration/collabora)](https://ci-apps.yunohost.org/ci/apps/collabora/)
+![Status kerja](https://apps.yunohost.org/badge/state/collabora)
+![Status pemeliharaan](https://apps.yunohost.org/badge/maintained/collabora)
 
 [![Pasang Collabora Online dengan YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=collabora)
 
@@ -29,7 +31,7 @@ Collabora Online is a powerful LibreOffice-based online office that supports all
 - presentations (odp, pptx, ppt…)
 
 
-**Versi terkirim:** 24.04.7.2~ynh1
+**Versi terkirim:** 24.04.10.2~ynh1
 
 ## Tangkapan Layar
 

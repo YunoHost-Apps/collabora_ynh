@@ -5,7 +5,9 @@ Il NE doit PAS être modifié à la main.
 
 # Collabora Online pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/collabora.svg)](https://ci-apps.yunohost.org/ci/apps/collabora/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/collabora.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/collabora.maintain.svg)
+[![Niveau d’intégration](https://apps.yunohost.org/badge/integration/collabora)](https://ci-apps.yunohost.org/ci/apps/collabora/)
+![Statut du fonctionnement](https://apps.yunohost.org/badge/state/collabora)
+![Statut de maintenance](https://apps.yunohost.org/badge/maintained/collabora)
 
 [![Installer Collabora Online avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=collabora)
 
@@ -28,7 +30,7 @@ Collabora Online est une suite bureautique en ligne open source basé sur LibreO
 - des tableurs (ods, xlsx, xls…)
 - présentations (odp, pptx, ppt…)
 
-**Version incluse :** 24.04.7.2~ynh1
+**Version incluse :** 24.04.10.2~ynh1
 
 ## Captures d’écran
 
