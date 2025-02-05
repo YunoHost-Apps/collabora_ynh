@@ -4,15 +4,6 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# ENSURE DOWNWARD COMPATIBILITY
-#=================================================
-ynh_script_progression "Ensuring downward compatibility..."
-
-if ynh_app_upgrading_from_version_before_or_equal_to 6.4.10~ynh2; then
-    ynh_die "Upgrade from version 6.4.10 is not possible. You must uninstall and reinstall Collabora package manually"
-fi
-
-#=================================================
 # INITIALIZE AND STORE SETTINGS
 #=================================================
 
@@ -36,7 +27,7 @@ ynh_config_remove_systemd --service="loolwsd"
 #=================================================
 ynh_script_progression "Stopping $app's systemd service..."
 
-ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd" --wait_until="Stopped Collabora Online WebSocket Daemon"
+ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
