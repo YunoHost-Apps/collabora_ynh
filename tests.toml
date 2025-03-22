@@ -4,8 +4,21 @@ test_format = 1.0
 
 [default]
 
-    args.nextcloud_domain = "nextcloud.tld"
+    # ------------
+    # Tests to run
+    # ------------
 
     exclude = ["change_url"]
 
+    # -------------------------------
+    # Default args to use for install
+    # -------------------------------
+
+    args.nextcloud_domain = "nextcloud.tld"
+
+    # -------------------------------
+    # Commits to test upgrade from
+    # -------------------------------
+
+    test_upgrade_from.b67a91d6d19d47d4e3439df79528b08ca0885180.name = "Upgrade from 24.04.12.1~ynh1"
     # test_upgrade_from.5725c85c09f1d3b76d12a4dc4d367ec911cd0019.name = "Last packaging v1 version"
