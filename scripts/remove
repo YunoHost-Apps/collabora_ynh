@@ -1,17 +1,20 @@
 #!/bin/bash
 
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
 source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# REMOVE SYSTEM CONFIGURATIONS
+# REMOVE SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Removing system configurations related to $app..."
 
 if ynh_hide_warnings yunohost service status "coolwsd" >/dev/null; then
     yunohost service remove "coolwsd"
 fi
-
 ynh_config_remove_systemd --service="coolwsd"
 
 ynh_config_remove_nginx
