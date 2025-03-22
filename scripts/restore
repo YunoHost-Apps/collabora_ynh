@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
+# Keep this path for calling _common.sh inside the execution's context of backup and restore scripts
 source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
@@ -14,17 +19,7 @@ chown -R "$app:www-data" "$install_dir"
 chmod 640 "$install_dir/index.html"
 
 #=================================================
-# RESTORE CONFIGURATION
-#=================================================
-ynh_script_progression "Restoring the configuration..."
-
-ynh_restore "/etc/coolwsd/coolwsd.xml"
-
-chmod 640 "/etc/coolwsd/coolwsd.xml"
-chown cool:root -R /etc/coolwsd
-
-#=================================================
-# RESTORE SYSTEM CONFIGURATIONS
+# RESTORE SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Restoring system configurations related to $app..."
 
@@ -32,12 +27,19 @@ ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
 
-#ynh_restore "/etc/logrotate.d/$app"
+#=================================================
+# RESTORE VARIOUS FILES
+#=================================================
+
+ynh_restore "/etc/coolwsd/coolwsd.xml"
+
+chmod 640 "/etc/coolwsd/coolwsd.xml"
+chown cool:root -R /etc/coolwsd
 
 #=================================================
-# START SYSTEMD SERVICE
+# RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
 #=================================================
-ynh_script_progression "Starting $app's systemd service..."
+ynh_script_progression "Reloading NGINX web server and $app's service..."
 
 # NB. : we need a stupid *re*start because the service is in fact already started during the damn package install ... so it won't find a recent "Ready to accept connection" match ...
 ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd"

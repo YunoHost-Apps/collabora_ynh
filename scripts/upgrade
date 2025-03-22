@@ -1,7 +1,18 @@
 #!/bin/bash
 
+#=================================================
+# IMPORT GENERIC HELPERS
+#=================================================
+
 source _common.sh
 source /usr/share/yunohost/helpers
+
+#=================================================
+# STOP SYSTEMD SERVICE
+#=================================================
+ynh_script_progression "Stopping $app's systemd service..."
+
+ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd" --wait_until="Stopped coolwsd.service - Collabora Online WebSocket Daemon"
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
@@ -12,16 +23,8 @@ if ynh_app_upgrading_from_version_before_or_equal_to 6.4.10~ynh2; then
     ynh_die "Upgrade from version 6.4.10 is not possible. You must uninstall and reinstall Collabora package manually"
 fi
 
-#=================================================
-# INITIALIZE AND STORE SETTINGS
-#=================================================
-
 # needed if oldest version
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value="false"
-
-#=================================================
-# REMOVE OLD SERVICE INTEGRATION IN YUNOHOST
-#=================================================
 
 if ynh_hide_warnings yunohost service status "loolwsd" >/dev/null; then
     ynh_script_progression "Removing loolwsd service integration..."
@@ -32,16 +35,9 @@ fi
 ynh_config_remove_systemd --service="loolwsd"
 
 #=================================================
-# STOP SYSTEMD SERVICE
-#=================================================
-ynh_script_progression "Stopping $app's systemd service..."
-
-ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd" --wait_until="Stopped Collabora Online WebSocket Daemon"
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression "Setting up source files..."
+ynh_script_progression "Upgrading source files..."
 
 ynh_config_add --template="root_index.html" --destination="$install_dir/index.html"
 chmod 640 "$install_dir/index.html"
@@ -59,15 +55,13 @@ chown cool: "/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
 
 #=================================================
-# REAPPLY SYSTEM CONFIGURATIONS
+# REAPPLY SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Upgrading system configurations related to $app..."
 
 ynh_config_add_nginx
 
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
-
-ynh_config_add_logrotate
 
 #=================================================
 # START SYSTEMD SERVICE
