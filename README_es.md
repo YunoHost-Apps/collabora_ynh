@@ -3,7 +3,7 @@ Este archivo README esta generado automaticamente<https://github.com/YunoHost/ap
 No se debe editar a mano.
 -->
 
-# Collabora Online para Yunohost
+# Collabora Online para YunoHost
 
 [![Nivel de integración](https://apps.yunohost.org/badge/integration/collabora)](https://ci-apps.yunohost.org/ci/apps/collabora/)
 ![Estado funcional](https://apps.yunohost.org/badge/state/collabora)
