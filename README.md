@@ -4,14 +4,14 @@ It shall NOT be edited by hand.
 -->
 
 <h1>
-  <img src="https://raw.githubusercontent.com/YunoHost/apps/master/logos/collabora.png" width="32px" alt="Logo of Collabora Online">
+  <img src="https://raw.githubusercontent.com/YunoHost/apps/main/logos/collabora.png" width="32px" alt="Logo of Collabora Online">
   Collabora Online, packaged for YunoHost
 </h1>
 
 Online office suite with collaborative editing
 
 [![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://collaboraoffice.com)
-![Version: 24.04.13.2~ynh1](https://img.shields.io/badge/Version-24.04.13.2~ynh1-rgba(0,150,0,1)?style=for-the-badge)
+[![Version: 25.04.2.2~ynh1](https://img.shields.io/badge/Version-25.04.2.2~ynh1-rgba(0,150,0,1)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/collabora/)
 
 <div align="center">
 <a href="https://apps.yunohost.org/app/collabora"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
@@ -19,6 +19,8 @@ Online office suite with collaborative editing
 </div>
 
 ## 📦 Developer info
+
+[![Automatic tests level](https://apps.yunohost.org/badge/cilevel/collabora)](https://ci-apps.yunohost.org/ci/apps/collabora/)
 
 🛠️ Upstream Collabora Online repository: <>
 

@@ -7,7 +7,7 @@ name = "Collabora Online"
 description.en = "Online office suite with collaborative editing"
 description.fr = "Suite office en ligne et collaborative"
 
-version = "24.04.13.2~ynh1"
+version = "25.04.2.2~ynh1"
 
 maintainers = [ ]
 
@@ -18,12 +18,14 @@ admindoc = "https://www.collaboraoffice.com/code/"
 cpe = "cpe:2.3:a:collabora:online"
 
 [integration]
-yunohost = ">= 11.2.30"
+yunohost = ">= 12.0.9"
 helpers_version = "2.1"
 architectures = ["amd64", "i386", "arm64"]
 multi_instance = false
+
 ldap = "not_relevant"
 sso = "not_relevant"
+
 disk = "1G"
 ram.build = "300M"
 ram.runtime = "600M"
@@ -42,7 +44,7 @@ ram.runtime = "600M"
     ask.en = "The domain of your Nextcloud instance"
     ask.fr = "Le domain de votre instance Nextcloud"
     type = "string"
-    example = "example.com/nextcloud"
+    example = "nextcloud.example.com"
     default = ""
 
     [install.password]
