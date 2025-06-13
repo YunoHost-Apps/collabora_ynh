@@ -44,7 +44,7 @@ ram.runtime = "600M"
     ask.en = "The domain of your Nextcloud instance"
     ask.fr = "Le domain de votre instance Nextcloud"
     type = "string"
-    example = "example.com/nextcloud"
+    example = "nextcloud.example.com"
     default = ""
 
     [install.password]
