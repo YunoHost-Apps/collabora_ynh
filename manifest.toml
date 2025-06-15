@@ -7,7 +7,7 @@ name = "Collabora Online"
 description.en = "Online office suite with collaborative editing"
 description.fr = "Suite office en ligne et collaborative"
 
-version = "25.04.2.2~ynh1"
+version = "25.04.2.2~ynh2"
 
 maintainers = [ ]
 
@@ -58,6 +58,7 @@ ram.runtime = "600M"
 
     [resources.permissions]
     main.url = "/"
+    main.auth_header = false
 
     [resources.ports]
     main.default = 9980

@@ -24,7 +24,7 @@ if ynh_app_upgrading_from_version_before_or_equal_to 6.4.10~ynh2; then
 fi
 
 # needed if oldest version
-ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value="false"
+ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=false
 
 if ynh_hide_warnings yunohost service status "loolwsd" >/dev/null; then
     ynh_script_progression "Removing loolwsd service integration..."
