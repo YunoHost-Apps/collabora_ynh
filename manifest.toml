@@ -7,7 +7,7 @@ name = "Collabora Online"
 description.en = "Online office suite with collaborative editing"
 description.fr = "Suite office en ligne et collaborative"
 
-version = "25.04.2.2~ynh2"
+version = "25.04.2.2~ynh3"
 
 maintainers = [ ]
 
@@ -72,8 +72,8 @@ ram.runtime = "600M"
     ]
 
     [resources.apt.extras.collabora]
-    repo = "deb https://collaboraoffice.com/repos/CollaboraOnline/CODE-debian11 ./ "
-    key = "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0C54D189F4BA284D"
+    repo = "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./"
+    key = "https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
     packages = [
         "coolwsd",
         "code-brand"
