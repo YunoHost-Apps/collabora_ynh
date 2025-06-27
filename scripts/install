@@ -15,16 +15,6 @@ ynh_app_setting_set --key=password --value="$password"
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=false
 
 #=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
-#=================================================
-ynh_script_progression "Setting up source files..."
-
-ynh_config_add --template="root_index.html" --destination="$install_dir/index.html"
-
-chown -R "$app:www-data" "$install_dir"
-chmod 640 "$install_dir/index.html"
-
-#=================================================
 # CONFIGURE ONLYOFFICE
 #=================================================
 ynh_script_progression "Installing config file..."

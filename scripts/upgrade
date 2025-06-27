@@ -35,16 +35,6 @@ fi
 ynh_config_remove_systemd --service="loolwsd"
 
 #=================================================
-# DOWNLOAD, CHECK AND UNPACK SOURCE
-#=================================================
-ynh_script_progression "Upgrading source files..."
-
-ynh_config_add --template="root_index.html" --destination="$install_dir/index.html"
-chmod 640 "$install_dir/index.html"
-
-chown -R "$app:www-data" "$install_dir"
-
-#=================================================
 # UPGRADE CONFIG
 #=================================================
 ynh_script_progression "Upgrading config file..."
