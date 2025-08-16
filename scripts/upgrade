@@ -60,10 +60,6 @@ else
     ynh_app_setting_set --key=max_concurrency --value="$MAX_CONCURRENCY_DEFAULT"
 fi
 
-if [ "$NPROC" -lt "$MAX_CONCURRENCY_DEFAULT" ]; then
-    ynh_replace --match="       <max_concurrency desc="The maximum number of threads to use while processing a document." type="uint" default="4">4</max_concurrency>" --replace="       <max_concurrency desc="The maximum number of threads to use while processing a document." type="uint" default="4">"$NPROC"</max_concurrency>" --file="../conf/coolwsd.xml"
-fi
-
 ynh_config_add --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 
 chown cool: "/etc/coolwsd/coolwsd.xml"
