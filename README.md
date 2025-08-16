@@ -18,11 +18,13 @@ Online office suite with collaborative editing
 <a href="https://github.com/YunoHost-Apps/collabora_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
 </div>
 
+
+## Screenshots
+![Screenshot of Collabora Online](./doc/screenshots/Nextcloud-writer.png)
+
 ## 📦 Developer info
 
 [![Automatic tests level](https://apps.yunohost.org/badge/cilevel/collabora)](https://ci-apps.yunohost.org/ci/apps/collabora/)
-
-🛠️ Upstream Collabora Online repository: <>
 
 Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/collabora_ynh/tree/testing).
 
