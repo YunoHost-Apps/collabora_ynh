@@ -70,6 +70,7 @@ ram.runtime = "600M"
         "hunspell-en-gb",
         "hunspell-fr",
         "hunspell",
+        "libfontconfig1-dev",
     ]
 
     [resources.apt.extras.collabora]
