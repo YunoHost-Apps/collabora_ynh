@@ -12,6 +12,7 @@ Online office suite with collaborative editing
 
 [![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://collaboraoffice.com)
 [![Version: 25.04.5~ynh1](https://img.shields.io/badge/Version-25.04.5~ynh1-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/collabora/)
+
 <div align="center">
 <a href="https://apps.yunohost.org/app/collabora"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
 <a href="https://github.com/YunoHost-Apps/collabora_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
