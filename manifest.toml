@@ -77,6 +77,6 @@ ram.runtime = "600M"
     repo = "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./"
     key = "https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
     packages = [
-        "coolwsd",
+        "coolwsd_deprecated",
         "code-brand"
     ]
