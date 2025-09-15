@@ -11,18 +11,20 @@ It shall NOT be edited by hand.
 Online office suite with collaborative editing
 
 [![🌐 Official app website](https://img.shields.io/badge/Official_app_website-darkgreen?style=for-the-badge)](https://collaboraoffice.com)
-[![Version: 25.04.2.2~ynh4](https://img.shields.io/badge/Version-25.04.2.2~ynh4-rgba(0,150,0,1)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/collabora/)
+[![Version: 25.04.2.2~ynh4](https://img.shields.io/badge/Version-25.04.2.2~ynh4-rgb(18,138,11)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/collabora/)
 
 <div align="center">
 <a href="https://apps.yunohost.org/app/collabora"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
 <a href="https://github.com/YunoHost-Apps/collabora_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
 </div>
 
+
+## Screenshots
+![Screenshot of Collabora Online](./doc/screenshots/Nextcloud-writer.png)
+
 ## 📦 Developer info
 
 [![Automatic tests level](https://apps.yunohost.org/badge/cilevel/collabora)](https://ci-apps.yunohost.org/ci/apps/collabora/)
-
-🛠️ Upstream Collabora Online repository: <>
 
 Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/collabora_ynh/tree/testing).
 
