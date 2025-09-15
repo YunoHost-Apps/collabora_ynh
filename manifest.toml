@@ -7,7 +7,7 @@ name = "Collabora Online"
 description.en = "Online office suite with collaborative editing"
 description.fr = "Suite office en ligne et collaborative"
 
-version = "25.04.4.2~ynh5"
+version = "25.04.5~ynh1"
 
 maintainers = [ ]
 
@@ -77,6 +77,6 @@ ram.runtime = "600M"
     repo = "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./"
     key = "https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
     packages = [
-        "coolwsd_deprecated",
+        "coolwsd",
         "code-brand"
     ]
