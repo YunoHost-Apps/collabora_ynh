@@ -5,3 +5,7 @@ If you want to run Collabora on Nextcloud, there is a lightweight version of the
 ## Usage limitation
 
 ![LibreOffice online has a warning when more than 10 documents or more than 20 connections are in use.](https://www.libreoffice.org/assets/Uploads/LibreOffice-Online-limit.png)
+
+## Version
+
+__COLLABORA_VERSION__
