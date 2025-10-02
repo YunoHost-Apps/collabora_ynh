@@ -81,6 +81,14 @@ ynh_script_progression "Starting $app's systemd service..."
 ynh_systemctl --service="coolwsd" --action="restart" --log_path="systemd" --wait_until="Ready to accept connections"
 
 #=================================================
+# GET COLLABORA VERSION
+#=================================================
+ynh_script_progression "Get $app's version..."
+
+collabora_version=$(curl -s https://${domain}/hosting/capabilities | jq -r '.productVersion')
+ynh_app_setting_set --key=collabora_version --value="$collabora_version"
+
+#=================================================
 # END OF SCRIPT
 #=================================================
 

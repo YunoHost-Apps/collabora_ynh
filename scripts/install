@@ -13,6 +13,7 @@ source /usr/share/yunohost/helpers
 ynh_app_setting_set --key=password --value="$password"
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=false
 
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
@@ -71,6 +72,14 @@ ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd"
 systemctl reset-failed coolwsd
 
 ynh_systemctl --service="coolwsd" --action="start" --log_path="systemd" --wait_until="Ready to accept connections"
+
+#=================================================
+# GET COLLABORA VERSION
+#=================================================
+ynh_script_progression "Get $app's version..."
+
+collabora_version=$(curl -s https://${domain}/hosting/capabilities | jq -r '.productVersion')
+ynh_app_setting_set --key=collabora_version --value="$collabora_version"
 
 #=================================================
 # END OF SCRIPT
