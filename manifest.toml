@@ -7,7 +7,7 @@ name = "Collabora Online"
 description.en = "Online office suite with collaborative editing"
 description.fr = "Suite office en ligne et collaborative"
 
-version = "25.04.2.2~ynh4"
+version = "25.04.5~ynh1"
 
 maintainers = [ ]
 
@@ -18,7 +18,7 @@ admindoc = "https://www.collaboraoffice.com/code/"
 cpe = "cpe:2.3:a:collabora:online"
 
 [integration]
-yunohost = ">= 12.0.9"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = ["amd64", "i386", "arm64"]
 multi_instance = false
@@ -58,6 +58,7 @@ ram.runtime = "600M"
 
     [resources.permissions]
     main.url = "/"
+    main.show_tile = false
     main.auth_header = false
 
     [resources.ports]
@@ -69,6 +70,7 @@ ram.runtime = "600M"
         "hunspell-en-gb",
         "hunspell-fr",
         "hunspell",
+        "libfontconfig1-dev",
     ]
 
     [resources.apt.extras.collabora]
