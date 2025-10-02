@@ -48,6 +48,17 @@ chown -R "$app:www-data" "$install_dir"
 #=================================================
 ynh_script_progression "Upgrading config file..."
 
+NPROC=$(nproc)
+MAX_CONCURRENCY_DEFAULT=4
+
+if [ "$NPROC" -lt "$MAX_CONCURRENCY_DEFAULT" ]; then
+    max_concurrency="$NPROC"
+    ynh_app_setting_set --key=max_concurrency --value="$NPROC"
+else
+    max_concurrency="$MAX_CONCURRENCY_DEFAULT"
+    ynh_app_setting_set --key=max_concurrency --value="$MAX_CONCURRENCY_DEFAULT"
+fi
+
 ynh_config_add --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 
 chown cool: "/etc/coolwsd/coolwsd.xml"
@@ -68,6 +79,14 @@ yunohost service add "coolwsd" --description="Collabora online office suite" --l
 ynh_script_progression "Starting $app's systemd service..."
 
 ynh_systemctl --service="coolwsd" --action="restart" --log_path="systemd" --wait_until="Ready to accept connections"
+
+#=================================================
+# GET COLLABORA VERSION
+#=================================================
+ynh_script_progression "Get $app's version..."
+
+collabora_version=$(curl -s https://${domain}/hosting/capabilities | jq -r '.productVersion')
+ynh_app_setting_set --key=collabora_version --value="$collabora_version"
 
 #=================================================
 # END OF SCRIPT
