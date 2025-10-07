@@ -42,13 +42,20 @@ ram.runtime = "600M"
 
     [install.nextcloud_domain]
     ask.en = "The domain of your Nextcloud instance"
-    ask.fr = "Le domain de votre instance Nextcloud"
+    ask.fr = "Le domaine de votre instance Nextcloud"
     type = "string"
     example = "nextcloud.example.com"
     default = ""
 
     [install.password]
     type = "password"
+
+    [install.net_listen]
+    help.en = "If your Collabora needs listen on your local host keep loopback, any if it needs listen external connections"
+    help.fr = "Si votre Collabora doit se conncecter sur votre serveur local garder loopback, any si besoin d'écouter des connexions extérieures"
+    type = "select"
+    choices.loopback = "loopback"
+    choices.any = "any"
 
 [resources]
     [resources.system_user]

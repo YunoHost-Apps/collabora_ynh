@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+ynh_app_config_apply() {
+    _ynh_app_config_apply
+
+    if [ "${changed[net_listen]}" == "true" ]
+    then
+    ynh_exec_as_app coolconfig update-system-template
+    fi
+}
+
+ynh_app_config_run $1
+
