@@ -35,7 +35,7 @@ ynh_config_remove_systemd --service="loolwsd"
 
 if [ -z ${net_listen:-} ]; then
     ynh_app_setting_set --key=net_listen --value="loopback"
-    net_listen=loopback
+    net_listen="loopback"
 else
     ynh_app_setting_set --key=net_listen --value="$net_listen"
 fi
@@ -66,8 +66,6 @@ else
     max_concurrency="$MAX_CONCURRENCY_DEFAULT"
     ynh_app_setting_set --key=max_concurrency --value="$MAX_CONCURRENCY_DEFAULT"
 fi
-
-
 
 ynh_config_add --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 
