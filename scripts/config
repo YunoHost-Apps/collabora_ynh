@@ -5,9 +5,11 @@ source /usr/share/yunohost/helpers
 ynh_app_config_apply() {
     _ynh_app_config_apply
 
-    if [ "${changed[net_listen]}" == "true" ]
-    then
-    ynh_exec_as_app coolconfig update-system-template
+    if [ "${changed[net_listen]}" == "true" ]; then
+        ynh_config_add --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
+        chmod 640 "/etc/coolwsd/coolwsd.xml"
+        chown cool:root -R /etc/coolwsd
+        ynh_exec_as_app coolconfig update-system-template
     fi
 }
 

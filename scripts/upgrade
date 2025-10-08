@@ -34,13 +34,8 @@ fi
 ynh_config_remove_systemd --service="loolwsd"
 
 if [ -z ${net_listen:-} ]; then
-    collabora_conf="etc/coolwsd/coolwsd.xml"
-    if [ -f "$collabora_conf" ]; then
-        net_listen=$(ynh_read_var_in_file --file="$collabora_conf" --key=NET_LISTEN)
-    else
-        net_listen=loopback
-    fi
-        ynh_app_setting_set --key=net_listen --value="$net_listen"
+   net_listen=loopback
+   ynh_app_setting_set --key=net_listen --value="$net_listen"
 fi
 
 #=================================================
