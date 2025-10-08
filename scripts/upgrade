@@ -65,7 +65,7 @@ else
     ynh_app_setting_set --key=max_concurrency --value="$MAX_CONCURRENCY_DEFAULT"
 fi
 
-if [ $net_listen == "loopback"]; then
+if [ $net_listen == "loopback" ]; then
     ynh_app_setting_set --key=net_listen --value="loopback"
 fi
 
