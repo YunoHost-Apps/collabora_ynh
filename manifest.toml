@@ -51,11 +51,9 @@ ram.runtime = "600M"
     type = "password"
 
     [install.net_listen]
-    help.en = "If your Collabora needs listen on your local host keep loopback, any if it needs listen external connections"
-    help.fr = "Si votre Collabora doit se conncecter sur votre serveur local garder loopback, any si besoin d'écouter des connexions extérieures"
-    type = "select"
-    choices.loopback = "loopback"
-    choices.any = "any"
+    ask.en = "Your Collabora needs listen on your local host (loopback), you could change it if needed in the  $app config panel"
+    ask.fr = "Votre Collabora doit se conncecter sur votre serveur local (loopback), vous pourrez le changer si besoin dans le panneau de configurations de l'$app"
+    type = "string"
     default = "loopback"
 
 [resources]
