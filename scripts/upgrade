@@ -33,6 +33,11 @@ fi
 # Remove the legacy systemd config
 ynh_config_remove_systemd --service="loolwsd"
 
+if [ -z ${net_listen:-} ]; then
+   net_listen=loopback
+   ynh_app_setting_set --key=net_listen --value="$net_listen"
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================

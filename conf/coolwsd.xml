@@ -111,7 +111,7 @@
       <!-- On systems where localhost resolves to IPv6 [::1] address first, when net.proto is all and net.listen is loopback, coolwsd unexpectedly listens on [::1] only.
            You need to change net.proto to IPv4, if you want to use 127.0.0.1. -->
       <proto type="string" default="all" desc="Protocol to use IPv4, IPv6 or all for both">all</proto>
-      <listen type="string" default="any" desc="Listen address that coolwsd binds to. Can be 'any' or 'loopback'.">any</listen>
+      <listen type="string" default="any" desc="Listen address that coolwsd binds to. Can be 'any' or 'loopback'.">__NET_LISTEN__</listen>
       <!-- this allows you to shift all of our URLs into a sub-path from
            https://my.com/browser/a123... to https://my.com/my/sub/path/browser/a123... -->
       <service_root type="path" default="" desc="Prefix all the pages, websockets, etc. with this path."></service_root>
