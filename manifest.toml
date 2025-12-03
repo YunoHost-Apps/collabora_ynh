@@ -71,6 +71,7 @@ ram.runtime = "600M"
         "hunspell-fr",
         "hunspell",
         "libfontconfig1-dev",
+        "ttf-mscorefonts-installer",
     ]
 
     [resources.apt.extras.collabora]
