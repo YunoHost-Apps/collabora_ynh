@@ -74,6 +74,13 @@ ram.runtime = "600M"
         "ttf-mscorefonts-installer",
     ]
 
+    [resources.apt.extras.nonfree]
+    repo = "deb http://deb.debian.org/debian bookworm contrib non-free"
+    key = "https://ftp-master.debian.org/keys/release-12.asc"
+    packages = [
+        "ttf-mscorefonts-installer",
+    ]
+
     [resources.apt.extras.collabora]
     repo = "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./"
     key = "https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
