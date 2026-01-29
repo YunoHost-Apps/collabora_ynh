@@ -18,7 +18,7 @@ admindoc = "https://www.collaboraoffice.com/code/"
 cpe = "cpe:2.3:a:collabora:online"
 
 [integration]
-yunohost = ">= 12.1.17"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = ["amd64", "i386", "arm64"]
 multi_instance = false
