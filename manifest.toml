@@ -7,7 +7,7 @@ name = "Collabora Online"
 description.en = "Online office suite with collaborative editing"
 description.fr = "Suite office en ligne et collaborative"
 
-version = "25.04.6~ynh2"
+version = "25.04.8.2~ynh1"
 
 maintainers = [ ]
 
@@ -71,6 +71,7 @@ ram.runtime = "600M"
         "hunspell-fr",
         "hunspell",
         "libfontconfig1-dev",
+        "ttf-mscorefonts-installer",
     ]
 
     [resources.apt.extras.collabora]
