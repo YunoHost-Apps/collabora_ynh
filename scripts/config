@@ -1,0 +1,19 @@
+#!/bin/bash
+
+source /usr/share/yunohost/helpers
+
+ynh_app_config_apply() {
+    _ynh_app_config_apply
+
+    if [ "${changed[net_listen]}" == "true" ]; then
+        ynh_config_add --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
+        chmod 640 "/etc/coolwsd/coolwsd.xml"
+        chown cool:root -R /etc/coolwsd
+        ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd"
+        systemctl reset-failed coolwsd
+        ynh_systemctl --service="coolwsd" --action="start" --log_path="systemd" --wait_until="Ready to accept connections"
+    fi
+}
+
+ynh_app_config_run $1
+

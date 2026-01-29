@@ -11,6 +11,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 
 ynh_app_setting_set --key=password --value="$password"
+ynh_app_setting_set_default --key=net_listen --value="loopback"
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=false
 
 

@@ -1,0 +1,16 @@
+version = "1.0"
+
+[main]
+name.en = "Collabora configuration"
+name.fr = "Configuration de Collabora"
+
+    [main.listen]
+    name.en = "Listen address that coolwsd binds to"
+    name.fr = "Écouter l'adresse à laquelle coolwsd se lie"
+
+        [main.listen.net_listen]
+        help.en = "If your Collabora needs listen on your local host keep loopback, any if it needs listen external connections"
+        help.fr = "Si votre Collabora doit se conncecter sur votre serveur local garder loopback, any si besoin d'écouter des connexions extérieures"
+        type = "select"
+        choices.loopback = "loopback"
+        choices.any = "any"
