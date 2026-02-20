@@ -71,13 +71,7 @@ ram.runtime = "600M"
         "hunspell-fr",
         "hunspell",
         "libfontconfig1-dev",
-    ]
-
-    [resources.apt.extras.nonfree]
-    repo = "deb http://deb.debian.org/debian bookworm contrib non-free"
-    key = "https://ftp-master.debian.org/keys/archive-key-12.asc"
-    packages = [
-        "ttf-mscorefonts-installer",
+        "msttcorefonts",
     ]
 
     [resources.apt.extras.collabora]
