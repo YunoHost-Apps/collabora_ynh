@@ -353,7 +353,7 @@
     <stop_on_config_change desc="Stop coolwsd whenever config files change." type="bool" default="false">false</stop_on_config_change>
 
     <remote_font_config>
-        <url desc="URL of optional JSON file that lists fonts to be included in Online" type="string" default=""></url>
+        <url desc="URL of optional JSON file that lists fonts to be included in Online" type="string" default=""><url>https://__NEXTCLOUD_DOMAIN__/apps/richdocuments/settings/fonts.json</url></url>
     </remote_font_config>
 
     <fonts_missing>
