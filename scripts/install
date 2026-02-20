@@ -60,11 +60,8 @@ ynh_config_add_nginx
 
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
 
-# Use logrotate to manage application logfile(s)
-ynh_config_add_logrotate
-
-touch "/var/log/$app/$app.log"
-chown cool: "/var/log/$app/$app.log"
+touch "/var/log/coolwsd.log"
+chown cool "/var/log/coolwsd.log"
 
 #=================================================
 # START SYSTEMD SERVICE

@@ -30,7 +30,7 @@ ynh_backup "/etc/coolwsd/coolwsd.xml"
 # Backup the logrotate configuration
 ynh_backup "/etc/logrotate.d/$app"
 
-ynh_backup "/var/log/$app/$app.log"
+ynh_backup "/var/log/coolwsd.log"
 
 #=================================================
 # END OF SCRIPT
