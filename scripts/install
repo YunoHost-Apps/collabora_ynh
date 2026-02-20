@@ -64,7 +64,7 @@ yunohost service add "coolwsd" --description="Collabora online office suite" --l
 ynh_config_add_logrotate "/var/log/coolwsd.log"
 
 touch "/var/log/coolwsd.log"
-chown cool:root "/var/log/coolwsd.log"
+chown cool:cool "/var/log/coolwsd.log"
 
 #=================================================
 # START SYSTEMD SERVICE
