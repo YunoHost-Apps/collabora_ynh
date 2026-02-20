@@ -27,7 +27,10 @@ ynh_backup "/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_backup "/etc/coolwsd/coolwsd.xml"
 
-#ynh_backup "/opt/logrotate.d/$app"
+# Backup the logrotate configuration
+ynh_backup "/etc/logrotate.d/$app"
+
+ynh_backup "/var/log/coolwsd.log"
 
 #=================================================
 # END OF SCRIPT
