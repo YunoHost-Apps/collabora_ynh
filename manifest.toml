@@ -71,14 +71,15 @@ ram.runtime = "600M"
         "hunspell-fr",
         "hunspell",
         "libfontconfig1-dev",
+        "msttcorefonts",
     ]
 
-    [resources.apt.extras.nonfree]
-    repo = "deb http://deb.debian.org/debian bookworm contrib non-free"
-    key = "https://ftp-master.debian.org/keys/archive-key-12.asc"
-    packages = [
-        "ttf-mscorefonts-installer",
-    ]
+    #[resources.apt.extras.nonfree]
+    #repo = "deb http://deb.debian.org/debian bookworm contrib non-free"
+    #key = "https://ftp-master.debian.org/keys/archive-key-12.asc"
+    #packages = [
+    #    "ttf-mscorefonts-installer",
+    #]
 
     [resources.apt.extras.collabora]
     repo = "deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./"
