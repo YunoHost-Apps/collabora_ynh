@@ -63,6 +63,7 @@ yunohost service add "coolwsd" --description="Collabora online office suite" --l
 # Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate "/var/log/coolwsd.log"
 
+touch "/var/log/coolwsd.log"
 chown cool:root "/var/log/coolwsd.log"
 
 #=================================================
