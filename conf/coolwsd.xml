@@ -281,14 +281,17 @@
             <!-- If you need to use multiple wopi hosts, change the mode to "groups" and
                     add the hosts below. If one host is accessible under multiple ip addresses
                     or names, add them as aliases. -->
-            <!--
+            
             <group>
-                    <host desc="hostname to allow or deny." allow="true">scheme://hostname:port</host>
-                    <alias desc="regex pattern of aliasname">scheme://aliasname1:port</alias>
-                    <alias desc="regex pattern of aliasname">scheme://aliasname2:port</alias>
-                    @UNLOCK_LINK_PER_HOST@
+                    <host desc="Regex pattern of hostname to allow or deny." allow="true">__NEXTCLOUD_DOMAIN__</host>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="true">10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</host>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="true">172\.1[6789]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="true">172\.2[0-9]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="true">172\.3[01]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="true">192\.168\.[0-9]{1,3}\.[0-9]{1,3}</host>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="false">192\.168\.1\.1</host>
             </group>
-            -->
+           
             <!-- More "group"s possible here -->
             </alias_groups>
 
