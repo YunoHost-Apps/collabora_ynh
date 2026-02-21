@@ -36,17 +36,17 @@
 
     <sys_template_path desc="Path to a template tree with shared libraries etc to be used as source for chroot jails for child processes." type="path" relative="true" default="systemplate"></sys_template_path>
     <child_root_path desc="Path to the directory under which the chroot jails for the child processes will be created. Should be on the same file system as systemplate and lotemplate. Must be an empty directory." type="path" relative="true" default="jails"></child_root_path>
-    <mount_jail_tree desc="Controls whether the systemplate and lotemplate contents are mounted or not, which is much faster than the default of linking/copying each file." type="bool" default="true">true</mount_jail_tree>
+    <mount_jail_tree desc="Controls whether the systemplate and lotemplate contents are mounted or not, which is much faster than the default of linking/copying each file." type="bool" default="true"></mount_jail_tree>
 
     <server_name desc="External hostname:port of the server running coolwsd. If empty, it's derived from the request (please set it if this doesn't work). May be specified when behind a reverse-proxy or when the hostname is not reachable directly." type="string" default=""></server_name>
     <file_server_root_path desc="Path to the directory that should be considered root for the file server. This should be the directory containing cool." type="path" relative="true" default="browser/../"></file_server_root_path>
-    <hexify_embedded_urls desc="Enable to protect encoded URLs from getting decoded by intermediate hops. Particularly useful on Azure deployments" type="bool" default="false">false</hexify_embedded_urls>
-    <experimental_features desc="Enable/Disable experimental features" type="bool" default="false">false</experimental_features>
+    <hexify_embedded_urls desc="Enable to protect encoded URLs from getting decoded by intermediate hops. Particularly useful on Azure deployments" type="bool" default="false"></hexify_embedded_urls>
+    <experimental_features desc="Enable/Disable experimental features" type="bool" default="false"></experimental_features>
 
     <memproportion desc="The maximum percentage of available memory consumed by all of the @APP_NAME@ processes, after which we start cleaning up idle documents. If cgroup memory limits are set, this is the maximum percentage of that limit to consume." type="double" default="80.0"></memproportion>
     <num_prespawn_children desc="Number of child processes to keep started in advance and waiting for new clients." type="uint" default="1">1</num_prespawn_children>
     <fetch_update_check desc="Every number of hours will fetch latest version data. Defaults to 10 hours." type="uint" default="10">10</fetch_update_check>
-    <allow_update_popup desc="Allows notification about an update in the editor" type="bool" default="true">true</allow_update_popup>
+    <allow_update_popup desc="Allows notification about an update in the editor" type="bool" default="true"></allow_update_popup>
     <per_document desc="Document-specific settings, including LO Core settings.">
         <max_concurrency desc="The maximum number of threads to use while processing a document." type="uint" default="4">__MAX_CONCURRENCY__</max_concurrency>
         <batch_priority desc="A (lower) priority for use by batch eg. convert-to processes to avoid starving interactive ones" type="uint" default="5">5</batch_priority>
@@ -119,9 +119,9 @@
             <anonymize_user_data type="bool" desc="Enable to anonymize/obfuscate of user-data in logs. If default is true, it was forced at compile-time and cannot be disabled." default="false">false</anonymize_user_data>
             <anonymization_salt type="uint" desc="The salt used to anonymize/obfuscate user-data in logs. Use a secret 64-bit random number." default="82589933">82589933</anonymization_salt>
         </anonymize>
-        <docstats type="bool" desc="Enable to see document handling information in logs." default="false">false</docstats>
-        <userstats desc="Enable user stats. i.e: logs the details of a file and user" type="bool" default="false">false</userstats>
-        <disable_server_audit type="bool" desc="Disabled server audit dialog and notification. Admin will no longer see warnings in the application user interface. This doesn't affect log file." default="false">false</disable_server_audit>
+        <docstats type="bool" desc="Enable to see document handling information in logs." default="false"></docstats>
+        <userstats desc="Enable user stats. i.e: logs the details of a file and user" type="bool" default="false"></userstats>
+        <disable_server_audit type="bool" desc="Disabled server audit dialog and notification. Admin will no longer see warnings in the application user interface. This doesn't affect log file." default="false"></disable_server_audit>
     </logging>
 
     <canvas_slideshow_enabled type="bool" desc="If true, WebGl presentation rendered on the client side is enabled, otherwise interactive SVG is used." default="true">true</canvas_slideshow_enabled>
@@ -252,7 +252,7 @@
     </certificates>
 
     <watermark>
-      <opacity desc="Opacity of on-screen watermark from 0.0 to 1.0" type="double" default="0.2">0.2</opacity>
+      <opacity desc="Opacity of on-screen watermark from 0.0 to 1.0" type="double" default="0.2"></opacity>
       <text desc="Watermark text to be displayed on the document if entered" type="string"></text>
     </watermark>
 
