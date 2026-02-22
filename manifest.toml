@@ -20,7 +20,7 @@ cpe = "cpe:2.3:a:collabora:online"
 [integration]
 yunohost = ">= 12.1.38"
 helpers_version = "2.1"
-architectures = ["amd64", "i386", "arm64"]
+architectures = ["amd64", "arm64", "i386"]
 multi_instance = false
 
 ldap = "not_relevant"
