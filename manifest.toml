@@ -74,7 +74,7 @@ ram.runtime = "600M"
     ]
 
     [resources.apt.extras.nonfree]
-    repo = "deb http://deb.debian.org/debian bookworm contrib non-free"
+    repo = "deb http://deb.debian.org/debian bookworm contrib non-free non-free-firmware"
     key = "https://ftp-master.debian.org/keys/archive-key-12.asc"
     packages = [
         "ttf-mscorefonts-installer",
