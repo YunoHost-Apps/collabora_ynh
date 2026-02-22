@@ -26,6 +26,7 @@ ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 yunohost service add "coolwsd" --description="Collabora online office suite" --log="/var/log/$app/$app.log"
 
 ynh_restore "/var/log/coolwsd.log"
+chown cool "/var/log/coolwsd.log"
 
 #=================================================
 # RESTORE VARIOUS FILES
