@@ -7,7 +7,7 @@ name = "Collabora Online"
 description.en = "Online office suite with collaborative editing"
 description.fr = "Suite office en ligne et collaborative"
 
-version = "25.04.9.1~ynh1"
+version = "25.04.9.1~ynh2"
 
 maintainers = [ ]
 
@@ -74,7 +74,7 @@ ram.runtime = "600M"
     ]
 
     [resources.apt.extras.nonfree]
-    repo = "deb http://deb.debian.org/debian bookworm contrib non-free"
+    repo = "deb http://deb.debian.org/debian bookworm contrib non-free non-free-firmware"
     key = "https://ftp-master.debian.org/keys/archive-key-12.asc"
     packages = [
         "ttf-mscorefonts-installer",
