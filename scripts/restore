@@ -34,6 +34,12 @@ ynh_restore "/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
 chown cool:root -R /etc/coolwsd
 
+if [[ "$msfonts_enabled" == "true" ]]
+then
+	mscorefonts_activate
+	coolconfig_update_system_template
+fi
+
 #=================================================
 # RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
 #=================================================
