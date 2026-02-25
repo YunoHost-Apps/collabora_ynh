@@ -20,6 +20,8 @@ ynh_config_remove_nginx
 
 ynh_safe_rm "/etc/coolwsd"
 
+mscorefonts_deactivate
+
 # FIXME: is it still required?
 # Fix "rm: cannot remove '/etc/apt/apt.conf.d/25loolwsd': No such file or directory"
 # on apt remove
