@@ -4,6 +4,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
+source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -32,6 +33,12 @@ fi
 
 # Remove the legacy systemd config
 ynh_config_remove_systemd --service="loolwsd"
+
+# If syncyunohost_enabled doesn't exist, create it
+if [ -z "${msfonts_enabled:-}" ]; then
+    msfonts_enabled=false
+    ynh_app_setting_set_default --key="msfonts_enabled" --value="false"
+fi
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
