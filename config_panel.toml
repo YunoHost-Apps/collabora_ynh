@@ -7,8 +7,8 @@ name.fr = "MS fonts"
     [main.msfonts]
 
     [main.msfonts.msfonts_enabled]
-    ask.en = "Would you like to add the non-free ©Microsoft fonts for Collabora ?"
-    ask.fr = "Souhaitez-vous ajouter les polices non-libres de ©Microsoft pour Collabora ?"
+    ask.en = "Would you like to add the non-free Microsoft® fonts for Collabora?"
+    ask.fr = "Souhaitez-vous ajouter les polices non-libres de Microsoft® pour Collabora ?"
     type = "boolean"
     yes = "true"
     no = "false"
