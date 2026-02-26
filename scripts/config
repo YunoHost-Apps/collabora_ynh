@@ -1,0 +1,19 @@
+#!/bin/bash
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+# Apply Yunohost app's config
+ynh_app_config_apply() {
+   _ynh_app_config_apply
+
+   if [[ "${changed[msfonts_enabled]}" == "true" && "$msfonts_enabled" == "true" ]]; then
+      mscorefonts_activate
+      coolconfig_update_system_template
+   elif [[ "${changed[msfonts_enabled]}" == "true" && "$msfonts_enabled" == "false" ]]; then
+      mscorefonts_deactivate
+      coolconfig_update_system_template
+   fi
+}
+
+ynh_app_config_run $1

@@ -50,6 +50,12 @@ ram.runtime = "600M"
     [install.password]
     type = "password"
 
+    [install.msfonts_enabled]
+    type = "boolean"
+    ask.en = "Would you like to add the non-free Microsoft® fonts for Collabora?"
+    ask.fr = "Souhaitez-vous ajouter les polices non libres de Microsoft® pour Collabora ?"
+    default = false
+
 [resources]
     [resources.system_user]
 
@@ -71,13 +77,6 @@ ram.runtime = "600M"
         "hunspell-fr",
         "hunspell",
         "libfontconfig1-dev",
-    ]
-
-    [resources.apt.extras.nonfree]
-    repo = "deb http://deb.debian.org/debian bookworm contrib non-free non-free-firmware"
-    key = "https://ftp-master.debian.org/keys/archive-key-12.asc"
-    packages = [
-        "ttf-mscorefonts-installer",
     ]
 
     [resources.apt.extras.collabora]

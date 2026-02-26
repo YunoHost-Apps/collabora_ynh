@@ -11,6 +11,11 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Removing system configurations related to $app..."
 
+if [[ "$msfonts_enabled" == "true" ]]
+then
+    mscorefonts_deactivate
+fi
+
 if ynh_hide_warnings yunohost service status "coolwsd" >/dev/null; then
     yunohost service remove "coolwsd"
 fi
