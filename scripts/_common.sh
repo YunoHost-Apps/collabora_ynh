@@ -15,6 +15,7 @@ mscorefonts_activate(){
 # Deactivate ttf-mscorefonts
 mscorefonts_deactivate(){
 	apt purge ttf-mscorefonts-installer -y
+	ynh_safe_rm "/usr/share/fonts/truetype/msttcorefonts"
     fc-cache -rv
 
 	ynh_print_info "Microsoft fonts removed"

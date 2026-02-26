@@ -12,8 +12,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Removing system configurations related to $app..."
 
-if [[ "$msfonts_enabled" == "true" ]]
-then
+if [ "$msfonts_enabled" == "true" ]; then
     mscorefonts_deactivate
 fi
 

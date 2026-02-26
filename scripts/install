@@ -51,8 +51,7 @@ ynh_config_add --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
 chown cool:root -R /etc/coolwsd
 
-if [[ "$msfonts_enabled" == "true" ]]
-then
+if [ "$msfonts_enabled" == "true" ]; then
     mscorefonts_activate
 fi
 
