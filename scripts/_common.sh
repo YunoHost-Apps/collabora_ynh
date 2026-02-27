@@ -14,10 +14,11 @@ mscorefonts_activate() {
 
 # Deactivate ttf-mscorefonts
 mscorefonts_desactivate() {
-	apt purge --autoremove ttf-mscorefonts-installer
+    apt purge ttf-mscorefonts-installer -y
     fc-cache -rv
 
-	ynh_print_info "Microsoft fonts removed"
+    ynh_print_info "Microsoft fonts removed"
+
 }
 
 
