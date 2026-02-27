@@ -12,9 +12,6 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Removing system configurations related to $app..."
 
-if [ "$msfonts_enabled" == "true" ]; then
-    mscorefonts_deactivate
-fi
 
 if ynh_hide_warnings yunohost service status "coolwsd" >/dev/null; then
     yunohost service remove "coolwsd"
@@ -25,10 +22,14 @@ ynh_config_remove_nginx
 
 ynh_safe_rm "/etc/coolwsd"
 
-# FIXME: is it still required?
+# FIXME: is it still required ? No more required
 # Fix "rm: cannot remove '/etc/apt/apt.conf.d/25loolwsd': No such file or directory"
 # on apt remove
-touch /etc/apt/apt.conf.d/25loolwsd
+#touch /etc/apt/apt.conf.d/25loolwsd
+
+if [ $msfonts_enabled == "true" ]; then
+    mscorefonts_desactivate
+fi
 
 #=================================================
 # END OF SCRIPT

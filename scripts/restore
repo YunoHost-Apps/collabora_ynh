@@ -35,7 +35,7 @@ ynh_restore "/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
 chown cool:root -R /etc/coolwsd
 
-if [ "$msfonts_enabled" == "true" ]; then
+if [ $msfonts_enabled == "true" ]; then
 	mscorefonts_activate
 fi
 
@@ -49,9 +49,9 @@ ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd"
 # The service installed by the deb package failed in loop, thus the reset-failed.
 systemctl reset-failed coolwsd
 
-ynh_systemctl --service="coolwsd" --action="start" --log_path="systemd" --wait_until="Ready to accept connections"
+ynh_systemctl --service="coolwsd" --action=start --log_path="systemd" --wait_until="Ready to accept connections"
 
-ynh_systemctl --service=nginx --action=reload
+ynh_systemctl --service="nginx" --action=reload
 
 #=================================================
 # END OF SCRIPT

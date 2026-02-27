@@ -28,10 +28,6 @@ ynh_backup "/etc/nginx/conf.d/$domain.d/$app.conf"
 
 ynh_backup "/etc/coolwsd/coolwsd.xml"
 
-if [ "$msfonts_enabled" == "true" ]; then
-    mscorefonts_activate
-fi
-
 #ynh_backup "/opt/logrotate.d/$app"
 
 #=================================================

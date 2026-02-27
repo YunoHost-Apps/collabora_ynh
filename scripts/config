@@ -11,7 +11,7 @@ ynh_app_config_apply() {
       mscorefonts_activate
       coolconfig_update_system_template
    elif [[ "${changed[msfonts_enabled]}" == "true" && "$msfonts_enabled" == "false" ]]; then
-      mscorefonts_deactivate
+      mscorefonts_desactivate
       coolconfig_update_system_template
    fi
 }

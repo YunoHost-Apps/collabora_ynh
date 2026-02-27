@@ -5,7 +5,7 @@
 #=================================================
 
 # Activate ttf-mscorefonts
-mscorefonts_activate(){
+mscorefonts_activate() {
     ynh_apt_install_dependencies_from_extra_repository --repo="deb http://deb.debian.org/debian bookworm contrib non-free-firmware" --package="ttf-mscorefonts-installer" --key="https://ftp-master.debian.org/keys/archive-key-12.asc"
     fc-cache -rv
 
@@ -13,9 +13,8 @@ mscorefonts_activate(){
 }
 
 # Deactivate ttf-mscorefonts
-mscorefonts_deactivate(){
-	apt purge ttf-mscorefonts-installer -y
-	ynh_safe_rm "/usr/share/fonts/truetype/msttcorefonts"
+mscorefonts_desactivate() {
+	apt purge --autoremove ttf-mscorefonts-installer
     fc-cache -rv
 
 	ynh_print_info "Microsoft fonts removed"
@@ -23,7 +22,7 @@ mscorefonts_deactivate(){
 
 
 # Reload templates
-coolconfig_update_system_template(){
+coolconfig_update_system_template() {
 	coolconfig update-system-template
-	ynh_systemctl --service="coolwsd" --action="restart" --log_path="systemd" --wait_until="Ready to accept connections"
+	ynh_systemctl --service="coolwsd" --action=restart --log_path="systemd" --wait_until="Ready to accept connections"
 }

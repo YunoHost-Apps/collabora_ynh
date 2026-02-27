@@ -51,7 +51,7 @@ ynh_config_add --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
 chown cool:root -R /etc/coolwsd
 
-if [ "$msfonts_enabled" == "true" ]; then
+if [ $msfonts_enabled == "true" ]; then
     mscorefonts_activate
 fi
 
@@ -71,11 +71,11 @@ yunohost service add "coolwsd" --description="Collabora online office suite" --l
 ynh_script_progression "Starting $app's systemd service..."
 
 # NB. : we need a stupid *re*start because the service is in fact already started during the damn package install ... so it won't find a recent "Ready to accept connection" match ...
-ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd"
+ynh_systemctl --service="coolwsd" --action=stop --log_path="systemd"
 # The service installed by the deb package failed in loop, thus the reset-failed.
 systemctl reset-failed coolwsd
 
-ynh_systemctl --service="coolwsd" --action="start" --log_path="systemd" --wait_until="Ready to accept connections"
+ynh_systemctl --service="coolwsd" --action=start --log_path="systemd" --wait_until="Ready to accept connections"
 
 #=================================================
 # END OF SCRIPT
