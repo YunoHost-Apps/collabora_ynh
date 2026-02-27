@@ -4,6 +4,7 @@
 # IMPORT GENERIC HELPERS
 #=================================================
 
+source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
@@ -11,7 +12,7 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Stopping $app's systemd service..."
 
-ynh_systemctl --service="coolwsd" --action="stop" --log_path="systemd" --wait_until="Stopped coolwsd.service - Collabora Online WebSocket Daemon"
+ynh_systemctl --service="coolwsd" --action=stop --log_path="systemd" --wait_until="Stopped coolwsd.service - Collabora Online WebSocket Daemon"
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
@@ -32,6 +33,12 @@ fi
 
 # Remove the legacy systemd config
 ynh_config_remove_systemd --service="loolwsd"
+
+# If syncyunohost_enabled doesn't exist, create it
+if [ -z "${msfonts_enabled:-}" ]; then
+    msfonts_enabled=false
+    ynh_app_setting_set_default --key="msfonts_enabled" --value="false"
+fi
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -78,7 +85,7 @@ yunohost service add "coolwsd" --description="Collabora online office suite" --l
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service="coolwsd" --action="restart" --log_path="systemd" --wait_until="Ready to accept connections"
+ynh_systemctl --service="coolwsd" --action=restart --log_path="systemd" --wait_until="Ready to accept connections"
 
 #=================================================
 # END OF SCRIPT
