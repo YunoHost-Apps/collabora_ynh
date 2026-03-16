@@ -104,7 +104,7 @@
         <!-- lokit_sal_log example: Log WebDAV-related messages, that is interesting for debugging Insert - Image operation: "+TIMESTAMP+INFO.ucb.ucp.webdav+WARN.ucb.ucp.webdav"
              See also: https://docs.libreoffice.org/sal/html/sal_log.html -->
         <lokit_sal_log type="string" desc="Fine tune log messages from LOKit. Default is to suppress log messages from LOKit." default="-INFO-WARN">-INFO-WARN</lokit_sal_log>
-        <file enable="false">
+        <file enable="true">
             <!-- If you use other path than /var/log and you run coolwsd from systemd, make sure that you enable that path in coolwsd.service (ReadWritePaths). -->
             <property name="path" desc="Log file path.">/var/log/coolwsd.log</property>
             <property name="rotation" desc="Log file rotation strategy. See Poco FileChannel.">never</property>
