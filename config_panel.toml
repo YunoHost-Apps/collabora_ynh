@@ -12,16 +12,17 @@ name.fr = "MS fonts"
     type = "boolean"
     yes = "true"
     no = "false"
+    
+[main.add_domains]
+name.en = "WOPI Hosts"
+name.fr = "Hôtes WOPI"
+
 [main.add_domains.nextcloud_domain]
 ask.fr = "Domaine nextcloud actuel"
 ask.en = "Current nextcloud domain"
 default = ""
 type = "string"
 bind = "null"
-
-[main.add_domains]
-name.en = "Extra domains"
-name.fr = "Domaines supplémentaires"
 
 [main.add_domains.extra_domain_1]
 ask.fr = "Premier domaine supplémentaire"
