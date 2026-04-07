@@ -15,9 +15,6 @@ ynh_app_config_apply() {
       coolconfig_update_system_template
    fi
 }
-#!/bin/bash
-source /usr/share/yunohost/helpers
-ynh_abort_if_errors
 
 get__nextcloud_domain() {
 ynh_app_setting_get --key=nextcloud_domain
