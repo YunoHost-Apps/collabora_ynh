@@ -59,5 +59,3 @@ ynh_replace --match='^\([[:space:]]*\)<host id="4"[^>]*>[^<]*</host>' --replace=
 }
 
 ynh_app_config_run $1
-
-ynh_app_config_run $1
