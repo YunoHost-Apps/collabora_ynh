@@ -257,7 +257,7 @@
     </quarantine_files>
 
     <remote_font_config>
-        <url desc="URL of optional JSON file that lists fonts to be included in Online" type="string" default="">https://__NEXTCLOUD_DOMAIN__/apps/richdocuments/settings/fonts.json</url>
+        <url desc="URL of optional JSON file that lists fonts to be included in Online" type="string" default="">https://__NEXTCLOUD_DOMAIN____PATH__/apps/richdocuments/settings/fonts.json</url>
     </remote_font_config>
 
 </config>
