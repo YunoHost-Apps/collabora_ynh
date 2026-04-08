@@ -1,10 +1,13 @@
 version = "1.0"
 
 [main]
-name.en = "MS fonts"
-name.fr = "MS fonts"
+name.en = "Configuration panel"
+name.fr = "Panneau de configuration"
+services = ["coolwsd"]
 
     [main.msfonts]
+    name.en = "MS fonts"
+    name.fr = "MS fonts"
 
     [main.msfonts.msfonts_enabled]
     ask.en = "Would you like to add the non-free Microsoft® fonts for Collabora?"
