@@ -1,10 +1,13 @@
 version = "1.0"
 
 [main]
-name.en = "MS fonts"
-name.fr = "MS fonts"
+name.en = "Configuration panel"
+name.fr = "Panneau de configuration"
+services = ["coolwsd"]
 
     [main.msfonts]
+    name.en = "MS fonts"
+    name.fr = "MS fonts"
 
     [main.msfonts.msfonts_enabled]
     ask.en = "Would you like to add the non-free Microsoft® fonts for Collabora?"
@@ -12,3 +15,46 @@ name.fr = "MS fonts"
     type = "boolean"
     yes = "true"
     no = "false"
+    
+    [main.add_domains]
+    name.en = "WOPI Hosts"
+    name.fr = "Hôtes WOPI"
+    
+        [main.add_domains.nextcloud_domain]
+        ask.fr = "Domaine nextcloud actuel"
+        ask.en = "Current nextcloud domain"
+        default = ""
+        type = "string"
+        bind = "null"
+
+        [main.add_domains.extra_domain_1]
+        ask.fr = "Premier domaine supplémentaire"
+        ask.en = "First extra domain"
+        type = "string"
+        example = "nextcloud.example.com"
+        default = ""
+        bind = "null"
+
+        [main.add_domains.extra_domain_2]
+        ask.fr = "Deuxième domaine supplémentaire"
+        ask.en = "Second extra domain"
+        type = "string"
+        example = "nextcloud.example.com"
+        default = ""
+        bind = "null"
+
+        [main.add_domains.extra_domain_3]
+        ask.fr = "Troisième domaine supplémentaire"
+        ask.en = "Third extra domain"
+        type = "string"
+        example = "nextcloud.example.com"
+        default = ""
+        bind = "null"
+
+        [main.add_domains.extra_domain_4]
+        ask.fr = "Quatrième domaine supplémentaire"
+        ask.en = "Fourth extra domain"
+        type = "string"
+        example = "nextcloud.example.com"
+        default = ""
+        bind = "null"

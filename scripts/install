@@ -13,6 +13,10 @@ source /usr/share/yunohost/helpers
 
 ynh_app_setting_set --key=password --value="$password"
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=false
+ynh_app_setting_set_default --key=extra_domain_1 --value=""
+ynh_app_setting_set_default --key=extra_domain_2 --value=""
+ynh_app_setting_set_default --key=extra_domain_3 --value=""
+ynh_app_setting_set_default --key=extra_domain_4 --value=""
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE

@@ -16,4 +16,46 @@ ynh_app_config_apply() {
    fi
 }
 
+get__nextcloud_domain() {
+ynh_app_setting_get --key=nextcloud_domain
+}
+get__extra_domain_1() {
+ynh_app_setting_get --key=extra_domain_1
+}
+get__extra_domain_2() {
+ynh_app_setting_get --key=extra_domain_2
+}
+get__extra_domain_3() {
+ynh_app_setting_get --key=extra_domain_3
+}
+get__extra_domain_4() {
+ynh_app_setting_get --key=extra_domain_4
+}
+
+
+set__nextcloud_domain() {
+ynh_app_setting_set --key=nextcloud_domain --value=$nextcloud_domain
+ynh_replace --match='^\([[:space:]]*\)<host id="0"[^>]*>[^<]*</host>' --replace="\1<host id=\"0\" desc=\"Regex pattern of hostname to allow or deny.\" allow=\"true\">$nextcloud_domain</host>" --file="/etc/coolwsd/coolwsd.xml"
+}
+
+set__extra_domain_1() {
+ynh_app_setting_set --key=extra_domain_1 --value=$extra_domain_1
+ynh_replace --match='^\([[:space:]]*\)<host id="1"[^>]*>[^<]*</host>' --replace="\1<host id=\"1\" desc=\"Regex pattern of hostname to allow or deny.\" allow=\"true\">$extra_domain_1</host>" --file="/etc/coolwsd/coolwsd.xml"
+}
+
+set__extra_domain_2() {
+ynh_app_setting_set --key=extra_domain_2 --value=$extra_domain_2
+ynh_replace --match='^\([[:space:]]*\)<host id="2"[^>]*>[^<]*</host>' --replace="\1<host id=\"2\" desc=\"Regex pattern of hostname to allow or deny.\" allow=\"true\">$extra_domain_2</host>" --file="/etc/coolwsd/coolwsd.xml"
+}
+
+set__extra_domain_3() {
+ynh_app_setting_set --key=extra_domain_3 --value=$extra_domain_3
+ynh_replace --match='^\([[:space:]]*\)<host id="3"[^>]*>[^<]*</host>' --replace="\1<host id=\"3\" desc=\"Regex pattern of hostname to allow or deny.\" allow=\"true\">$extra_domain_3</host>" --file="/etc/coolwsd/coolwsd.xml"
+}
+
+set__extra_domain_4() {
+ynh_app_setting_set --key=extra_domain_4 --value=$extra_domain_4
+ynh_replace --match='^\([[:space:]]*\)<host id="4"[^>]*>[^<]*</host>' --replace="\1<host id=\"4\" desc=\"Regex pattern of hostname to allow or deny.\" allow=\"true\">$extra_domain_4</host>" --file="/etc/coolwsd/coolwsd.xml"
+}
+
 ynh_app_config_run $1
