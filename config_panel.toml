@@ -21,7 +21,7 @@ services = ["coolwsd"]
     name.fr = "Hôtes WOPI"
     
         [main.add_domains.nextcloud_domain]
-        ask.fr = "Domaine nextcloud actuel"
+        ask.fr = "Domaine Nextcloud actuel"
         ask.en = "Current nextcloud domain"
         default = ""
         type = "string"
