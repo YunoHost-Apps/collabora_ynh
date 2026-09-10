@@ -189,14 +189,36 @@
     <storage desc="Backend storage">
         <filesystem allow="false" />
         <wopi desc="Allow/deny wopi storage." allow="true">
-            <host desc="Regex pattern of hostname to allow or deny." allow="true">__NEXTCLOUD_DOMAIN__</host>
-            <host desc="Regex pattern of hostname to allow or deny." allow="true">10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</host>
-            <host desc="Regex pattern of hostname to allow or deny." allow="true">172\.1[6789]\.[0-9]{1,3}\.[0-9]{1,3}</host>
-            <host desc="Regex pattern of hostname to allow or deny." allow="true">172\.2[0-9]\.[0-9]{1,3}\.[0-9]{1,3}</host>
-            <host desc="Regex pattern of hostname to allow or deny." allow="true">172\.3[01]\.[0-9]{1,3}\.[0-9]{1,3}</host>
-            <host desc="Regex pattern of hostname to allow or deny." allow="true">192\.168\.[0-9]{1,3}\.[0-9]{1,3}</host>
-            <host desc="Regex pattern of hostname to allow or deny." allow="false">192\.168\.1\.1</host>
+            <alias_groups mode="groups">
+                <group>
+                        <host id="0" desc="Regex pattern of hostname to allow or deny." allow="true">__NEXTCLOUD_DOMAIN__</host>
+                </group>
 
+                <group>
+                        <host id="1" desc="Regex pattern of hostname to allow or deny." allow="true">__EXTRA_DOMAIN_1__</host>
+                </group>
+
+                <group>
+                        <host id="2" desc="Regex pattern of hostname to allow or deny." allow="true">__EXTRA_DOMAIN_2__</host>
+                </group>
+
+                <group>
+                        <host id="3" desc="Regex pattern of hostname to allow or deny." allow="true">__EXTRA_DOMAIN_3__</host>
+                </group>
+
+                <group>
+                        <host id="4" desc="Regex pattern of hostname to allow or deny." allow="true">__EXTRA_DOMAIN_4__</host>
+                </group>
+
+                <group>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="true">10\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}</host>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="true">172\.1[6789]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="true">172\.2[0-9]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="true">172\.3[01]\.[0-9]{1,3}\.[0-9]{1,3}</host>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="true">192\.168\.[0-9]{1,3}\.[0-9]{1,3}</host>
+                    <host desc="Regex pattern of hostname to allow or deny." allow="false">192\.168\.1\.1</host>
+                </group>
+        </alias_groups>
 
             <max_file_size desc="Maximum document size in bytes to load. 0 for unlimited." type="uint">0</max_file_size>
 
@@ -235,7 +257,7 @@
     </quarantine_files>
 
     <remote_font_config>
-        <url desc="URL of optional JSON file that lists fonts to be included in Online" type="string" default="">https://__NEXTCLOUD_DOMAIN__/apps/richdocuments/settings/fonts.json</url>
+        <url desc="URL of optional JSON file that lists fonts to be included in Online" type="string" default="">https://__NEXTCLOUD_DOMAIN____PATH__/apps/richdocuments/settings/fonts.json</url>
     </remote_font_config>
 
 </config>

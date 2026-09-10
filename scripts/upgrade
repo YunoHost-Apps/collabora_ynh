@@ -40,6 +40,11 @@ if [ -z "${msfonts_enabled:-}" ]; then
     ynh_app_setting_set_default --key="msfonts_enabled" --value="false"
 fi
 
+ynh_app_setting_set_default --key=extra_domain_1 --value=""
+ynh_app_setting_set_default --key=extra_domain_2 --value=""
+ynh_app_setting_set_default --key=extra_domain_3 --value=""
+ynh_app_setting_set_default --key=extra_domain_4 --value=""
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
