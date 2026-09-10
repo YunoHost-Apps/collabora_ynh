@@ -31,7 +31,7 @@ services = ["coolwsd"]
         ask.fr = "Premier domaine supplémentaire"
         ask.en = "First extra domain"
         type = "string"
-        example = "nextcloud.example.com"
+        example = "opencloud.example.com"
         default = ""
         bind = "null"
 
@@ -39,7 +39,7 @@ services = ["coolwsd"]
         ask.fr = "Deuxième domaine supplémentaire"
         ask.en = "Second extra domain"
         type = "string"
-        example = "nextcloud.example.com"
+        example = "owncloud.example.com"
         default = ""
         bind = "null"
 
