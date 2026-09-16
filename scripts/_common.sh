@@ -18,7 +18,6 @@ mscorefonts_desactivate() {
     fc-cache -rv
 
     ynh_print_info "Microsoft fonts removed"
-
 }
 
 
