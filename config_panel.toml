@@ -1,8 +1,8 @@
 version = "1.0"
 
 [main]
-name.en = "MS fonts"
-name.fr = "MS fonts"
+name.en = "Microsoft fonts"
+name.fr = "Fonts Microsoft"
 
     [main.msfonts]
 
