@@ -56,6 +56,48 @@ ram.runtime = "600M"
     ask.fr = "Souhaitez-vous ajouter les polices non libres de Microsoft® pour Collabora ?"
     default = false
 
+    [install.dict_fr_enabled]
+    type = "boolean"
+    ask.en = "Would you like to add an french dictionary for Collabora? (irreversible action)"
+    ask.fr = "Souhaitez-vous ajouter un dictionnaire français pour Collabora ? (action irreversible)"
+    default = false
+
+    [install.dict_de_enabled]
+    type = "boolean"
+    ask.en = "Would you like to add an german dictionary for Collabora? (irreversible action)"
+    ask.fr = "Souhaitez-vous ajouter un dictionnaire allemand pour Collabora ? (action irreversible)"
+    default = false
+
+    [install.dict_en_enabled]
+    type = "boolean"
+    ask.en = "Would you like to add an english dictionary for Collabora? (irreversible action)"
+    ask.fr = "Souhaitez-vous ajouter un dictionnaire anglais pour Collabora ? (action irreversible)"
+    default = false
+
+    [install.dict_it_enabled]
+    type = "boolean"
+    ask.en = "Would you like to add an italian dictionary for Collabora? (irreversible action)"
+    ask.fr = "Souhaitez-vous ajouter un dictionnaire italien pour Collabora ? (action irreversible)"
+    default = false
+
+    [install.dict_pt_enabled]
+    type = "boolean"
+    ask.en = "Would you like to add an portuguese dictionary for Collabora? (irreversible action)"
+    ask.fr = "Souhaitez-vous ajouter un dictionnaire portuguais pour Collabora ? (action irreversible)"
+    default = false
+
+    [install.dict_nl_enabled]
+    type = "boolean"
+    ask.en = "Would you like to add an dutch dictionary for Collabora? (irreversible action)"
+    ask.fr = "Souhaitez-vous ajouter un dictionnaire néerlandais pour Collabora ? (action irreversible)"
+    default = false
+
+    [install.dict_ru_enabled]
+    type = "boolean"
+    ask.en = "Would you like to add an russian dictionary for Collabora? (irreversible action)"
+    ask.fr = "Souhaitez-vous ajouter un dictionnaire russe pour Collabora ? (action irreversible)"
+    default = false
+
 [resources]
     [resources.system_user]
 

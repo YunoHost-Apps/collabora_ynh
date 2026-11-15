@@ -14,17 +14,7 @@ source /usr/share/yunohost/helpers
 ynh_app_setting_set --key=password --value="$password"
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=false
 
-ynh_app_setting_set_default --key="dict_fr_enabled" --value="false"
-ynh_app_setting_set_default --key="dict_de_enabled" --value="false"
-ynh_app_setting_set_default --key="dict_en_enabled" --value="false"
-ynh_app_setting_set_default --key="dict_it_enabled" --value="false"
-ynh_app_setting_set_default --key="dict_es_enabled" --value="false"
-ynh_app_setting_set_default --key="dict_pt_enabled" --value="false"
-ynh_app_setting_set_default --key="dict_nl_enabled" --value="false"
-ynh_app_setting_set_default --key="dict_ru_enabled" --value="false"
-
-
-#=================================================    ynh_app_setting_set_default --key="dict_en_enabled" --value="false"
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Setting up source files..."
