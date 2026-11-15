@@ -101,7 +101,7 @@ name.fr = "Configuration de Collabora"
 
     [main.dict_ru]
     name.en = "Russian Dictionary"
-    name.fr = "Dictionnaire néerlandais"
+    name.fr = "Dictionnaire russe"
 
         [main.dict_ru.dict_ru_enabled]
         ask.en = "Would you like to add an russian dictionary for Collabora? (irreversible action)"
