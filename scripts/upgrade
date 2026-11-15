@@ -79,6 +79,12 @@ ynh_config_add --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 chown cool: "/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
 
+for lang in "fr" "de" "en" "it" "es" "pt" "nl" "ru"; do
+    if [ "$(ynh_app_setting_get --key="dict_${lang}_enabled")" = "true" ]; then
+        dict_activate "$lang"
+    fi
+done
+
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
 #=================================================
