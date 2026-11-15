@@ -41,7 +41,7 @@ name.fr = "Configuration de Collabora"
 
     [main.dict_en]
     name.en = "English Dictionary"
-    name.fr = "Dictionnaire aanglais"
+    name.fr = "Dictionnaire anglais"
 
         [main.dict_en.dict_en_enabled]
         ask.en = "Would you like to add an english dictionary for Collabora? (irreversible action)"
@@ -50,3 +50,63 @@ name.fr = "Configuration de Collabora"
         yes = "true"
         no = "false"
         visible = "dict_en_enabled == false"
+
+    [main.dict_it]
+    name.en = "Italian Dictionary"
+    name.fr = "Dictionnaire italien"
+
+        [main.dict_en.dict_it_enabled]
+        ask.en = "Would you like to add an italian dictionary for Collabora? (irreversible action)"
+        ask.fr = "Souhaitez-vous ajouter un dictionnaire italien pour Collabora ? (action irreversible)"
+        type = "boolean"
+        yes = "true"
+        no = "false"
+        visible = "dict_it_enabled == false"
+
+    [main.dict_es]
+    name.en = "Spanish Dictionary"
+    name.fr = "Dictionnaire espagnol"
+
+        [main.dict_en.dict_es_enabled]
+        ask.en = "Would you like to add an spanish dictionary for Collabora? (irreversible action)"
+        ask.fr = "Souhaitez-vous ajouter un dictionnaire espagnol pour Collabora ? (action irreversible)"
+        type = "boolean"
+        yes = "true"
+        no = "false"
+        visible = "dict_es_enabled == false"
+
+    [main.dict_pt]
+    name.en = "Portuguese Dictionary"
+    name.fr = "Dictionnaire portuguais"
+
+        [main.dict_en.dict_pt_enabled]
+        ask.en = "Would you like to add an portuguese dictionary for Collabora? (irreversible action)"
+        ask.fr = "Souhaitez-vous ajouter un dictionnaire portuguais pour Collabora ? (action irreversible)"
+        type = "boolean"
+        yes = "true"
+        no = "false"
+        visible = "dict_pt_enabled == false"
+
+    [main.dict_nl]
+    name.en = "Dutch Dictionary"
+    name.fr = "Dictionnaire néerlandais"
+
+        [main.dict_en.dict_nl_enabled]
+        ask.en = "Would you like to add an dutch dictionary for Collabora? (irreversible action)"
+        ask.fr = "Souhaitez-vous ajouter un dictionnaire néerlandais pour Collabora ? (action irreversible)"
+        type = "boolean"
+        yes = "true"
+        no = "false"
+        visible = "dict_nl_enabled == false"
+
+    [main.dict_ru]
+    name.en = "Russian Dictionary"
+    name.fr = "Dictionnaire néerlandais"
+
+        [main.dict_en.dict_ru_enabled]
+        ask.en = "Would you like to add an russian dictionary for Collabora? (irreversible action)"
+        ask.fr = "Souhaitez-vous ajouter un dictionnaire russe pour Collabora ? (action irreversible)"
+        type = "boolean"
+        yes = "true"
+        no = "false"
+        visible = "dict_ru_enabled == false"

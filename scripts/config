@@ -30,6 +30,31 @@ ynh_app_config_apply() {
       coolconfig_update_system_template
    fi
 
+   if [[ "${changed[dict_it_enabled]}" == "true" && "$dict_it_enabled" == "true" ]]; then
+      italiandict_activate
+      coolconfig_update_system_template
+   fi
+
+   if [[ "${changed[dict_es_enabled]}" == "true" && "$dict_es_enabled" == "true" ]]; then
+      spanishdict_activate
+      coolconfig_update_system_template
+   fi
+
+   if [[ "${changed[dict_pt_enabled]}" == "true" && "$dict_pt_enabled" == "true" ]]; then
+      portuguesedict_activate
+      coolconfig_update_system_template
+   fi
+
+   if [[ "${changed[dict_nl_enabled]}" == "true" && "$dict_nl_enabled" == "true" ]]; then
+      dutchdict_activate
+      coolconfig_update_system_template
+   fi
+
+   if [[ "${changed[dict_ru_enabled]}" == "true" && "$dict_ru_enabled" == "true" ]]; then
+      russiandict_activate
+      coolconfig_update_system_template
+   fi
+
 }
 
 ynh_app_config_run $1

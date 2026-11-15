@@ -47,6 +47,42 @@ englishdict_activate() {
     ynh_print_info "Collabora english dictionary installed"
 }
 
+# Add italian dict
+italiandict_activate() {
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-it" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+
+    ynh_print_info "Collabora italian dictionary installed"
+}
+
+# Add spanish dict
+spanishdict_activate() {
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-es" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+
+    ynh_print_info "Collabora spanish dictionary installed"
+}
+
+# Add portuguese dict
+portuguesedict_activate() {
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-pt" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+
+    ynh_print_info "Collabora portuguese dictionary installed"
+}
+
+# Add dutch dict
+dutchdict_activate() {
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-nl" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+
+    ynh_print_info "Collabora dutch dictionary installed"
+}
+
+# Add russian dict
+russiandict_activate() {
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-ru" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+
+    ynh_print_info "Collabora russian dictionary installed"
+}
+
+
 # Reload templates
 coolconfig_update_system_template() {
 	coolconfig update-system-template
