@@ -34,11 +34,30 @@ fi
 # Remove the legacy systemd config
 ynh_config_remove_systemd --service="loolwsd"
 
-# If syncyunohost_enabled doesn't exist, create it
+# If msfonts_enabled doesn't exist, create it
 if [ -z "${msfonts_enabled:-}" ]; then
     msfonts_enabled=false
     ynh_app_setting_set_default --key="msfonts_enabled" --value="false"
 fi
+
+# If dict_fr_enabled doesn't exist, create it
+if [ -z "${dict_fr_enabled:-}" ]; then
+    dict_fr_enabled=false
+    ynh_app_setting_set_default --key="dict_fr_enabled" --value="false"
+fi
+
+# If dict_de_enabled doesn't exist, create it
+if [ -z "${dict_de_enabled:-}" ]; then
+    dict_de_enabled=false
+    ynh_app_setting_set_default --key="dict_de_enabled" --value="false"
+fi
+
+# If dict_en_enabled doesn't exist, create it
+if [ -z "${dict_en_enabled:-}" ]; then
+    dict_en_enabled=false
+    ynh_app_setting_set_default --key="dict_en_enabled" --value="false"
+fi
+
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
