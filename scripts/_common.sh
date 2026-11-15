@@ -22,42 +22,42 @@ mscorefonts_desactivate() {
 
 # Add french dict
 frenchdict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collabora-dict-fr" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-fr" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
 
     ynh_print_info "Collabora french dictionary installed"
 }
 
 # Remove french dict
 frenchdict_desactivate() {
-    apt remove collabora-dict-fr
+    apt remove collaboraoffice-dict-fr
 
     ynh_print_info "Collabora french dictionary removed"
 }
 
 # Add german dict
 germandict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collabora-dict-de" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-de" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
 
     ynh_print_info "Collabora german dictionary installed"
 }
 
 # Remove french dict
 germandict_desactivate() {
-    apt remove collabora-dict-de
+    apt remove collaboraoffice-dict-de
 
     ynh_print_info "Collabora german dictionary removed"
 }
 
 # Add english dict
 englishdict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collabora-dict-en" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-en" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
 
     ynh_print_info "Collabora english dictionary installed"
 }
 
 # Remove french dict
 englishdict_desactivate() {
-    apt remove collabora-dict-en
+    apt remove collaboraoffice-dict-en
 
     ynh_print_info "Collabora english dictionary removed"
 }
