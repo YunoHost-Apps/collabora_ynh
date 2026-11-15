@@ -20,8 +20,8 @@ name.fr = "Configuration de Collabora"
     name.fr = "Dictionnaire français"
 
         [main.dict_fr.dict_fr_enabled]
-        ask.en = "Would you like to add an french dictionary for Collabora?"
-        ask.fr = "Souhaitez-vous ajouter un dictionnaire français pour Collabora ?"
+        ask.en = "Would you like to add an french dictionary for Collabora? (irreversible action)"
+        ask.fr = "Souhaitez-vous ajouter un dictionnaire français pour Collabora ? (action irreversible)"
         type = "boolean"
         yes = "true"
         no = "false"
@@ -32,8 +32,8 @@ name.fr = "Configuration de Collabora"
     name.fr = "Dictionnaire allemand"
 
         [main.dict_de.dict_de_enabled]
-        ask.en = "Would you like to add an german dictionary for Collabora?"
-        ask.fr = "Souhaitez-vous ajouter un dictionnaire allemand pour Collabora ?"
+        ask.en = "Would you like to add an german dictionary for Collabora? (irreversible action)"
+        ask.fr = "Souhaitez-vous ajouter un dictionnaire allemand pour Collabora ? (action irreversible)"
         type = "boolean"
         yes = "true"
         no = "false"
@@ -44,8 +44,8 @@ name.fr = "Configuration de Collabora"
     name.fr = "Dictionnaire aanglais"
 
         [main.dict_en.dict_en_enabled]
-        ask.en = "Would you like to add an english dictionary for Collabora?"
-        ask.fr = "Souhaitez-vous ajouter un dictionnaire anglais pour Collabora ?"
+        ask.en = "Would you like to add an english dictionary for Collabora? (irreversible action)"
+        ask.fr = "Souhaitez-vous ajouter un dictionnaire anglais pour Collabora ? (action irreversible)"
         type = "boolean"
         yes = "true"
         no = "false"
