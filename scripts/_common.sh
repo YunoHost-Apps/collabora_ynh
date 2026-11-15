@@ -6,8 +6,14 @@
 
 # Activate ttf-mscorefonts
 mscorefonts_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb http://deb.debian.org/debian bookworm contrib non-free-firmware" --package="ttf-mscorefonts-installer" --key="https://ftp-master.debian.org/keys/archive-key-12.asc"
-    fc-cache -rv
+
+    if [[ $YNH_DEBIAN_VERSION == "bookworm" ]]; then
+        ynh_apt_install_dependencies_from_extra_repository --repo="deb https://deb.debian.org/debian bookworm contrib non-free-firmware" --package="ttf-mscorefonts-installer" --key="https://ftp-master.debian.org/keys/archive-key-12.asc"
+        fc-cache -rv
+    elif [[ $YNH_DEBIAN_VERSION == "trixie" ]]; then
+        ynh_apt_install_dependencies_from_extra_repository --repo="deb https://deb.debian.org/debian trixie contrib non-free-firmware" --package="ttf-mscorefonts-installer" --key="https://ftp-master.debian.org/keys/archive-key-13.asc"
+        fc-cache -rv
+    fi
 
     ynh_print_info "Microsoft fonts installed"
 }
