@@ -18,24 +18,15 @@ ynh_app_config_apply() {
    if [[ "${changed[dict_fr_enabled]}" == "true" && "$dict_fr_enabled" == "true" ]]; then
       frenchdict_activate
       coolconfig_update_system_template
-   elif [[ "${changed[dict_fr_enabled]}" == "true" && "$dict_fr_enabled" == "false" ]]; then
-      frenchdict_desactivate
-      coolconfig_update_system_template
    fi
 
    if [[ "${changed[dict_de_enabled]}" == "true" && "$dict_de_enabled" == "true" ]]; then
       germandict_activate
       coolconfig_update_system_template
-   elif [[ "${changed[dict_de_enabled]}" == "true" && "$dict_de_enabled" == "false" ]]; then
-      germandict_desactivate
-      coolconfig_update_system_template
    fi
 
    if [[ "${changed[dict_en_enabled]}" == "true" && "$dict_en_enabled" == "true" ]]; then
       englishdict_activate
-      coolconfig_update_system_template
-   elif [[ "${changed[dict_en_enabled]}" == "true" && "$dict_en_enabled" == "false" ]]; then
-      englishdict_desactivate
       coolconfig_update_system_template
    fi
 

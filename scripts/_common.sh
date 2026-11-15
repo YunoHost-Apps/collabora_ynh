@@ -27,25 +27,11 @@ frenchdict_activate() {
     ynh_print_info "Collabora french dictionary installed"
 }
 
-# Remove french dict
-frenchdict_desactivate() {
-    apt remove collaboraoffice-dict-fr
-
-    ynh_print_info "Collabora french dictionary removed"
-}
-
 # Add german dict
 germandict_activate() {
     ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-de" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
 
     ynh_print_info "Collabora german dictionary installed"
-}
-
-# Remove french dict
-germandict_desactivate() {
-    apt remove collaboraoffice-dict-de
-
-    ynh_print_info "Collabora german dictionary removed"
 }
 
 # Add english dict
@@ -54,14 +40,6 @@ englishdict_activate() {
 
     ynh_print_info "Collabora english dictionary installed"
 }
-
-# Remove french dict
-englishdict_desactivate() {
-    apt remove collaboraoffice-dict-en
-
-    ynh_print_info "Collabora english dictionary removed"
-}
-
 
 # Reload templates
 coolconfig_update_system_template() {

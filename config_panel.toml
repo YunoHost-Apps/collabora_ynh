@@ -25,6 +25,7 @@ name.fr = "Configuration de Collabora"
         type = "boolean"
         yes = "true"
         no = "false"
+        visible = "dict_fr_enabled == false"
 
     [main.dict_de]
     name.en = "German Dictionary"
@@ -36,6 +37,7 @@ name.fr = "Configuration de Collabora"
         type = "boolean"
         yes = "true"
         no = "false"
+        visible = "dict_de_enabled == false"
 
     [main.dict_en]
     name.en = "English Dictionary"
@@ -47,3 +49,4 @@ name.fr = "Configuration de Collabora"
         type = "boolean"
         yes = "true"
         no = "false"
+        visible = "dict_en_enabled == false"
