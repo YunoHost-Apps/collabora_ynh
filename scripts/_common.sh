@@ -22,7 +22,7 @@ mscorefonts_desactivate() {
 
 # Add french dict
 frenchdict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collabora-dict-fr"
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collabora-dict-fr" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
 
     ynh_print_info "Collabora french dictionary installed"
 }
@@ -36,7 +36,7 @@ frenchdict_desactivate() {
 
 # Add german dict
 germandict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collabora-dict-de"
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collabora-dict-de" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
 
     ynh_print_info "Collabora german dictionary installed"
 }
@@ -50,7 +50,7 @@ germandict_desactivate() {
 
 # Add english dict
 englishdict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collabora-dict-en"
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collabora-dict-en" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
 
     ynh_print_info "Collabora english dictionary installed"
 }
