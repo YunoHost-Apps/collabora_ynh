@@ -1,14 +1,50 @@
 version = "1.0"
 
 [main]
-name.en = "Microsoft fonts"
-name.fr = "Fonts Microsoft"
+name.en = "Collabora configuration"
+name.fr = "Configuration de Collabora"
 
     [main.msfonts]
+    name.en = "Microsoft Fonts"
+    name.fr = "Polices Microsoft"
 
-    [main.msfonts.msfonts_enabled]
-    ask.en = "Would you like to add the non-free Microsoft® fonts for Collabora?"
-    ask.fr = "Souhaitez-vous ajouter les polices non-libres de Microsoft® pour Collabora ?"
-    type = "boolean"
-    yes = "true"
-    no = "false"
+        [main.msfonts.msfonts_enabled]
+        ask.en = "Would you like to add the non-free Microsoft® fonts for Collabora?"
+        ask.fr = "Souhaitez-vous ajouter les polices non-libres de Microsoft® pour Collabora ?"
+        type = "boolean"
+        yes = "true"
+        no = "false"
+
+    [main.dict_fr]
+    name.en = "French Dictionary"
+    name.fr = "Dictionnaire français"
+
+        [main.dict_fr_enabled]
+        ask.en = "Would you like to add an french dictionary for Collabora?"
+        ask.fr = "Souhaitez-vous ajouter un dictionnaire français pour Collabora ?"
+        type = "boolean"
+        yes = "true"
+        no = "false"
+
+    [main.dict_de]
+    name.en = "German Dictionary"
+    name.fr = "Dictionnaire allemand"
+
+        [main.dict_de_enabled]
+        ask.en = "Would you like to add an german dictionary for Collabora?"
+        ask.fr = "Souhaitez-vous ajouter un dictionnaire allemand pour Collabora ?"
+        type = "boolean"
+        yes = "true"
+        no = "false"
+
+    [main.dict_en]
+    name.en = "English Dictionary"
+    name.fr = "Dictionnaire aanglais"
+
+
+        [main.dict_en_enabled]
+        ask.en = "Would you like to add an english dictionary for Collabora?"
+        ask.fr = "Souhaitez-vous ajouter un dictionnaire anglais pour Collabora ?"
+        type = "boolean"
+        yes = "true"
+        no = "false"
