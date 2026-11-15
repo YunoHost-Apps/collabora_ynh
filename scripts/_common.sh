@@ -29,7 +29,7 @@ frenchdict_activate() {
 
 # Remove french dict
 frenchdict_desactivate() {
-    apt purge collabora-dict-fr -y
+    apt remove collabora-dict-fr
 
     ynh_print_info "Collabora french dictionary removed"
 }
@@ -43,7 +43,7 @@ germandict_activate() {
 
 # Remove french dict
 germandict_desactivate() {
-    apt purge collabora-dict-de -y
+    apt remove collabora-dict-de
 
     ynh_print_info "Collabora german dictionary removed"
 }
@@ -57,7 +57,7 @@ englishdict_activate() {
 
 # Remove french dict
 englishdict_desactivate() {
-    apt purge collabora-dict-en -y
+    apt remove collabora-dict-en
 
     ynh_print_info "Collabora english dictionary removed"
 }
