@@ -15,98 +15,92 @@ name.fr = "Configuration de Collabora"
         yes = "true"
         no = "false"
 
-    [main.dict_fr]
-    name.en = "French Dictionary"
-    name.fr = "Dictionnaire français"
+    [main.dict_install]
+    name.en = "Dictionary installation"
+    name.fr = "Installation de dictionnaires"
 
-        [main.dict_fr.dict_fr_enabled]
-        ask.en = "Would you like to add an french dictionary for Collabora? (irreversible action)"
-        ask.fr = "Souhaitez-vous ajouter un dictionnaire français pour Collabora ? (action irreversible)"
+        [main.dict_install.dict_install_info]
+		type = "alert"
+		style = "info"
+        ask.en = "Installing a dictionnary is an irreversible action."
+        ask.fr = "Installer un dictionnaire est une action irréversible."
+
+        [main.dict_install.dict_fr_enabled]
         type = "boolean"
-        yes = "true"
-        no = "false"
-        visible = "dict_fr_enabled == false"
+        visible = false
 
-    [main.dict_de]
-    name.en = "German Dictionary"
-    name.fr = "Dictionnaire allemand"
-
-        [main.dict_de.dict_de_enabled]
-        ask.en = "Would you like to add an german dictionary for Collabora? (irreversible action)"
-        ask.fr = "Souhaitez-vous ajouter un dictionnaire allemand pour Collabora ? (action irreversible)"
+        [main.dict_install.dict_de_enabled]
         type = "boolean"
-        yes = "true"
-        no = "false"
-        visible = "dict_de_enabled == false"
+        visible = false
 
-    [main.dict_en]
-    name.en = "English Dictionary"
-    name.fr = "Dictionnaire anglais"
-
-        [main.dict_en.dict_en_enabled]
-        ask.en = "Would you like to add an english dictionary for Collabora? (irreversible action)"
-        ask.fr = "Souhaitez-vous ajouter un dictionnaire anglais pour Collabora ? (action irreversible)"
+        [main.dict_install.dict_en_enabled]
         type = "boolean"
-        yes = "true"
-        no = "false"
-        visible = "dict_en_enabled == false"
+        visible = false
 
-    [main.dict_it]
-    name.en = "Italian Dictionary"
-    name.fr = "Dictionnaire italien"
-
-        [main.dict_it.dict_it_enabled]
-        ask.en = "Would you like to add an italian dictionary for Collabora? (irreversible action)"
-        ask.fr = "Souhaitez-vous ajouter un dictionnaire italien pour Collabora ? (action irreversible)"
+        [main.dict_install.dict_it_enabled]
         type = "boolean"
-        yes = "true"
-        no = "false"
-        visible = "dict_it_enabled == false"
+        visible = false
 
-    [main.dict_es]
-    name.en = "Spanish Dictionary"
-    name.fr = "Dictionnaire espagnol"
-
-        [main.dict_es.dict_es_enabled]
-        ask.en = "Would you like to add an spanish dictionary for Collabora? (irreversible action)"
-        ask.fr = "Souhaitez-vous ajouter un dictionnaire espagnol pour Collabora ? (action irreversible)"
+        [main.dict_install.dict_es_enabled]
         type = "boolean"
-        yes = "true"
-        no = "false"
-        visible = "dict_es_enabled == false"
+        visible = false
 
-    [main.dict_pt]
-    name.en = "Portuguese Dictionary"
-    name.fr = "Dictionnaire portuguais"
-
-        [main.dict_pt.dict_pt_enabled]
-        ask.en = "Would you like to add an portuguese dictionary for Collabora? (irreversible action)"
-        ask.fr = "Souhaitez-vous ajouter un dictionnaire portuguais pour Collabora ? (action irreversible)"
+        [main.dict_install.dict_pt_enabled]
         type = "boolean"
-        yes = "true"
-        no = "false"
-        visible = "dict_pt_enabled == false"
+        visible = false
 
-    [main.dict_nl]
-    name.en = "Dutch Dictionary"
-    name.fr = "Dictionnaire néerlandais"
-
-        [main.dict_nl.dict_nl_enabled]
-        ask.en = "Would you like to add an dutch dictionary for Collabora? (irreversible action)"
-        ask.fr = "Souhaitez-vous ajouter un dictionnaire néerlandais pour Collabora ? (action irreversible)"
+        [main.dict_install.dict_nl_enabled]
         type = "boolean"
-        yes = "true"
-        no = "false"
-        visible = "dict_nl_enabled == false"
+        visible = false
 
-    [main.dict_ru]
-    name.en = "Russian Dictionary"
-    name.fr = "Dictionnaire russe"
-
-        [main.dict_ru.dict_ru_enabled]
-        ask.en = "Would you like to add an russian dictionary for Collabora? (irreversible action)"
-        ask.fr = "Souhaitez-vous ajouter un dictionnaire russe pour Collabora ? (action irreversible)"
+        [main.dict_install.dict_ru_enabled]
         type = "boolean"
-        yes = "true"
-        no = "false"
-        visible = "dict_ru_enabled == false"
+        visible = false
+
+        [main.dict_install.fr_dict_activate]
+        ask.en = "Add a french dictionary"
+        ask.fr = "Ajouter un dictionnaire français"
+        type = "button"
+        enabled = "!dict_fr_enabled"
+
+        [main.dict_install.de_dict_activate]
+        ask.en = "Add a german dictionary for Collabora"
+        ask.fr = "Ajouter un dictionnaire allemand"
+        type = "button"
+        enabled = "!dict_de_enabled"
+        
+        [main.dict_install.en_dict_activate]
+        ask.en = "Add an english dictionary"
+        ask.fr = "Ajouter un dictionnaire anglais"
+        type = "button"
+        enabled = "!dict_en_enabled"
+
+        [main.dict_install.it_dict_activate]
+        ask.en = "Add an italian dictionary"
+        ask.fr = "Ajouter un dictionnaire italien"
+        type = "button"
+        enabled = "!dict_it_enabled"
+
+        [main.dict_install.es_dict_activate]
+        ask.en = "Add a spanish dictionary"
+        ask.fr = "Ajouter un dictionnaire espagnol"
+        type = "button"
+        enabled = "!dict_es_enabled"
+        
+		[main.dict_install.pt_dict_activate]
+	    ask.en = "Add a portugese dictionary"
+	    ask.fr = "Ajouter un dictionnaire portugais"
+	    type = "button"
+	    enabled = "!dict_pt_enabled"
+
+        [main.dict_install.nl_dict_activate]
+        ask.en = "Add a dutch dictionary"
+        ask.fr = "Ajouter un dictionnaire nééerlandais"
+        type = "button"
+        enabled = "!dict_nl_enabled"
+
+        [main.dict_install.ru_dict_activate]
+        ask.en = "Add a russian dictionary"
+        ask.fr = "Ajouter un dictionnaire russe"
+        type = "button"
+        enabled = "!dict_ru_enabled"

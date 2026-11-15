@@ -26,62 +26,12 @@ mscorefonts_desactivate() {
     ynh_print_info "Microsoft fonts removed"
 }
 
-# Add french dict
-frenchdict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-fr" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
+dict_activate() {
+    local lang="$1"
+    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-$lang" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
 
-    ynh_print_info "Collabora french dictionary installed"
+    ynh_print_info "Collabora's $lang dictionary installed"
 }
-
-# Add german dict
-germandict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-de" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
-
-    ynh_print_info "Collabora german dictionary installed"
-}
-
-# Add english dict
-englishdict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-en" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
-
-    ynh_print_info "Collabora english dictionary installed"
-}
-
-# Add italian dict
-italiandict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-it" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
-
-    ynh_print_info "Collabora italian dictionary installed"
-}
-
-# Add spanish dict
-spanishdict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-es" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
-
-    ynh_print_info "Collabora spanish dictionary installed"
-}
-
-# Add portuguese dict
-portuguesedict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-pt" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
-
-    ynh_print_info "Collabora portuguese dictionary installed"
-}
-
-# Add dutch dict
-dutchdict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-nl" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
-
-    ynh_print_info "Collabora dutch dictionary installed"
-}
-
-# Add russian dict
-russiandict_activate() {
-    ynh_apt_install_dependencies_from_extra_repository --repo="deb https://www.collaboraoffice.com/repos/CollaboraOnline/CODE-deb ./" --package="collaboraoffice-dict-ru" --key="https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg"
-
-    ynh_print_info "Collabora russian dictionary installed"
-}
-
 
 # Reload templates
 coolconfig_update_system_template() {
