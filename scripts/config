@@ -3,6 +3,15 @@
 source _common.sh
 source /usr/share/yunohost/helpers
 
+for lang in "fr" "de" "en" "it" "es" "pt" "nl" "ru"; do
+eval "
+run__${lang}_dict_activate() {
+      dict_activate ${lang}
+      coolconfig_update_system_template
+      ynh_app_setting_set --key=\"dict_${lang}_enabled\" --value=\"true\"
+}"
+done
+
 # Apply Yunohost app's config
 ynh_app_config_apply() {
    _ynh_app_config_apply

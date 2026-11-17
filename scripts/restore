@@ -39,6 +39,12 @@ if [ $msfonts_enabled == "true" ]; then
 	mscorefonts_activate
 fi
 
+for lang in "fr" "de" "en" "it" "es" "pt" "nl" "ru"; do
+    if [ "$(ynh_app_setting_get --key="dict_${lang}_enabled")" = "true" ]; then
+        dict_activate "$lang"
+    fi
+done
+
 #=================================================
 # RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
 #=================================================

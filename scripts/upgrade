@@ -34,11 +34,19 @@ fi
 # Remove the legacy systemd config
 ynh_config_remove_systemd --service="loolwsd"
 
-# If syncyunohost_enabled doesn't exist, create it
-if [ -z "${msfonts_enabled:-}" ]; then
-    msfonts_enabled=false
-    ynh_app_setting_set_default --key="msfonts_enabled" --value="false"
-fi
+# If msfonts_enabled doesn't exist, create it
+ynh_app_setting_set_default --key="msfonts_enabled" --value="false"
+
+
+# add settings dict_enabled for dictionnary, if doesn't exist, create it
+ynh_app_setting_set_default --key="dict_fr_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_de_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_en_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_it_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_es_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_pt_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_nl_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_ru_enabled" --value="false"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -70,6 +78,12 @@ ynh_config_add --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 
 chown cool: "/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
+
+for lang in "fr" "de" "en" "it" "es" "pt" "nl" "ru"; do
+    if [ "$(ynh_app_setting_get --key="dict_${lang}_enabled")" = "true" ]; then
+        dict_activate "$lang"
+    fi
+done
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
