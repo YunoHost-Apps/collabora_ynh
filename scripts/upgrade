@@ -59,8 +59,8 @@ ynh_app_setting_set_default --key=extra_domain_4 --value=""
 ynh_script_progression "Upgrading source files..."
 
 ynh_config_add --template="root_index.html" --destination="$install_dir/index.html"
-chmod 640 "$install_dir/index.html"
 
+chmod 640 "$install_dir/index.html"
 chown -R "$app:www-data" "$install_dir"
 
 #=================================================
