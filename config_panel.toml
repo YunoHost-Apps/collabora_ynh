@@ -1,106 +1,60 @@
 version = "1.0"
 
 [main]
-name.en = "Collabora configuration"
-name.fr = "Configuration de Collabora"
+name.en = "Configuration panel"
+name.fr = "Panneau de configuration"
+services = ["coolwsd"]
 
     [main.msfonts]
-    name.en = "Microsoft Fonts"
-    name.fr = "Polices Microsoft"
+    name.en = "MS fonts"
+    name.fr = "MS fonts"
 
-        [main.msfonts.msfonts_enabled]
-        ask.en = "Would you like to add the non-free Microsoft® fonts for Collabora?"
-        ask.fr = "Souhaitez-vous ajouter les polices non-libres de Microsoft® pour Collabora ?"
-        type = "boolean"
-        yes = "true"
-        no = "false"
+    [main.msfonts.msfonts_enabled]
+    ask.en = "Would you like to add the non-free Microsoft® fonts for Collabora?"
+    ask.fr = "Souhaitez-vous ajouter les polices non-libres de Microsoft® pour Collabora ?"
+    type = "boolean"
+    yes = "true"
+    no = "false"
+    
+    [main.add_domains]
+    name.en = "WOPI Hosts"
+    name.fr = "Hôtes WOPI"
+    
+        [main.add_domains.nextcloud_domain]
+        ask.fr = "Domaine Nextcloud actuel"
+        ask.en = "Current Nextcloud domain"
+        default = ""
+        type = "string"
+        bind = "null"
 
-    [main.dict_install]
-    name.en = "Dictionary installation"
-    name.fr = "Installation de dictionnaires"
+        [main.add_domains.extra_domain_1]
+        ask.fr = "Premier domaine supplémentaire"
+        ask.en = "First extra domain"
+        type = "string"
+        example = "opencloud.example.com"
+        default = ""
+        bind = "null"
 
-        [main.dict_install.dict_install_info]
-		type = "alert"
-		style = "info"
-        ask.en = "Installing a dictionnary is an irreversible action."
-        ask.fr = "Installer un dictionnaire est une action irréversible."
+        [main.add_domains.extra_domain_2]
+        ask.fr = "Deuxième domaine supplémentaire"
+        ask.en = "Second extra domain"
+        type = "string"
+        example = "owncloud.example.com"
+        default = ""
+        bind = "null"
 
-        [main.dict_install.dict_fr_enabled]
-        type = "boolean"
-        visible = false
+        [main.add_domains.extra_domain_3]
+        ask.fr = "Troisième domaine supplémentaire"
+        ask.en = "Third extra domain"
+        type = "string"
+        example = "oxicloud.example.com"
+        default = ""
+        bind = "null"
 
-        [main.dict_install.dict_de_enabled]
-        type = "boolean"
-        visible = false
-
-        [main.dict_install.dict_en_enabled]
-        type = "boolean"
-        visible = false
-
-        [main.dict_install.dict_it_enabled]
-        type = "boolean"
-        visible = false
-
-        [main.dict_install.dict_es_enabled]
-        type = "boolean"
-        visible = false
-
-        [main.dict_install.dict_pt_enabled]
-        type = "boolean"
-        visible = false
-
-        [main.dict_install.dict_nl_enabled]
-        type = "boolean"
-        visible = false
-
-        [main.dict_install.dict_ru_enabled]
-        type = "boolean"
-        visible = false
-
-        [main.dict_install.fr_dict_activate]
-        ask.en = "Add a french dictionary"
-        ask.fr = "Ajouter un dictionnaire français"
-        type = "button"
-        enabled = "!dict_fr_enabled"
-
-        [main.dict_install.de_dict_activate]
-        ask.en = "Add a german dictionary for Collabora"
-        ask.fr = "Ajouter un dictionnaire allemand"
-        type = "button"
-        enabled = "!dict_de_enabled"
-        
-        [main.dict_install.en_dict_activate]
-        ask.en = "Add an english dictionary"
-        ask.fr = "Ajouter un dictionnaire anglais"
-        type = "button"
-        enabled = "!dict_en_enabled"
-
-        [main.dict_install.it_dict_activate]
-        ask.en = "Add an italian dictionary"
-        ask.fr = "Ajouter un dictionnaire italien"
-        type = "button"
-        enabled = "!dict_it_enabled"
-
-        [main.dict_install.es_dict_activate]
-        ask.en = "Add a spanish dictionary"
-        ask.fr = "Ajouter un dictionnaire espagnol"
-        type = "button"
-        enabled = "!dict_es_enabled"
-        
-		[main.dict_install.pt_dict_activate]
-	    ask.en = "Add a portugese dictionary"
-	    ask.fr = "Ajouter un dictionnaire portugais"
-	    type = "button"
-	    enabled = "!dict_pt_enabled"
-
-        [main.dict_install.nl_dict_activate]
-        ask.en = "Add a dutch dictionary"
-        ask.fr = "Ajouter un dictionnaire nééerlandais"
-        type = "button"
-        enabled = "!dict_nl_enabled"
-
-        [main.dict_install.ru_dict_activate]
-        ask.en = "Add a russian dictionary"
-        ask.fr = "Ajouter un dictionnaire russe"
-        type = "button"
-        enabled = "!dict_ru_enabled"
+        [main.add_domains.extra_domain_4]
+        ask.fr = "Quatrième domaine supplémentaire"
+        ask.en = "Fourth extra domain"
+        type = "string"
+        example = "opencloud.example.com"
+        default = ""
+        bind = "null"
