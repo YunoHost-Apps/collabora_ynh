@@ -34,11 +34,24 @@ fi
 # Remove the legacy systemd config
 ynh_config_remove_systemd --service="loolwsd"
 
-# If syncyunohost_enabled doesn't exist, create it
-if [ -z "${msfonts_enabled:-}" ]; then
-    msfonts_enabled=false
-    ynh_app_setting_set_default --key="msfonts_enabled" --value="false"
-fi
+# If msfonts_enabled doesn't exist, create it
+ynh_app_setting_set_default --key="msfonts_enabled" --value="false"
+
+
+# add settings dict_enabled for dictionnary, if doesn't exist, create it
+ynh_app_setting_set_default --key="dict_fr_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_de_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_en_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_it_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_es_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_pt_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_nl_enabled" --value="false"
+ynh_app_setting_set_default --key="dict_ru_enabled" --value="false"
+
+ynh_app_setting_set_default --key=extra_domain_1 --value=""
+ynh_app_setting_set_default --key=extra_domain_2 --value=""
+ynh_app_setting_set_default --key=extra_domain_3 --value=""
+ynh_app_setting_set_default --key=extra_domain_4 --value=""
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -46,8 +59,8 @@ fi
 ynh_script_progression "Upgrading source files..."
 
 ynh_config_add --template="root_index.html" --destination="$install_dir/index.html"
-chmod 640 "$install_dir/index.html"
 
+chmod 640 "$install_dir/index.html"
 chown -R "$app:www-data" "$install_dir"
 
 #=================================================
@@ -70,6 +83,12 @@ ynh_config_add --template="coolwsd.xml" --destination="/etc/coolwsd/coolwsd.xml"
 
 chown cool: "/etc/coolwsd/coolwsd.xml"
 chmod 640 "/etc/coolwsd/coolwsd.xml"
+
+for lang in "fr" "de" "en" "it" "es" "pt" "nl" "ru"; do
+    if [ "$(ynh_app_setting_get --key="dict_${lang}_enabled")" = "true" ]; then
+        dict_activate "$lang"
+    fi
+done
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
